@@ -13,8 +13,10 @@ namespace SPBackEnd.DTO
         [Key]
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         public int RoomId { get; set; }
+       
         [Required]
         public string RoomHash { get; set; }
+        
         public virtual ICollection<ParticipantDTO> Participants { get; set; }
     }
 }

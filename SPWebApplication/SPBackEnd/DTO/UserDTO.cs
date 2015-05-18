@@ -13,8 +13,10 @@ namespace SPBackEnd.DTO
         [Key]
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         public int UserId { get; set; }
+       
         [Required]
         public string EmailAddress { get; set; }
+        
         public virtual ICollection<ParticipantDTO> Participants { get; set; }
     }
 }

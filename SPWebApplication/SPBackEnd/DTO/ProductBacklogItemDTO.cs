@@ -13,12 +13,17 @@ namespace SPBackEnd.DTO
         [Key]
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         public int ProductBacklogItemId { get; set; }
+        
         public int RoomId { get; set; }
+        
         [Required]
         public string Title { get; set; }
+        
         public string Description { get; set; }
+        
         [ForeignKey("RoomId")]
         public virtual RoomDTO Room { get; set; }
+        
         public virtual ICollection<EstimateDTO> Estimates { get; set; }
     }
 }
