@@ -7,16 +7,14 @@ using System.Web;
 
 namespace SPBackEnd.DTO
 {
-    [Table("Estimate")]
-    public class EstimateDTO
+    [Table("User")]
+    public class UserDTO
     {
         [Key]
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
-        public int EstimateId { get; set; }
-        public int ProductBacklogItemId { get; set; }
+        public int UserId { get; set; }
         [Required]
-        public int Value { get; set; }
-        [ForeignKey("ProductBacklogItemId")]
-        public virtual ProductBacklogItemDTO ProductBacklogItem { get; set; }
+        public string EmailAddress { get; set; }
+        public virtual ICollection<ParticipantDTO> Participants { get; set; }
     }
 }
