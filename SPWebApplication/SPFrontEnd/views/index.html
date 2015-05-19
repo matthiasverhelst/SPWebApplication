@@ -3,7 +3,8 @@
 <html ng-app="pokerShore">
     <head>
         <title>Scrum Poker</title>
-        <script type="text/javascript" src="/js/app.js"></script>
+        <script type="text/javascript" src="../lib/angular.min.js"></script>
+        <script type="text/javascript" src="../js/app.js"></script>
     </head>
 
     <body>
@@ -15,7 +16,7 @@
 
         </section>
 
-        <section id="selectEstimate">
+        <section ng-controller="MainCtrl" id="selectEstimate">
             <h1>PokerShore</h1>
             <div ng-repeat="est in listOfEst">
                 {{est.estimator}} -- {{est.estimation}}
