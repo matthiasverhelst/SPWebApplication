@@ -1,13 +1,20 @@
 ﻿<!doctype html>
-
 <html>
-    <head>
-        <title>Scrum Poker</title>
-        <script></script>
-    </head>
-
-    <body>
-
-
-    </body>
+<head>
+    <title>My Mockup</title>
+    <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.3.10/angular.min.js"></script>
+    <script src="app.js"></script>
+</head>
+<body ng-app="pokerShore" ng-controller="MainCtrl">
+    <section id="selectEstimate">
+        <h1>PokerShore</h1>
+        <div ng-repeat="est in listOfEst">
+            {{est.estimator}} -- {{est.estimation}}
+        </div>
+        <form ng-submit="addEst()">
+            <input type="text" ng-model="inputEstimation" placeholder="Hi Steven, write your estimation here" size="28">
+            <button type="submit">Estimate</button>
+        </form>
+    </section>
+</body>
 </html>
