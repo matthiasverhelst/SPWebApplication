@@ -15,5 +15,16 @@
 
         </section>
 
+        <section id="selectEstimate">
+            <h1>PokerShore</h1>
+            <div ng-repeat="est in listOfEst">
+                {{est.estimator}} -- {{est.estimation}}
+            </div>
+            <form ng-submit="addEst()">
+                <input type="text" ng-model="inputEstimation" placeholder="Hi Steven, write your estimation here" size="28">
+                <button type="submit">Estimate</button>
+            </form>
+        </section>
+
     </body>
 </html>

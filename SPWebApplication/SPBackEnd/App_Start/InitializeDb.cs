@@ -7,7 +7,7 @@ using System.Web;
 
 namespace SPBackEnd
 {
-    public class PrepareDatabase
+    public class InitializeDb
     {
         public static void Run()
         {

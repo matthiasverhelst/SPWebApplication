@@ -70,8 +70,9 @@
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="App_Start\PrepareDatabase.cs" />
+    <Compile Include="App_Start\InitializeDb.cs" />
     <Compile Include="Context\MainDbContext.cs" />
+    <Compile Include="DAO\DAOBase.cs" />
     <Compile Include="DTO\EstimateDTO.cs" />
     <Compile Include="DTO\ParticipantDTO.cs" />
     <Compile Include="DTO\ProductBacklogItemDTO.cs" />
