@@ -73,6 +73,9 @@
   <ItemGroup>
     <Compile Include="App_Start\InitializeDb.cs" />
     <Compile Include="Context\MainDbContext.cs" />
+    <Compile Include="DAO\DAOParticipant.cs" />
+    <Compile Include="DAO\DAOUser.cs" />
+    <Compile Include="DAO\DAORoom.cs" />
     <Compile Include="DAO\DAOEstimate.cs" />
     <Compile Include="DAO\DAOBase.cs" />
     <Compile Include="DTO\EstimateDTO.cs" />
