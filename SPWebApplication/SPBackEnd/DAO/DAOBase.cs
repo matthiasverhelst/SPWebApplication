@@ -4,13 +4,16 @@ using System.Data.Entity;
 using System.Linq;
 using System.Web;
 
+using SPBackEnd.Context;
+
+
 namespace SPBackEnd.DAO
 {
     public class DAOBase<T> : IDisposable where T : DbContext, new()
     {
         private T _db;
         private bool disposedValue;
-
+        
         protected T db
         {
             get
