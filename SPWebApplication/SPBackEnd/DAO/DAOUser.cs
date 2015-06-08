@@ -11,9 +11,9 @@ namespace SPBackEnd.DAO
     public class DAOUser : DAOBase<MainDbContext>
     {
 
-        public bool CreateUser(UserDTO @user)
+        public bool CreateUser(UserDTO user)
         {
-            db.Users.Add(@user);
+            db.Users.Add(user);
             int result = db.SaveChanges();
             return (result > 0);
         }
@@ -21,7 +21,7 @@ namespace SPBackEnd.DAO
 
         public UserDTO GetUserById(int id)
         {
-            IQueryable<UserDTO> query = from @user in db.Users where @user.UserId.Equals(id) select @user;
+            IQueryable<UserDTO> query = from user in db.Users where user.UserId.Equals(id) select user;
             return query.First();
         }
 

@@ -11,9 +11,9 @@ namespace SPBackEnd.DAO
     public class DAORoom : DAOBase<MainDbContext>
     {
 
-        public bool CreateRoom(RoomDTO @room)
+        public bool CreateRoom(RoomDTO room)
         {
-            db.Rooms.Add(@room);
+            db.Rooms.Add(room);
             int result = db.SaveChanges();
             return (result > 0);
         }
