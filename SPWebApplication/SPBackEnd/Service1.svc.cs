@@ -13,9 +13,9 @@ namespace SPBackEnd
     public class Service1 : IService1
     {
 
-        public string GetData(int value)
+        public string GetData()
         {
-            return string.Format("You entered: {0}", value);
+            return "Great success!";
         }
 
         public CompositeType GetDataUsingDataContract(CompositeType composite)

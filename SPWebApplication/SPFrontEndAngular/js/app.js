@@ -14,7 +14,7 @@
                 estimate: 8
             };
 
-            var res = $http.get('http://localhost:50529/GetData');
+            var res = $http.get('http://localhost:50529/Service1.svc/GetData');
 
             res.success(function (data, status, headers, config) {
                 $scope.message = data;
