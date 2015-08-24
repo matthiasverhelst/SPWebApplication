@@ -11,10 +11,10 @@
                 */
                 pbi_id: '123',
                 participant_hash: 'ABC123',
-                estimate: 8
+                estimate: $scope.myEstimate
             };
 
-            var res = $http.get('http://localhost:50529/TestService.svc/GetData');
+            var res = $http.post('http://localhost:50529/TestService.svc/AddEstimate', dataObj);
 
             res.success(function (data, status, headers, config) {
                 $scope.message = data;

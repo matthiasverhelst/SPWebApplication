@@ -10,10 +10,10 @@
     <body>
         <section ng-controller="SelectEstimateController as estimate">
             <form ng-submit="addEstimateToBPI()">
-                <input type="text" />
+                <input type="text" ng-model="myEstimate"/>
                 <input type="submit" value="Submit" />
             </form>
-            <h2>{{data}}</h2>
+            <h2>{{message.estimate}}</h2>
         </section>
 
         <section ng-controller="MainCtrl" id="selectEstimate">

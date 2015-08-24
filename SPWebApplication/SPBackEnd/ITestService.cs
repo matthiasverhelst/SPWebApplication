@@ -6,6 +6,7 @@ using System.ServiceModel;
 using System.ServiceModel.Activation;
 using System.ServiceModel.Web;
 using System.Text;
+using System.Web.Mvc;
 
 namespace SPBackEnd
 {
@@ -18,8 +19,8 @@ namespace SPBackEnd
         //     and include the following line in the operation body:
         //         WebOperationContext.Current.OutgoingResponse.ContentType = "text/xml";
         [OperationContract]
-        [WebInvoke(Method="GET", ResponseFormat=WebMessageFormat.Json, BodyStyle=WebMessageBodyStyle.Wrapped, UriTemplate="GetData")]
-        String DoWork();
+        [WebInvoke(Method="POST", RequestFormat=WebMessageFormat.Json, ResponseFormat=WebMessageFormat.Json, BodyStyle=WebMessageBodyStyle.Bare, UriTemplate="AddEstimate")]
+        String DoWork(String body);
 
         // Add more operations here and mark them with [OperationContract]
     }
