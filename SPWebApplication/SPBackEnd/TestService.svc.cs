@@ -9,21 +9,13 @@ using System.Text;
 
 namespace SPBackEnd
 {
-    [ServiceContract(Namespace = "")]
-    [AspNetCompatibilityRequirements(RequirementsMode = AspNetCompatibilityRequirementsMode.Allowed)]
-    public class TestService
+    
+    public class TestService : ITestService
     {
-        // To use HTTP GET, add [WebGet] attribute. (Default ResponseFormat is WebMessageFormat.Json)
-        // To create an operation that returns XML,
-        //     add [WebGet(ResponseFormat=WebMessageFormat.Xml)],
-        //     and include the following line in the operation body:
-        //         WebOperationContext.Current.OutgoingResponse.ContentType = "text/xml";
-        [OperationContract]
-        [WebGet(UriTemplate="/GetData")]
-        public void DoWork()
+        public String DoWork()
         {
             // Add your operation implementation here
-            return;
+            return "It works!";
         }
 
         // Add more operations here and mark them with [OperationContract]
