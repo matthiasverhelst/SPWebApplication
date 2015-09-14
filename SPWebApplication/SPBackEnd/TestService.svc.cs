@@ -8,18 +8,18 @@ using System.ServiceModel.Web;
 using System.Text;
 using System.Web.Mvc;
 using SPBackEnd.DTO;
+using SPBackEnd.Models;
 
 namespace SPBackEnd
 {
     
     public class TestService : ITestService
     {
-        public EstimateDTO DoWork(String body)
+        public EstimateDTO DoWork(EstimateModel body)
         {
-            EstimateDTO estimate = new EstimateDTO();
-            estimate.Value = 42;
-
-            return estimate;
+            return new EstimateDTO() { 
+                Value = body.estimate
+            };
         }
     }
 }
