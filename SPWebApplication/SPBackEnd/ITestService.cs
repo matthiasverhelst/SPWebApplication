@@ -21,7 +21,7 @@ namespace SPBackEnd
         //     and include the following line in the operation body:
         //         WebOperationContext.Current.OutgoingResponse.ContentType = "text/xml";
         [OperationContract]
-        [WebInvoke(Method="POST", RequestFormat=WebMessageFormat.Json, ResponseFormat=WebMessageFormat.Json, BodyStyle=WebMessageBodyStyle.WrappedRequest, UriTemplate="AddEstimate")]
+        [WebInvoke(Method="POST", RequestFormat=WebMessageFormat.Json, ResponseFormat=WebMessageFormat.Json, BodyStyle=WebMessageBodyStyle.Bare, UriTemplate="AddEstimate")]
         EstimateDTO DoWork(EstimateModel body);
 
         // Add more operations here and mark them with [OperationContract]

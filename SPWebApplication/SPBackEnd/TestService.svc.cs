@@ -17,19 +17,9 @@ namespace SPBackEnd
     {
         public EstimateDTO DoWork(EstimateModel body)
         {
-            // Add your operation implementation here
-            //int intEstimate = Convert.ToInt32(estimate);
-            /*
-            JsonResult jsonResult = new JsonResult();
-            jsonResult.Data = "{'estimate' : 42}";
-            return jsonResult.Data.ToString();
-            */
-
             return new EstimateDTO() { 
                 Value = body.estimate
             };
         }
-
-        // Add more operations here and mark them with [OperationContract]
     }
 }
