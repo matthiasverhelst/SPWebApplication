@@ -8,6 +8,7 @@ using System.ServiceModel.Web;
 using System.Text;
 using System.Web.Mvc;
 using SPBackEnd.DTO;
+using SPBackEnd.Models;
 
 namespace SPBackEnd
 {
@@ -21,7 +22,7 @@ namespace SPBackEnd
         //         WebOperationContext.Current.OutgoingResponse.ContentType = "text/xml";
         [OperationContract]
         [WebInvoke(Method="POST", RequestFormat=WebMessageFormat.Json, ResponseFormat=WebMessageFormat.Json, BodyStyle=WebMessageBodyStyle.WrappedRequest, UriTemplate="AddEstimate")]
-        EstimateDTO DoWork(String body);
+        EstimateDTO DoWork(EstimateModel body);
 
         // Add more operations here and mark them with [OperationContract]
     }

@@ -89,6 +89,7 @@
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="ITestService.cs" />
+    <Compile Include="Models\EstimateModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="TestService.svc.cs">
       <DependentUpon>TestService.svc</DependentUpon>
