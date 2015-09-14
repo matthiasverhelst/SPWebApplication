@@ -23,6 +23,5 @@ namespace SPBackEnd
         [WebInvoke(Method="POST", RequestFormat=WebMessageFormat.Json, ResponseFormat=WebMessageFormat.Json, BodyStyle=WebMessageBodyStyle.WrappedRequest, UriTemplate="AddEstimate")]
         EstimateDTO DoWork(String body);
 
-        // Add more operations here and mark them with [OperationContract]
     }
 }
