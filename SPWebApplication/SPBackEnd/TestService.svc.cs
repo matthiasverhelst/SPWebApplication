@@ -7,13 +7,14 @@ using System.ServiceModel.Activation;
 using System.ServiceModel.Web;
 using System.Text;
 using System.Web.Mvc;
+using SPBackEnd.DTO;
 
 namespace SPBackEnd
 {
     
     public class TestService : ITestService
     {
-        public String DoWork(String body)
+        public EstimateDTO DoWork(String body)
         {
             // Add your operation implementation here
             //int intEstimate = Convert.ToInt32(estimate);
@@ -22,7 +23,11 @@ namespace SPBackEnd
             jsonResult.Data = "{'estimate' : 42}";
             return jsonResult.Data.ToString();
             */
-            return "{'estimate' : 42}";
+
+            EstimateDTO estimate = new EstimateDTO();
+            estimate.Value = 42;
+
+            return estimate;
         }
 
         // Add more operations here and mark them with [OperationContract]
