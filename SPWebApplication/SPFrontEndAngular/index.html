@@ -9,22 +9,12 @@
 
     <body>
         <section ng-controller="SelectEstimateController as estimate">
+            <h1>PokerShore</h1>
             <form ng-submit="addEstimateToBPI()">
-                <input type="text" ng-model="myEstimate"/>
-                <input type="submit" value="Submit" />
+                <input type="text" ng-model="myEstimate" placeholder="Hi Scrum Member, write your estimation here" size="35" />
+                <button type="submit" value="Submit"> Estimate </button>
             </form>
             <h2>{{message.Value}}</h2>
-        </section>
-
-        <section ng-controller="MainCtrl" id="selectEstimate">
-            <h1>PokerShore</h1>
-            <div ng-repeat="est in listOfEst">
-                {{est.estimator}} -- {{est.estimation}}
-            </div>
-            <form ng-submit="addEst()">
-                <input type="text" ng-model="inputEstimation" placeholder="Hi Steven, write your estimation here" size="28">
-                <button type="submit">Estimate</button>
-            </form>
         </section>
 
     </body>
