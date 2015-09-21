@@ -1,20 +1,18 @@
 ﻿(function () {
     var app = angular.module('pokerShore', []);
 
-    app.controller('SelectEstimateController', ['$scope', '$http', function ($scope, $http) {
-        $scope.addEstimateToBPI = function () {	
-            var dataObj = {
-                /*
-                pbi_id: $scope.pbi_id,
-                participant_hash: $scope.participant_hash,
-                estimate: $scope.estimate
-                */
-                pbi_id: '123',
-                participant_hash: 'ABC123',
-                estimate: $scope.myEstimate
-            };
+    app.controller('AddEstimateController', ['$scope', '$http', function ($scope, $http) {
+        $scope.pbi = {
 
-            var res = $http.post('http://localhost:50529/TestService.svc/AddEstimate', dataObj);
+            id: '123',
+            userHash: 'ABC123',
+            estimate: undefined
+
+        };
+
+        $scope.addEstimateToPBI = function () {
+
+            var res = $http.post('http://localhost:50529/TestService.svc/AddEstimate', $scope.pbi);
 
             res.success(function (data, status, headers, config) {
                 $scope.message = data;

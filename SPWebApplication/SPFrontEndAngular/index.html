@@ -8,13 +8,19 @@
     </head>
 
     <body>
-        <section ng-controller="SelectEstimateController as estimate">
+        <section ng-controller="AddEstimateController as estimate">
             <h1>PokerShore</h1>
-            <form ng-submit="addEstimateToBPI()">
-                <input type="text" ng-model="myEstimate" placeholder="Hi Scrum Member, write your estimation here" size="35" />
+            <form ng-submit="addEstimateToPBI()">
+                <h2>Test</h2>
+                User Hash : <input type="text" ng-model="pbi.userHash" value=/>
+                PBI ID : <input type="text" ng-model="pbi.id" value= />
+                <br />
+
+                <h2>Provide an Estimate for PBI ID : {{pbi.id}}</h2>
+                <input type="text" ng-model="pbi.estimate" placeholder="Hi Scrum Member, write your estimation here" size="35" />
                 <button type="submit" value="Submit"> Estimate </button>
             </form>
-            <h2>{{message.Value}}</h2>
+            <h2><span ng-if="message.Value">Your estimate = </span>{{message.Value}}</h2>
         </section>
 
     </body>
