@@ -1,9 +1,13 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio 2013
-VisualStudioVersion = 12.0.31101.0
+# Visual Studio Express 2013 for Web
+VisualStudioVersion = 12.0.30723.0
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SPBackEnd", "SPBackEnd\SPBackEnd.csproj", "{431881BE-B7E0-4AAF-B035-3F9249F713F7}"
+	ProjectSection(ProjectDependencies) = postProject
+		{957BEA64-EF83-4F1D-8700-3BA4E7EF8706} = {957BEA64-EF83-4F1D-8700-3BA4E7EF8706}
+		{E49C33A2-F240-4770-9D8F-2250AA3413E0} = {E49C33A2-F240-4770-9D8F-2250AA3413E0}
+	EndProjectSection
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SPFrontEndAngular", "SPFrontEndAngular\SPFrontEndAngular.csproj", "{690F3EAE-1038-41DD-B1A3-5FC0F98C0DA4}"
 EndProject
