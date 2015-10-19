@@ -5,25 +5,29 @@ using System.ComponentModel.DataAnnotations.Schema;
 using System.Linq;
 using System.Web;
 
-namespace SPBackEnd.DTO
+namespace SPCore.DTO
 {
-    [Table("ProductBacklogItem")]
-    public class ProductBacklogItemDTO
+    [Table("Participant")]
+    public class ParticipantDTO
     {
         [Key]
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
-        public int ProductBacklogItemId { get; set; }
+        public int ParticipantId { get; set; }
         
         public int RoomId { get; set; }
         
-        [Required]
-        public string Title { get; set; }
+        public int UserId { get; set; }
         
-        public string Description { get; set; }
+        [Required]
+        public string ParticipantHash { get; set; }
+        
+        [Required]
+        public int Role { get; set; }
         
         [ForeignKey("RoomId")]
         public virtual RoomDTO Room { get; set; }
         
-        public virtual ICollection<EstimateDTO> Estimates { get; set; }
+        [ForeignKey("UserId")]
+        public virtual UserDTO User { get; set; }
     }
 }

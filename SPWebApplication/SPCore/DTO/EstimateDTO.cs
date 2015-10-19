@@ -5,7 +5,7 @@ using System.ComponentModel.DataAnnotations.Schema;
 using System.Linq;
 using System.Web;
 
-namespace SPBackEnd.DTO
+namespace SPCore.DTO
 {
     [Table("Estimate")]
     public class EstimateDTO

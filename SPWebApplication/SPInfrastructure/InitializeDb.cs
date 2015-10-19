@@ -1,11 +1,11 @@
-﻿using SPBackEnd.Context;
+﻿using SPInfrastructure.Context;
 using System;
 using System.Collections.Generic;
 using System.Data.Entity;
 using System.Linq;
 using System.Web;
 
-namespace SPBackEnd
+namespace SPInfrastructure
 {
     public class InitializeDb
     {

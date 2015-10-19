@@ -7,7 +7,7 @@ using System.ServiceModel.Activation;
 using System.ServiceModel.Web;
 using System.Text;
 using System.Web.Mvc;
-using SPBackEnd.DTO;
+using SPCore.DTO;
 using SPBackEnd.Models;
 
 namespace SPBackEnd
@@ -24,5 +24,8 @@ namespace SPBackEnd
         [WebInvoke(Method="POST", RequestFormat=WebMessageFormat.Json, ResponseFormat=WebMessageFormat.Json, BodyStyle=WebMessageBodyStyle.Bare, UriTemplate="AddEstimate")]
         EstimateDTO DoWork(EstimateModel body);
 
+        [OperationContract]
+        [WebInvoke(Method = "GET", RequestFormat = WebMessageFormat.Json, ResponseFormat = WebMessageFormat.Json, BodyStyle = WebMessageBodyStyle.Bare, UriTemplate = "Example")]
+        bool ExampleMethod();
     }
 }

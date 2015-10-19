@@ -1,11 +1,11 @@
-﻿using SPBackEnd.DTO;
+﻿using SPCore.DTO;
 using System;
 using System.Collections.Generic;
 using System.Data.Entity;
 using System.Linq;
 using System.Web;
 
-namespace SPBackEnd.Context
+namespace SPInfrastructure.Context
 {
     public class MainDbContext : DbContext
     {
