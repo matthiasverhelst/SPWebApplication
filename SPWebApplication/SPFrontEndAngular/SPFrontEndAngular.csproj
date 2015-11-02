@@ -193,7 +193,6 @@
     <Content Include="app\view2\view2.html" />
     <Content Include="app\view2\view2.js" />
     <Content Include="app\view2\view2_test.js" />
-    <Content Include="css\style.css" />
     <Content Include="e2e-tests\protractor.conf.js" />
     <Content Include="e2e-tests\scenarios.js" />
     <Content Include="img\capgemini_logo.jpg" />
