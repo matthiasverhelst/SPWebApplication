@@ -21,18 +21,13 @@
           $scope.roomInput='';    
       };  
   
-      $scope.validateEmail = function(email2){
-          /*console.log("validate email called :" + $scope.GregTest);
-          console.log("validate email called2 :" + $scope.email2);*/          
-                               
+      $scope.validateEmail = function(email2){                               
           var patt = new RegExp("[a-zA-Z0-9]+\@[a-zA-Z0-9]+(.[a-zA-Z0-9]+)+");
           var res = patt.test($scope.GregTest);
 
           if (res == false) {
               window.alert("Invalid e-mail address ('" + $scope.GregTest + "'). Please, correct it.");
           }
-                
-          /*window.alert("RES : '" + res + "' for '" + $scope.GregTest + "'");  */
           return res;
       };
   }]);

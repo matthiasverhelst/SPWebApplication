@@ -7,6 +7,7 @@
     'ngRoute',
     'myApp.view1',
     'myApp.view2',
+    'myApp.createRoom',
     'myApp.version'
   ]).
 
