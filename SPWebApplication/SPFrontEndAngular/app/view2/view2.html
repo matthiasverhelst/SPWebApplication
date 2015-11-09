@@ -1,5 +1,47 @@
-<p>This is the partial for view 2.</p>
-<p>
-  Showing of 'interpolate' filter:
-  {{ 'Current version is v%VERSION%.' | interpolate }}
-</p>
+<div>
+    <h3 name="room_name">{{room_name}} Room Name</h3>
+</div>
+<div class="BPI_list">
+    <table>
+        <tr>
+            <th>
+                <label class="PBI_name">PBI Name</label>
+            </th>
+            <th>
+                <label class="PBI_score">Score</label>
+            </th>
+        </tr>
+        <tr>
+            <td>
+                <label class="PBI_name">{{x.PBI_name}} PBI 1</label>
+            </td>
+            <td>
+                <label class="PBI_score">{{x.PBI_score}} 8</label>
+            </td>
+            <td>
+                <button class="PBI_push">Push</button>
+            </td>
+            <td>
+                <button class="PBI_remove">X</button>
+            </td>
+        </tr>
+    </table>
+</div>
+<div>
+    <button class="PBI_add">+</button>
+</div>
+<div class="live_participants_list">
+    <h4>Online participants</h4>
+    <table>
+        <tr>
+            <th>
+                <label class="">Name</label>
+            </th>
+        </tr>
+        <tr>
+            <td>
+                <label class="username">{{x.username}} Sam Ghysels</label>
+            </td>
+        </tr>
+    </table>
+</div>
