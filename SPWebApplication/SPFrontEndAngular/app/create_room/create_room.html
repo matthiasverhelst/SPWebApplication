@@ -1,0 +1,26 @@
+<section ng-controller="CreateRoomCtrl">
+
+    <h1>Create Room</h1>
+
+    <h2>Room list in the Scrum master view</h2>
+    
+    <div ng-repeat="room in listOfRooms">
+        {{room.roomName}} created by {{room.roomOwner}} <button>Invite members</button>
+    </div>
+    
+    <form ng-submit="validateEmail(email)">
+        <input type="text" ng-model="emailInput" placeholder="Mail address :" size="28" name="email"></input>
+        <button type="submit">Add mail address</button>
+    </form>
+
+    <form ng-submit="addRoom()">
+        <input type="text" ng-model="roomInput" placeholder="Provide the room name" size="28"></input>
+        <button type="submit">Add Room</button>
+    </form>
+
+    <form ng-submit="validateEmail()">
+        <input type="text" ng-model="GregTest" ng-required="email2" ng-pattern="phoneNumberPattern" />
+        <button type="submit">Add test</button>
+    </form>
+
+</section>
