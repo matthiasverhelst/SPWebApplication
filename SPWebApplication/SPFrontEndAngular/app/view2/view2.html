@@ -1,5 +1,5 @@
 <div>
-    <h3 name="room_name">{{room_name}} Room Name</h3>
+    <h3 name="room_name">{{room_name}}</h3>
 </div>
 <div class="BPI_list">
     <table>
@@ -11,24 +11,32 @@
                 <label class="PBI_score">Score</label>
             </th>
         </tr>
-        <tr>
+        <tr ng-repeat="pbi in pbiArray">
             <td>
-                <label class="PBI_name">{{x.PBI_name}} PBI 1</label>
+                <label class="PBI_name">{{pbi.PBI_name}}</label>
             </td>
             <td>
-                <label class="PBI_score">{{x.PBI_score}} 8</label>
+                <label class="PBI_score">{{pbi.PBI_score}}</label>
             </td>
             <td>
                 <button class="PBI_push">Push</button>
             </td>
             <td>
-                <button class="PBI_remove">X</button>
+                <button class="PBI_remove" ng-click="removePbi($index)">X</button>
             </td>
+        </tr>
+        <tr ng-show="showAddPbi">
+            <td>
+                <input type="text" ng-model="newPbi"/>
+            </td>
+            <td></td>
+            <td><button class="PBI_push" ng-click="createPbi(newPbi); newPbi = ''; showAddPbi = false">Add</button></td>
+            <td><button class="PBI_remove" ng-click="showAddPbi = false">X</button></td>
         </tr>
     </table>
 </div>
 <div>
-    <button class="PBI_add">+</button>
+    <button class="PBI_add" ng-click="addPbi(); showAddPbi = true" ng-hide="showAddPbi">+</button>
 </div>
 <div class="live_participants_list">
     <h4>Online participants</h4>
@@ -38,9 +46,9 @@
                 <label class="">Name</label>
             </th>
         </tr>
-        <tr>
+        <tr ng-repeat="user in connectedUsersArray">
             <td>
-                <label class="username">{{x.username}} Sam Ghysels</label>
+                <label class="username">{{user.username}}</label>
             </td>
         </tr>
     </table>
