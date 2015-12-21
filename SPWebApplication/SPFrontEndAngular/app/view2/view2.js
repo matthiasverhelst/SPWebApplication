@@ -9,17 +9,26 @@ angular.module('myApp.view2', ['ngRoute'])
   });
 }])
 
-.controller('View2Ctrl', ['$scope', function($scope) {
+.controller('View2Ctrl', ['$scope', function ($scope) {
+
+
     $scope.room_name = "Sam's Playground";
 
-    $scope.showAddPbi = false;
     $scope.createPbi = function (newPbi) {
-        var Pbi = {
-            "PBI_name": newPbi,
-            "PBI_score": ""
-        };
-        $scope.pbiArray.push(Pbi)
+        if (newPbi && newPbi.length >= 1) {
+            var Pbi = {
+                "PBI_name": newPbi,
+                "PBI_score": ""
+            };
+            $scope.pbiArray.push(Pbi);
+            if ($scope.setPbiFocus) {
+                document.getElementById("newPbi").focus();
+                $scope.setPbiFocus = false;
+            }
+        }
     };
+
+
     $scope.removePbi = function (index) {
         $scope.pbiArray.splice(index, 1);
     };
