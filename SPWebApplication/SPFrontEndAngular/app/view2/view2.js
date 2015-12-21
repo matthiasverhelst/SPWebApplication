@@ -33,6 +33,10 @@ angular.module('myApp.view2', ['ngRoute'])
         $scope.pbiArray.splice(index, 1);
     };
 
+    $scope.setEditablePbi = function (context,bool) {
+        context.changeInput = bool;
+    }
+
     $scope.pbiArray = [];
 
     $scope.connectedUsersArray = [

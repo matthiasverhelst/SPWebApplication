@@ -13,8 +13,8 @@
         </tr>
         <tr ng-repeat="pbi in pbiArray">
             <td>
-                <label class="PBI_name">{{pbi.PBI_name}}</label>
-                <!--<input type="text" ng-model="changePbi" ng-blur="changeName(changePbi); changePbi = '';" />-->
+                <label ng-hide="changeInput" ng-click="setEditablePbi(this,true)" class="PBI_name">{{pbi.PBI_name}}</label>
+                <input ng-show="changeInput" ng-blur="setEditablePbi(this,false)" class="PBI_name" ng-model="pbi.PBI_name">
             </td>
             <td>
                 <label class="PBI_score">{{pbi.PBI_score}}</label>
