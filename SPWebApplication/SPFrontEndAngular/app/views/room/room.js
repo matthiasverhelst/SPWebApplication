@@ -12,7 +12,6 @@
 
   .controller('RoomCtrl', ['$scope','$routeParams', '$http', function($scope, $routeParams, $http) {
       var roomId = $routeParams;
-      console.log("Room");
-      console.log($routeParams);
+      $scope.roomNum = roomId.param1;
   }]);
 })();
