@@ -10,7 +10,13 @@
     });
   }])
 
-  .controller('HomeRoomCtrl', ['$scope', '$http', function($scope, $http) {
-      
+  .controller('HomeCtrl', ['$scope', '$http','$location', function($scope, $http, $location) {
+      $scope.createRoom = function(){
+          $location.path('#/create_room');
+      };
+
+      $scope.joinRoom = function(){
+          console.log("Join Room");
+      };
   }]);
 })();
