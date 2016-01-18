@@ -12,11 +12,16 @@
 
   .controller('HomeCtrl', ['$scope', '$http','$location', function($scope, $http, $location) {
       $scope.createRoom = function(){
-          $location.path('#/create_room');
+          $location.path('/create_room');
       };
 
       $scope.joinRoom = function(){
-          console.log("Join Room");
+          if($scope.roomId){
+              console.log("joinRoom");
+              var roomPath = '/room/' + $scope.roomId;
+              console.log("roomPath", roomPath);
+              $location.path(roomPath);
+          }
       };
   }]);
 })();
