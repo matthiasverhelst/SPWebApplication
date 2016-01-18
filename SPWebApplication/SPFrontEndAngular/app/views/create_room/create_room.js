@@ -1,27 +1,27 @@
 'use strict';
 
 (function () {
-  angular.module('myApp.createRoom', ['ngRoute'])
+  angular.module('pokerShoreApp.createRoom', ['ngRoute'])
 
   .config(['$routeProvider', function($routeProvider) {
     $routeProvider.when('/create_room', {
-      templateUrl: 'create_room/create_room.html',
+      templateUrl: 'views/create_room/create_room.html',
       controller: 'CreateRoomCtrl'
     });
   }])
 
   .controller('CreateRoomCtrl', ['$scope', '$http', function($scope, $http) {
-      $scope.listOfRooms = [];  
+      $scope.listOfRooms = [];
       $scope.addRoom = function(){
           console.log("addRoom called");
-    
+
           if(!$scope.roomInput || $scope.roomInput === '') { return; }
 
           $scope.listOfRooms.push({roomName: $scope.roomInput, roomOwner: "Scrum Master"});
           $scope.roomInput='';
-      };  
-  
-      $scope.validateEmail = function(){                               
+      };
+
+      $scope.validateEmail = function(){
           var patt = new RegExp("[a-zA-Z0-9]+\@[a-zA-Z0-9]+(.[a-zA-Z0-9]+)+");
           var res = patt.test($scope.email);
 

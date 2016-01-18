@@ -3,16 +3,22 @@
 (function() {
 
   // Declare app level module which depends on views, and components
-  angular.module('myApp', [
+  var pokerShoreApp = angular.module('pokerShoreApp', [
     'ngRoute',
-    'myApp.view1',
-    'myApp.view2',
-    'myApp.createRoom',
-    'myApp.version'
-  ]).
+    'pokerShoreApp.home',
+    'pokerShoreApp.view1',
+    'pokerShoreApp.view2',
+    'pokerShoreApp.createRoom',
+    'pokerShoreApp.version'
+    ]);
 
-  config(['$routeProvider', function ($routeProvider) {
-    $routeProvider.otherwise({redirectTo: '/view1'});
+ pokerShoreApp.config(['$routeProvider', function ($routeProvider) {
+    $routeProvider.otherwise({redirectTo: '/home'});
   }]);
+
+  pokerShoreApp.controller('mainController', function($scope) {
+
+
+});
 
 })();
