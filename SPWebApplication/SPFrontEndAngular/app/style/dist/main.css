@@ -6756,7 +6756,11 @@ body {
   float: right;
 }
 .navigationContainer .navbarTitle {
+  font-family: HelveticaLTStdLight,helvetica,arial;
+  color: #00a1d5;
+  font-size: 40px;
   margin-left: 40px;
+  margin-top: 5px;
   position: relative;
   float: left;
 }
