@@ -6730,6 +6730,10 @@ body {
 .viewContainer {
   margin-top: 15px;
 }
+.form-control {
+  width: auto;
+  margin-bottom: 10px;
+}
 .navigationContainer {
   background-color: #FFF;
   border-bottom: 1px solid #F2F2F2;

@@ -21,6 +21,5 @@
   pokerShoreApp.controller('mainController', function($scope) {
 
 
-});
-
+  });
 })();
