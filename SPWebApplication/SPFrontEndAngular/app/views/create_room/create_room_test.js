@@ -1,16 +1,16 @@
 'use strict';
 
 (function () {
-  describe('pokerShoreApp.view1 module', function() {
+  describe('pokerShoreApp.createRoom module', function() {
 
-    beforeEach(module('myApp.view1'));
+    beforeEach(module('pokerShoreApp.createRoom'));
 
-    describe('view1 controller', function(){
+    describe('createRoom controller', function(){
 
-      it('should ....', inject(function($controller) {
+      it('should create a new room and open it', inject(function($controller) {
         //spec body
-        var view1Ctrl = $controller('View1Ctrl');
-        expect(view1Ctrl).toBeDefined();
+        var createRoomCtrl = $controller('CreateRoomCtrl');
+        expect(createRoomCtrl).toBeDefined();
       }));
 
     });
