@@ -66,7 +66,7 @@ angular.module('pokerShoreApp.view2', ['ngRoute'])
             scope.$watch(function () {
                 return scope.$eval(attrs.customAutofocus);
             }, function (newValue) {
-                if (newValue == true) {
+                if (newValue === true) {
                     $timeout(function () {
                         console.log("focus");
                         element[0].focus();
@@ -76,4 +76,4 @@ angular.module('pokerShoreApp.view2', ['ngRoute'])
         }
     };
 })
-;;
+;

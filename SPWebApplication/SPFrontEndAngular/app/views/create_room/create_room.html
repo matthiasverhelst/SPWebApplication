@@ -1,7 +1,7 @@
 <h1>Create Room</h1>
-    
-<form ng-submit="validateEmail()">
-    <span ng-show="emailIncorrect" class="validation-error">Email address incorrect</span> <br/>
-    <input type="text" ng-model="email" placeholder="Mail address" size="28" name="email" /> <br/>
-    <button type="submit">Create Room</button>
+
+<form name="form" ng-submit="validateEmail()">
+    <span ng-show="form.email.$error.email">Email address incorrect</span>
+    <input type="text" ng-model="email" class="form-control" placeholder="Mail address" size="28" name="email" email-validator/>
+    <button type="submit" class="btn btn-primary" ng-disabled="form.email.$error.email" >Create Room</button>
 </form>
