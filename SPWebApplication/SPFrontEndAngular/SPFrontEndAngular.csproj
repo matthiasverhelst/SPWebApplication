@@ -39,7 +39,15 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="Microsoft.AspNet.SignalR.Client, Version=2.2.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.SignalR.Client.2.2.0\lib\net45\Microsoft.AspNet.SignalR.Client.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
     <Reference Include="Microsoft.CSharp" />
+    <Reference Include="Newtonsoft.Json, Version=6.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <HintPath>..\packages\Newtonsoft.Json.6.0.4\lib\net45\Newtonsoft.Json.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
     <Reference Include="System.Web.DynamicData" />
     <Reference Include="System.Web.Entity" />
     <Reference Include="System.Web.ApplicationServices" />
@@ -68,6 +76,12 @@
     <Content Include="app\views\home\home.html" />
     <Content Include="app\views\home\home.js" />
     <Content Include="app\views\home\home_test.js" />
+    <Content Include="app\views\join_room\join_room.html" />
+    <Content Include="app\views\join_room\join_room.js" />
+    <Content Include="app\views\join_room\join_room_test.js" />
+    <Content Include="app\views\room\room.html" />
+    <Content Include="app\views\room\room.js" />
+    <Content Include="app\views\room\room_test.js" />
     <Content Include="app\views\view1\view1.html" />
     <Content Include="app\views\view1\view1.js" />
     <Content Include="app\views\view1\view1_test.js" />
@@ -78,6 +92,7 @@
     <Content Include="LICENSE" />
     <Content Include="package.json" />
     <Content Include="README.md" />
+    <Content Include="packages.config" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
