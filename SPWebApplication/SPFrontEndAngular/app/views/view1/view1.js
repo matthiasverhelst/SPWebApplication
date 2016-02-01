@@ -19,7 +19,7 @@
 
       $scope.addEstimateToPBI = function () {
 
-        var res = $http.post('http://localhost:50529/TestService.svc/AddEstimate', $scope.pbi);
+        var res = $http.post('http://localhost:12345/api/ScrumPoker/Estimate', $scope.pbi);
 
         res.success(function (data, status, headers, config) {
           $scope.message = data;
