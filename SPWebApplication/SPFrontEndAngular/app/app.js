@@ -8,6 +8,7 @@
     'pokerShoreApp.home',
     'pokerShoreApp.room',
     'pokerShoreApp.view1',
+    'pokerShoreApp.voting',
     'pokerShoreApp.version'
     ]);
 
