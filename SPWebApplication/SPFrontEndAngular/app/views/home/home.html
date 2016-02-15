@@ -1,14 +1,29 @@
-<h1>Welcome to the poker app</h1>
-<h2>Are you a scrummaster?</h2>
-<div>
-    <span>Create a room</span>
-    <button class="btn btn-primary" ng-click="createRoom()">Create</button>
-</div>
-<h2>Are you a scrum member</h2>
-<div>
-    <form >
-        <span>Join a room?</span>
-        <input type="text" class="form-control" ng-model="roomId" placeholder="Room id">
-        <button class="btn btn-primary" ng-click="joinRoom()">Join</button>
-    </form>
+<h1>Welcome on the PokerShore website.</h1>
+<div class="row">
+    <div class="home-item-wrapper col-xs-12 col-sm-6">
+        <div class="home-item-block">
+            <h2>Are you a scrum master?</h2>
+            <form>
+                <label>Email address:</label>
+                <input type="text" class="form-control" ng-model="emailAddress" placeholder="Email adress">
+                <label>Your name:</label>
+                <input type="text" class="form-control" ng-model="scrumMasterName" placeholder="Name">
+                <button class="btn btn-primary" ng-click="createRoom()">Create a room</button>
+            </form>
+        </div>
+    </div>
+
+    <div class="home-item-wrapper col-xs-12 col-sm-6">
+        <div class="home-item-block">
+            <h2>Are you a scrum member?</h2>
+            <form>
+                <label>Room id:</label>
+                <input type="text" class="form-control" ng-model="roomId" placeholder="Room id">
+                <label>Your name:</label>
+                <input type="text" class="form-control" ng-model="scrumMemberName" placeholder="Name">
+                <button class="btn btn-primary" ng-click="joinRoom()">Join a room</button>
+            </form>
+        </div>
+    </div>
+
 </div>
