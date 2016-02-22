@@ -10,6 +10,9 @@ pokerShoreApp.directive('emailValidator', function() {
       link: function(scope, elm, attrs, ctrl) {
 
           ctrl.$validators.email = function(modelValue, viewValue) {
+              if(viewValue === null || viewValue ===""){
+                  return true;
+              }
               if (EMAIL_REGEXPATTERN.test(viewValue)) {
                   // it is valid
                   return true;
