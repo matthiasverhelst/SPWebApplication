@@ -11,17 +11,33 @@
   }])
 
   .controller('HomeCtrl', ['$scope', '$http','$location', function($scope, $http, $location) {
+      $scope.createRoomObj = {};
+      $scope.joinRoomObj = {};
+      $scope.errors = {};
+
       $scope.createRoom = function(){
-          $location.path('/create_room');
+          console.log($scope.createRoomObj);
       };
 
       $scope.joinRoom = function(){
-          if($scope.roomId){
-              console.log("joinRoom");
-              var roomPath = '/room/' + $scope.roomId;
-              console.log("roomPath", roomPath);
-              $location.path(roomPath);
+          $scope.errors.emptyFieldsJoinRoom = false;
+          $scope.errors.invalidRoomId = false;
+          console.log($scope.joinRoomObj);
+          if($scope.joinRoomObj.roomId && $scope.joinRoomObj.scrumMemberName && $scope.joinRoomObj.roomId !== "" && $scope.joinRoomObj.scrumMemberName !== ""){
+              if(checkForExistingroomId()){
+                  var roomPath = '/room/' + $scope.roomId;
+                  $location.path(roomPath);
+              }else{
+                  $scope.errors.invalidRoomId = true;
+              }
+          }else{
+              $scope.errors.emptyFieldsJoinRoom = true;
           }
+      };
+
+
+      var checkForExistingroomId = function(){
+          return false;
       };
   }]);
 })();

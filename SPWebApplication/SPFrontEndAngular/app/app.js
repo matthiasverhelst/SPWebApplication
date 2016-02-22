@@ -1,17 +1,14 @@
 'use strict';
 
 (function() {
-
-    // Declare app level module which depends on views, and components
-    var pokerShoreApp = angular.module('pokerShoreApp', [
-        'ngRoute',
-        'pokerShoreApp.home',
-        'pokerShoreApp.room',
-        'pokerShoreApp.createRoom',
-        'pokerShoreApp.joinRoom',
-        'pokerShoreApp.view1',
-        'pokerShoreApp.view2',
-        'pokerShoreApp.version'
+  // Declare app level module which depends on views, and components
+  var pokerShoreApp = angular.module('pokerShoreApp', [
+    'ngRoute',
+    'pokerShoreApp.home',
+    'pokerShoreApp.room',
+    'pokerShoreApp.view1',
+    'pokerShoreApp.voting',
+    'pokerShoreApp.version'
     ]);
 
     pokerShoreApp.value('$', $);
