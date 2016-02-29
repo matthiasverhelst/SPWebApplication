@@ -15,6 +15,7 @@ angular.module('pokerShoreApp.view2', ['ngRoute'])
     $scope.room_name = "Sam's Playground";
 
     $scope.createPbi = function (newPbi) {
+        console.log("createPbi");
         if (newPbi && newPbi.length >= 1) {
             var Pbi = {
                 "PBI_name": newPbi,
@@ -33,14 +34,6 @@ angular.module('pokerShoreApp.view2', ['ngRoute'])
         $scope.pbiArray.splice(index, 1);
     };
 
-    $scope.setEditablePbi = function (context,bool) {
-        context.changeInput = bool;
-        if (bool) {
-            console.log(context.$index);
-            $scope.focusIndex = context.$index;
-        }
-    }
-
     $scope.pbiArray = [];
 
     $scope.connectedUsersArray = [
@@ -58,22 +51,3 @@ angular.module('pokerShoreApp.view2', ['ngRoute'])
 
 }])
 
-.directive('customAutofocus', function ($timeout) {
-    return {
-        restrict: 'A',
-
-        link: function (scope, element, attrs) {
-            scope.$watch(function () {
-                return scope.$eval(attrs.customAutofocus);
-            }, function (newValue) {
-                if (newValue === true) {
-                    $timeout(function () {
-                        console.log("focus");
-                        element[0].focus();
-                    });
-                }
-            });
-        }
-    };
-})
-;
