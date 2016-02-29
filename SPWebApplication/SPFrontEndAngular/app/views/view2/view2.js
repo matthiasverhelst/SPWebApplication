@@ -23,10 +23,22 @@ angular.module('pokerShoreApp.view2', ['ngRoute'])
             };
             $scope.pbiArray.push(Pbi);
             if ($scope.setPbiFocus) {
-                document.getElementById("newPbi").focus();
-                $scope.setPbiFocus = false;
+                focusNewPbi();
             }
         }
+    };
+
+    var focusNewPbi = function () {
+        console.log("focus");
+        document.getElementById("newPbi").focus();
+        $scope.setPbiFocus = false;
+    }
+
+    $scope.submit = function () {
+        console.log("submit");
+        document.activeElement.blur();
+        //document.getElementById("newPbi").blur();
+        focusNewPbi();
     };
 
 
