@@ -19,7 +19,8 @@
     "karma-junit-reporter": "^0.2.2",
     "protractor": "^2.1.0",
     "shelljs": "^0.2.6",
-    "ms-signalr-client": "^2.2.2"
+    "ms-signalr-client": "^2.2.2",
+    "font-awesome": "^4.5.0"
   },
   "scripts": {
     "postinstall": "bower install",

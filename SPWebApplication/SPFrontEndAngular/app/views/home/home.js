@@ -14,15 +14,19 @@
       $scope.createRoomObj = {};
       $scope.joinRoomObj = {};
       $scope.errors = {};
+      $scope.createRoomFormSubmitted = false;
+      $scope.joinRoomFormSubmitted = false;
+
 
       $scope.createRoom = function(){
-          console.log($scope.createRoomObj);
+         $scope.createRoomFormSubmitted = true;
+
       };
 
       $scope.joinRoom = function(){
-          $scope.errors.emptyFieldsJoinRoom = false;
-          $scope.errors.invalidRoomId = false;
-          console.log($scope.joinRoomObj);
+          $scope.errors={};
+          $scope.joinRoomFormSubmitted = true;
+
           if($scope.joinRoomObj.roomId && $scope.joinRoomObj.scrumMemberName && $scope.joinRoomObj.roomId !== "" && $scope.joinRoomObj.scrumMemberName !== ""){
               if(checkForExistingroomId()){
                   var roomPath = '/room/' + $scope.roomId;
@@ -30,12 +34,8 @@
               }else{
                   $scope.errors.invalidRoomId = true;
               }
-          }else{
-              $scope.errors.emptyFieldsJoinRoom = true;
           }
       };
-
-
       var checkForExistingroomId = function(){
           return false;
       };
