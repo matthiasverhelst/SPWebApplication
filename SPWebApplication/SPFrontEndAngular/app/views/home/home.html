@@ -3,11 +3,32 @@
     <div class="home-item-wrapper col-xs-12 col-sm-6">
         <div class="home-item-block">
             <h2>Are you a scrum master?</h2>
-            <form>
+
+
+            <!-- <div class="alert alert-danger" role="alert" ng-show="createRoomForm.email.$error.email">
+                <p>Please fill in a valid email address.</p>
+            </div>
+            <div class="alert alert-danger" role="alert" ng-show="createRoomForm.email.$error.email">
+                <p>Please fill in a valid email address.</p>
+            </div>
+            <div class="alert alert-danger" role="alert" ng-show="errors.invalidRoomId">
+                <p>Please enter a valid room id.</p>
+            </div> -->
+            <form name="createRoomForm">
                 <label>Email address:</label>
-                <input type="text" class="form-control" ng-model="emailAddress" placeholder="Email adress">
+                <input type="text" class="form-control"name="email" ng-model="createRoomObj.email" placeholder="Email adress" required="required" email-validator />
+
+                <div ng-messages="createRoomForm.email.$error" style="color:maroon" role="alert" >
+                  <div ng-message="required">You need to fill in this field.</div>
+                  <div ng-message="email">this is not a valid email address</div>
+                </div>
+
                 <label>Your name:</label>
-                <input type="text" class="form-control" ng-model="scrumMasterName" placeholder="Name">
+                <input type="text" class="form-control" name="scrumMasterName" ng-model="createRoomObj.scrumMasterName" placeholder="Name" required="required" />
+                <div ng-messages="createRoomForm.scrumMasterName.$error" style="color:maroon" role="alert">
+                  <div ng-message="required">You need to fill in this field.</div>
+                </div>
+
                 <button class="btn btn-primary" ng-click="createRoom()">Create a room</button>
             </form>
         </div>
@@ -16,11 +37,17 @@
     <div class="home-item-wrapper col-xs-12 col-sm-6">
         <div class="home-item-block">
             <h2>Are you a scrum member?</h2>
-            <form>
+            <div class="alert alert-danger" role="alert" ng-show="errors.emptyFieldsJoinRoom">
+                <p>Please fill in all required fields.</p>
+            </div>
+            <div class="alert alert-danger" role="alert" ng-show="errors.invalidRoomId">
+                <p>Please enter a valid room id.</p>
+            </div>
+            <form name="joinRoomForm">
                 <label>Room id:</label>
-                <input type="text" class="form-control" ng-model="roomId" placeholder="Room id">
+                <input type="text" class="form-control" ng-model="joinRoomObj.roomId" placeholder="Room id" required="required" />
                 <label>Your name:</label>
-                <input type="text" class="form-control" ng-model="scrumMemberName" placeholder="Name">
+                <input type="text" class="form-control" ng-model="joinRoomObj.scrumMemberName" placeholder="Name" required="required" >
                 <button class="btn btn-primary" ng-click="joinRoom()">Join a room</button>
             </form>
         </div>
