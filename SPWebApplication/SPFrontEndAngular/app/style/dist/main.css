@@ -6732,6 +6732,10 @@ body {
 }
 .form-control {
   width: auto;
+  margin-bottom: 0px;
+}
+.error-message {
+  color: maroon;
   margin-bottom: 10px;
 }
 .navigationContainer {
@@ -6779,4 +6783,27 @@ body {
 }
 .home-item-wrapper .home-item-block h2 {
   margin-top: 0px;
+}
+.vote-btn {
+  width: 100px;
+  height: 100px;
+  line-height: 86px;
+  font-size: 40px;
+  margin: 5px;
+  background-color: #00a1d5;
+  text-align: center;
+  color: white;
+  border-radius: 20px;
+  -webkit-box-shadow: 0px 3px 5px 1px #707070;
+  -moz-box-shadow: 0px 3px 5px 1px #707070;
+  box-shadow: 0px 3px 5px 1px #707070;
+}
+.vote-btn:focus,
+.vote-btn:active,
+.vote-btn:focus:active {
+  outline: none;
+}
+.vote-btn:hover {
+  background-color: white;
+  color: #00a1d5;
 }

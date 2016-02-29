@@ -2,60 +2,58 @@
     <h3 name="room_name">{{room_name}}</h3>
 </div>
 <div class="BPI_list" >
-    <table>
-        <tr>
-            <th style="width: 200px">
-                <label class="PBI_name">PBI Name</label>
-            </th>
-            <th style="width: 50px">
-                <label class="PBI_score">Score</label>
-            </th>
-        </tr>
-        <tr ng-repeat="pbi in pbiArray">
-            <td>
-                <label ng-hide="changeInput" ng-click="setEditablePbi(this,true)" class="PBI_name">{{pbi.PBI_name}}</label>
-                <input ng-show="changeInput" ng-blur="setEditablePbi(this,false)" class="PBI_name" ng-model="pbi.PBI_name" custom-autofocus="$index == focusIndex" />
-            </td>
-            <td>
-                <label class="PBI_score">{{pbi.PBI_score}}</label>
-            </td>
-            <td>
-                <button class="PBI_push">Push</button>
-            </td>
-            <td>
-                <button class="PBI_remove" ng-click="removePbi($index)">X</button>
-            </td>
-        </tr>
+    <form ng-submit="submit()">
+        <table>
+            <tr>
+                <th style="width: 200px">
+                    <label class="PBI_name">PBI Name</label>
+                </th>
+                <th style="width: 50px">
+                    <label class="PBI_score">Score</label>
+                </th>
+            </tr>
 
-        <tr>
-            <td>
-                <input id="newPbi" type="text" ng-model="newPbi" ng-blur="createPbi(newPbi); newPbi = '';" />
-            </td>
-            <td></td>
-            <td></td>
-            <td></td>
-        </tr>
-        <tr ng-show="newPbi.length >= 1;" ng-mousedown="setPbiFocus = true;">
-            <td>
-                <input type="text" />
-            </td>
-            <td></td>
-            <td></td>
-            <td></td>
-        </tr>
-        <!--<tr ng-show="showAddPbi">
-            <td>
-                <input type="text" ng-model="newPbi" />
-            </td>
-            <td></td>
-            <td><button class="PBI_push" ng-click="createPbi(newPbi); newPbi = ''; showAddPbi = false">Add</button></td>
-            <td><button class="PBI_remove" ng-click="showAddPbi = false">X</button></td>
-        </tr>-->
-    </table>
+            <tr ng-repeat="pbi in pbiArray">
+
+                <td>
+                    <input class="PBI_name" ng-model="pbi.PBI_name" />
+                </td>
+                <td>
+                    <label class="PBI_score">{{pbi.PBI_score}}</label>
+                </td>
+                <td>
+                    <button class="PBI_push">Push</button>
+                </td>
+                <td>
+                    <button class="PBI_remove" ng-click="removePbi($index)">X</button>
+                </td>
+
+            </tr>
+
+            <tr>
+                <td>
+                    <input id="newPbi" type="text" ng-model="newPbi" ng-blur="createPbi(newPbi); newPbi = '';" />
+                </td>
+                <td></td>
+                <td></td>
+                <td></td>
+            </tr>
+
+            <tr id="newPbi2" ng-show="newPbi.length >= 1;" ng-mousedown="setPbiFocus = true;">
+                <td>
+                    <input type="text" />
+                </td>
+                <td></td>
+                <td></td>
+                <td></td>
+            </tr>
+
+
+        </table>
+        <input type="submit" style="position: absolute; left: -9999px" />
+    </form>
 </div>
-<!--<div>
-    <button class="PBI_add" ng-click="addPbi(); showAddPbi = true" ng-hide="showAddPbi">+</button>
-</div>-->
+
 <div class="live_participants_list">
     <h4>Online participants</h4>
     <table>

@@ -71,6 +71,10 @@
     <Content Include=".bowerrc" />
     <Content Include=".jshintrc" />
     <Content Include=".travis.yml" />
+    <None Include="app\style\src\vote.less" />
+    <Content Include="app\views\create_room\create_room.html" />
+    <Content Include="app\views\create_room\create_room.js" />
+    <Content Include="app\views\create_room\create_room_test.js" />
     <Content Include="app\views\home\home.html" />
     <Content Include="app\views\home\home.js" />
     <Content Include="app\views\home\home_test.js" />
@@ -83,6 +87,9 @@
     <Content Include="app\views\view2\view2.html" />
     <Content Include="app\views\view2\view2.js" />
     <Content Include="app\views\view2\view2_test.js" />
+    <Content Include="app\views\voting\voting.html" />
+    <Content Include="app\views\voting\voting.js" />
+    <Content Include="app\views\voting\voting_test.js" />
     <Content Include="bower.json" />
     <Content Include="LICENSE" />
     <Content Include="package.json" />
