@@ -32,3 +32,9 @@
 .validation-error {
     color: red;
 }
+
+.PBI_name:not(:focus) {
+    background:rgba(0,0,0,0);
+    border:none;
+}
+
