@@ -72,9 +72,6 @@
     <Content Include=".jshintrc" />
     <Content Include=".travis.yml" />
     <None Include="app\style\src\vote.less" />
-    <Content Include="app\views\create_room\create_room.html" />
-    <Content Include="app\views\create_room\create_room.js" />
-    <Content Include="app\views\create_room\create_room_test.js" />
     <Content Include="app\views\home\home.html" />
     <Content Include="app\views\home\home.js" />
     <Content Include="app\views\home\home_test.js" />
@@ -122,7 +119,9 @@
   <ItemGroup>
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <Folder Include="app\views\join_room\" />
+  </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
     <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
