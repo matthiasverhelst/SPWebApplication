@@ -17,7 +17,8 @@ namespace ScrumPokerService.Hubs
 
         public void CreateRoom(string scrumMasterName)
         {
-            Clients.Caller.roomCreated(BusinessLogic.CreateRoom(scrumMasterName));
+            int id = BusinessLogic.CreateRoom(scrumMasterName);
+            Clients.Caller.roomCreated(id);
         }
 
         public void JoinRoom(string name, int id)
