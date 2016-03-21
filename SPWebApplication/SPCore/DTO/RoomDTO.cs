@@ -11,12 +11,15 @@ namespace SPCore.DTO
     public class RoomDTO
     {
         [Key]
-        [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
-        public int RoomId { get; set; }
-       
         [Required]
-        public string RoomHash { get; set; }
+        public int RoomId { get; set; }
+
+        [Required]
+        public UserDTO ScrumMaster { get; set; }
         
-        public virtual ICollection<ParticipantDTO> Participants { get; set; }
+        public virtual ICollection<UserDTO> Participants { get; set; }
+
+        public virtual ICollection<ProductBacklogItemDTO> PBIs { get; set; }
+
     }
 }

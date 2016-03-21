@@ -30,5 +30,15 @@ namespace ScrumPokerService.Controllers
         {
             return BusinessLogic.BusinessMethod(repo);
         }
+
+        public int CreateRoom(string scrumMasterName)
+        {
+            return BusinessLogic.CreateRoom(scrumMasterName);   
+        }
+
+        public void JoinRoom(string name, int id)
+        {
+            BusinessLogic.JoinRoom(name, id);
+        }
     }
 }

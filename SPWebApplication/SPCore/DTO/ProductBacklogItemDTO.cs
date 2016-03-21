@@ -14,8 +14,6 @@ namespace SPCore.DTO
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         public int ProductBacklogItemId { get; set; }
         
-        public int RoomId { get; set; }
-        
         [Required]
         public string Title { get; set; }
         

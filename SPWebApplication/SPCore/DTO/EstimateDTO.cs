@@ -16,7 +16,7 @@ namespace SPCore.DTO
 
         public int ProductBacklogItemId { get; set; }
         
-        public int ParticipantId { get; set; }
+        public int UserId { get; set; }
         
         [Required]
         public int Value { get; set; }
@@ -25,6 +25,6 @@ namespace SPCore.DTO
         public virtual ProductBacklogItemDTO ProductBacklogItem { get; set; }
         
         [ForeignKey("ParticipantId")]
-        public virtual ParticipantDTO Participant { get; set; }
+        public virtual UserDTO Participant { get; set; }
     }
 }

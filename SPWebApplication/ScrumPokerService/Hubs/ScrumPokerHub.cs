@@ -1,5 +1,6 @@
 ﻿using Microsoft.AspNet.SignalR;
 using Microsoft.AspNet.SignalR.Hubs;
+using SPCore;
 
 namespace ScrumPokerService.Hubs
 {
@@ -12,6 +13,16 @@ namespace ScrumPokerService.Hubs
         {
             // Call the broadcastMessage method to update clients.
             Clients.All.broadcastMessage(name, message);
+        }
+
+        public void CreateRoom(string scrumMasterName)
+        {
+            Clients.Caller.roomCreated(BusinessLogic.CreateRoom(scrumMasterName));
+        }
+
+        public void JoinRoom(string name, int id)
+        {
+            BusinessLogic.JoinRoom(name, id);
         }
     }
 }

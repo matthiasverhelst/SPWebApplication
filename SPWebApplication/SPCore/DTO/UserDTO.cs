@@ -15,8 +15,7 @@ namespace SPCore.DTO
         public int UserId { get; set; }
        
         [Required]
-        public string EmailAddress { get; set; }
+        public string Name { get; set; }
         
-        public virtual ICollection<ParticipantDTO> Participants { get; set; }
     }
 }

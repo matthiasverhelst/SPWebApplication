@@ -42,7 +42,6 @@
   <ItemGroup>
     <Compile Include="BusinessLogic.cs" />
     <Compile Include="DTO\EstimateDTO.cs" />
-    <Compile Include="DTO\ParticipantDTO.cs" />
     <Compile Include="DTO\ProductBacklogItemDTO.cs" />
     <Compile Include="DTO\RoomDTO.cs" />
     <Compile Include="DTO\UserDTO.cs" />

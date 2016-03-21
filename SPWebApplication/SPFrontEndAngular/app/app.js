@@ -29,6 +29,14 @@
                 $rootScope.$emit("broadcastMessage", name, message);
             });
 
+            this.proxy.on('roomCreated', function (id) {
+                $rootScope.$emit("roomCreated", id);
+            });
+
+            this.proxy.on('roomJoined', function () {
+                $rootScope.$emit("roomJoined");
+            });
+
             //Starting connection
             connection.start().done(function () {
                 console.log("Connection established. Connect id: " + connection.id);
@@ -46,9 +54,19 @@
             this.proxy.invoke('send', name, message);
         };
 
+        var createRoom = function (name) {
+            this.proxy.invoke('createRoom', name);
+        };
+
+        var joinRoom = function (name, id) {
+            this.proxy.invoke('joinRoom', name, id);
+        };
+
         return {
             initialize: initialize,
-            sendRequest: sendRequest
+            sendRequest: sendRequest,
+            createRoom: createRoom,
+            joinRoom: joinRoom
         };
     }]);
 

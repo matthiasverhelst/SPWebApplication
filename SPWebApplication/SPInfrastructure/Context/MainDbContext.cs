@@ -10,7 +10,7 @@ namespace SPInfrastructure.Context
     public class MainDbContext : DbContext
     {
         public DbSet<EstimateDTO> Estimates { get; set; }
-        public DbSet<ParticipantDTO> Participants { get; set; }
+        public DbSet<UserDTO> Participants { get; set; }
         public DbSet<ProductBacklogItemDTO> ProductBacklogItems { get; set; }
         public DbSet<RoomDTO> Rooms { get; set; }
         public DbSet<UserDTO> Users { get; set; }

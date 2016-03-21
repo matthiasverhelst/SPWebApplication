@@ -20,24 +20,6 @@ namespace SPInfrastructure.Repositories
             return estimateDao.StoreFinalEstimate(estimate);
         }
 
-        public bool CreateParticipant(ParticipantDTO participant)
-        {
-            var participantDao = new DAOParticipant(_db);
-            return participantDao.CreateParticipant(participant);
-        }
-
-        public IList<ParticipantDTO> GetParticipantsByRoom(string roomId)
-        {
-            var participantDao = new DAOParticipant(_db);
-            return participantDao.GetParticipantsByRoom(roomId);
-        }
-
-        public ParticipantDTO GetParticipantById(int id)
-        {
-            var participantDao = new DAOParticipant(_db);
-            return participantDao.GetParticipantById(id);
-        }
-
         public bool CreateRoom(RoomDTO room)
         {
             var roomDao = new DAORoom(_db);
