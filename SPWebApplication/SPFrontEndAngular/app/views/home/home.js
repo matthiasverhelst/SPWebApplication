@@ -28,16 +28,20 @@
           $scope.joinRoomFormSubmitted = true;
 
           if($scope.joinRoomObj.roomId && $scope.joinRoomObj.scrumMemberName && $scope.joinRoomObj.roomId !== "" && $scope.joinRoomObj.scrumMemberName !== ""){
-              if(checkForExistingroomId()){
-                  var roomPath = '/room/' + $scope.roomId;
+              if(checkForExistingroomId($scope.joinRoomObj.roomId)){
+                  var roomPath = '/room/' + $scope.joinRoomObj.roomId;
                   $location.path(roomPath);
               }else{
                   $scope.errors.invalidRoomId = true;
               }
           }
       };
-      var checkForExistingroomId = function(){
-          return false;
+      var checkForExistingroomId = function(roomId){
+          if(roomId === "123456"){
+              return true;
+          }else{
+              return false;
+          }
       };
   }]);
 })();

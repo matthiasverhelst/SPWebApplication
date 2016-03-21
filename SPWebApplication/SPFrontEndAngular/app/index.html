@@ -14,8 +14,10 @@
     <script src="bower_components/html5-boilerplate/dist/js/vendor/modernizr-2.8.3.min.js"></script>
 </head>
 <body ng-controller="mainController">
-    <div class="container-fluid navigationContainer">
-        <div ng-include="'templates/header.html'"></div>
+    <div class="container-fluid navigation-wrapper">
+        <div class="navigationContainer">
+            <div ng-include="'templates/header.html'"></div>
+        </div>
     </div>
     <div class="container viewContainer">
         <div ng-view></div>
