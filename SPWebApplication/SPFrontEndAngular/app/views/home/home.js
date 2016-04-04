@@ -1,7 +1,7 @@
 'use strict';
 
 (function () {
-  angular.module('pokerShoreApp.home', ['ngRoute'])
+    angular.module('pokerShoreApp.home', ['ngRoute'])
 
   .config(['$routeProvider', function($routeProvider) {
     $routeProvider.when('/home', {
@@ -10,15 +10,18 @@
     });
   }])
 
-  .controller('HomeCtrl', ['$scope', '$http','$location', function($scope, $http, $location) {
+  .controller('HomeCtrl', ['$scope', '$http', '$location', '$rootScope', 'signalRSvc', function ($scope, $http, $location, $rootScope, signalRSvc) {
       $scope.createRoomObj = {};
       $scope.joinRoomObj = {};
       $scope.errors = {};
       $scope.createRoomFormSubmitted = false;
       $scope.joinRoomFormSubmitted = false;
 
+      $scope.createRoomSocket = function () {
+          signalRSvc.createRoom("Sam");
+      }
 
-      $scope.createRoom = function(){
+      $scope.createRoom = function () {
          $scope.createRoomFormSubmitted = true;
 
       };
@@ -43,5 +46,9 @@
               return false;
           }
       };
+
+      $scope.$on('roomCreated', function (id) {
+          console.log("Hello you created a room with id: " + id);
+      });
   }]);
 })();

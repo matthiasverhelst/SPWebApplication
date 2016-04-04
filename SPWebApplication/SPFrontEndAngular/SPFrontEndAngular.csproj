@@ -75,6 +75,9 @@
     <Content Include="app\views\home\home.html" />
     <Content Include="app\views\home\home.js" />
     <Content Include="app\views\home\home_test.js" />
+    <Content Include="app\views\join_room\join_room.html" />
+    <Content Include="app\views\join_room\join_room.js" />
+    <Content Include="app\views\join_room\join_room_test.js" />
     <Content Include="app\views\room\room.html" />
     <Content Include="app\views\room\room.js" />
     <Content Include="app\views\room\room_test.js" />
@@ -119,9 +122,7 @@
   <ItemGroup>
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="app\views\join_room\" />
-  </ItemGroup>
+  <ItemGroup />
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
     <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
@@ -146,7 +147,7 @@
           <CustomServerUrl>
           </CustomServerUrl>
           <SaveServerSettingsInUserFile>False</SaveServerSettingsInUserFile>
-          <servers defaultServer="SelfHostServer">
+          <servers defaultServer="">
             <server name="SelfHostServer" exePath="" cmdArgs="" url="http://localhost:50771/" workingDir="" />
           </servers>
         </WebProjectProperties>
