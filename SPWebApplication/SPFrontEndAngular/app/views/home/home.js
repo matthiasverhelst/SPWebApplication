@@ -10,45 +10,53 @@
     });
   }])
 
-  .controller('HomeCtrl', ['$scope', '$http', '$location', '$rootScope', 'signalRSvc', function ($scope, $http, $location, $rootScope, signalRSvc) {
+  .controller('HomeCtrl', ['$scope', '$http', '$location', '$rootScope', 'signalRSvc','$timeout', function ($scope, $http, $location, $rootScope, signalRSvc, $timeout) {
       $scope.createRoomObj = {};
       $scope.joinRoomObj = {};
       $scope.errors = {};
       $scope.createRoomFormSubmitted = false;
       $scope.joinRoomFormSubmitted = false;
 
-      $scope.createRoomSocket = function () {
-          signalRSvc.createRoom("Sam");
-      }
-
       $scope.createRoom = function () {
          $scope.createRoomFormSubmitted = true;
-
+         signalRSvc.createRoom($scope.createRoomObj.scrumMasterName);
       };
 
       $scope.joinRoom = function(){
           $scope.errors={};
           $scope.joinRoomFormSubmitted = true;
-
           if($scope.joinRoomObj.roomId && $scope.joinRoomObj.scrumMemberName && $scope.joinRoomObj.roomId !== "" && $scope.joinRoomObj.scrumMemberName !== ""){
-              if(checkForExistingroomId($scope.joinRoomObj.roomId)){
-                  var roomPath = '/room/' + $scope.joinRoomObj.roomId;
-                  $location.path(roomPath);
-              }else{
-                  $scope.errors.invalidRoomId = true;
-              }
+              checkForExistingroomId();
           }
       };
       var checkForExistingroomId = function(roomId){
+          signalRSvc.createRoom($scope.joinRoomObj.scrumMemberName,$scope.joinRoomObj.roomId);
+
           if(roomId === "123456"){
               return true;
           }else{
               return false;
           }
       };
+      PubSub.subscribe( 'roomJoined', function(msg, success){
+          if(success){
+              $scope.errors.invalidRoomId = false;
+              var roomPath = '/room/' + $scope.joinRoomObj.roomId;
+              $location.path(roomPath);
+              $timeout(function(){
+                  $scope.$apply();
+              },0);
+          }else{
+              $scope.errors.invalidRoomId = true;
+          }
+      });
 
-      $scope.$on('roomCreated', function (id) {
-          console.log("Hello you created a room with id: " + id);
+      PubSub.subscribe( 'roomCreated', function(msg, roomId){
+          var roomPath = '/room/' + roomId;
+          $location.path(roomPath);
+          $timeout(function(){
+              $scope.$apply();
+          },0);
       });
   }]);
 })();

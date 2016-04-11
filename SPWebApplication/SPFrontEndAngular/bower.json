@@ -13,7 +13,8 @@
     "angular-messages":"~1.4.0",
     "html5-boilerplate": "~5.2.0",
     "jquery" : "2.1.4",
-    "signalr" : "2.2.0"
+    "signalr": "2.2.0",
+    "pubsub-js" : "1.5.2"
   },
   "main": "",
   "moduleType": [],

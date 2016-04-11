@@ -16,7 +16,6 @@
 
     pokerShoreApp.service('signalRSvc', ['$', '$rootScope', function ($, $rootScope) {
         var proxy = null;
-
         var initialize = function () {
             //Getting the connection object
             var connection = $.hubConnection("http://localhost:12345/signalr", { useDefaultPath: false });
@@ -24,17 +23,13 @@
             //Creating proxy
             this.proxy = connection.createHubProxy('scrumPokerHub');
 
-            //Publishing an event when server pushes a greeting message
-            this.proxy.on('broadcastMessage', function (name, message) {
-                $rootScope.$emit("broadcastMessage", name, message);
-            });
-
             this.proxy.on('roomCreated', function (id) {
-                $rootScope.$emit("roomCreated", id);
+                PubSub.publish( 'roomCreated', id );
+
             });
 
-            this.proxy.on('roomJoined', function () {
-                $rootScope.$emit("roomJoined");
+            this.proxy.on('roomJoined', function (id) {
+                PubSub.publish( 'roomJoined', id );
             });
 
             //Starting connection
@@ -42,9 +37,6 @@
                 console.log("Connection established. Connect id: " + connection.id);
             }).fail(function (e) {
                 console.log(e);
-                console.log(e.message);
-                console.log(e.source);
-                console.log(e.context);
                 console.log("Connection Failed.");
             });
         };
