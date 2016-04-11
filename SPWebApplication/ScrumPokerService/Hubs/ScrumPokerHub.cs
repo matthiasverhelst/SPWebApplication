@@ -24,6 +24,9 @@ namespace ScrumPokerService.Hubs
         {
             int id = BusinessLogic.CreateRoom(scrumMasterName, Context.ConnectionId);
             Clients.Caller.roomCreated(id);
+
+            ICollection<UserDTO> participants = BusinessLogic.GetParticipants(id);
+            Clients.Caller.getParticipants(participants); 
         }
 
         public void JoinRoom(string name, int id)
