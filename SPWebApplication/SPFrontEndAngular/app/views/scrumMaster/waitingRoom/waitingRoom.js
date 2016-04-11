@@ -13,5 +13,10 @@
   .controller('waitingRoomScrumMasterCtrl', ['$scope','$routeParams', '$http', function($scope, $routeParams, $http) {
       var roomId = $routeParams;
       $scope.roomNum = roomId.param1;
+      $scope.participantsList = [];
+      PubSub.publish( 'participantsListChanged', function(participantsList){
+          $scope.participantsList = participantsList;
+          console.log(participantsList);
+      } );
   }]);
 })();

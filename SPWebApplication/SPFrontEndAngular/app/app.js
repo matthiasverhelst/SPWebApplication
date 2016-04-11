@@ -32,6 +32,11 @@
                 PubSub.publish( 'roomJoined', success );
             });
 
+            this.proxy.on('getParticipants', function (participantsList) {
+                PubSub.publish( 'participantsListChanged', participantsList );
+            });
+
+
             //Starting connection
             connection.start().done(function () {
                 console.log("Connection established. Connect id: " + connection.id);
