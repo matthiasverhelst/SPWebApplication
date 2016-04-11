@@ -2,6 +2,8 @@
 using Microsoft.AspNet.SignalR.Hubs;
 using SPCore;
 
+using System;
+
 namespace ScrumPokerService.Hubs
 {
     // This hub has no inbound APIs, since all inbound communication is done
@@ -23,7 +25,8 @@ namespace ScrumPokerService.Hubs
 
         public void JoinRoom(string name, int id)
         {
-            BusinessLogic.JoinRoom(name, id);
+            Boolean hasJoined = BusinessLogic.JoinRoom(name, id);
+            Clients.Caller.roomJoined(hasJoined);
         }
     }
 }

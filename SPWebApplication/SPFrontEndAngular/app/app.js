@@ -30,6 +30,7 @@
             });
 
             this.proxy.on('roomCreated', function (id) {
+                console.log("Room created with id: " + id);
                 $rootScope.$emit("roomCreated", id);
             });
 

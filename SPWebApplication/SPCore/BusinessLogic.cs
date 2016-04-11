@@ -12,12 +12,6 @@ namespace SPCore
     {        
         private static ICollection<RoomDTO> rooms = new List<RoomDTO>();
 
-        public static bool BusinessMethod(ISPRepository repo)
-        {
-            //Do whichever business logic you need, combined with the necessary database calls via the repo variable.
-            return true;
-        }
-
         public static int CreateRoom(String scrumMasterName)
         {
             UserDTO scrumMaster = new UserDTO()
@@ -38,7 +32,7 @@ namespace SPCore
             return room.RoomId;
         }
 
-        public static void JoinRoom(string name, int id)
+        public static Boolean JoinRoom(string name, int id)
         {
             UserDTO user = new UserDTO()
             {
@@ -50,8 +44,10 @@ namespace SPCore
                 if (room.RoomId == id)
                 {
                     room.Participants.Add(user);
+                    return true;
                 }
             }
+            return false;
         }
     }
 }
