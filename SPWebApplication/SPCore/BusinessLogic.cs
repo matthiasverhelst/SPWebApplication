@@ -12,11 +12,12 @@ namespace SPCore
     {        
         private static ICollection<RoomDTO> rooms = new List<RoomDTO>();
 
-        public static int CreateRoom(String scrumMasterName)
+        public static int CreateRoom(String scrumMasterName, String connectionId)
         {
             UserDTO scrumMaster = new UserDTO()
             {
-                Name = scrumMasterName
+                Name = scrumMasterName,
+                ConnectionId = connectionId
             };
 
             RoomDTO room = new RoomDTO()
@@ -48,11 +49,12 @@ namespace SPCore
             return null;
         }
 
-        public static Boolean JoinRoom(string name, int id)
+        public static Boolean JoinRoom(String name, int id, String connectionId)
         {
             UserDTO user = new UserDTO()
             {
-                Name = name
+                Name = name,
+                ConnectionId = connectionId
             };
 
             foreach (var room in rooms)
@@ -64,6 +66,21 @@ namespace SPCore
                 }
             }
             return false;
+        }
+
+        public static int RemoveUser(String connectionId)
+        {
+            foreach (var room in rooms)
+            {
+                foreach (var user in room.Participants)
+                {
+                    if (user.ConnectionId.Equals(connectionId))
+                    {
+                        return room.RoomId;
+                    }
+                }
+            }
+            throw new Exception("User that was disconnecting not found!");
         }
     }
 }
