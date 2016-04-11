@@ -27,8 +27,8 @@
                 PubSub.publish( 'roomCreated', id );
             });
 
-            this.proxy.on('roomJoined', function (id) {
-                PubSub.publish( 'roomJoined', id );
+            this.proxy.on('roomJoined', function (success) {
+                PubSub.publish( 'roomJoined', success );
             });
 
             //Starting connection

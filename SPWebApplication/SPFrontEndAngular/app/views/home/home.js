@@ -26,24 +26,23 @@
           $scope.errors={};
           $scope.joinRoomFormSubmitted = true;
           if($scope.joinRoomObj.roomId && $scope.joinRoomObj.scrumMemberName && $scope.joinRoomObj.roomId !== "" && $scope.joinRoomObj.scrumMemberName !== ""){
-              console.log("joinRoom");
               signalRSvc.joinRoom($scope.joinRoomObj.scrumMemberName,$scope.joinRoomObj.roomId);
           }
       };
 
 
       PubSub.subscribe( 'roomJoined', function(msg, success){
+          console.log("success", success);
           if(success){
-              console.log("room joined success");
               $scope.errors.invalidRoomId = false;
               var roomPath = '/room/' + $scope.joinRoomObj.roomId;
               $location.path(roomPath);
-              $timeout(function(){
-                  $scope.$apply();
-              },0);
           }else{
               $scope.errors.invalidRoomId = true;
           }
+          $timeout(function(){
+              $scope.$apply();
+          },0);
       });
 
       PubSub.subscribe( 'roomCreated', function(msg, roomId){

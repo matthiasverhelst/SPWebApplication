@@ -26,6 +26,10 @@ namespace SPCore
             };
 
             /* Do we need to add the scrumMaster to the users list? */
+            ICollection<UserDTO> participants = new List<UserDTO>();
+            participants.Add(scrumMaster);
+
+            room.Participants = participants;
 
             rooms.Add(room);
 
