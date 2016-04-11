@@ -26,20 +26,15 @@
           $scope.errors={};
           $scope.joinRoomFormSubmitted = true;
           if($scope.joinRoomObj.roomId && $scope.joinRoomObj.scrumMemberName && $scope.joinRoomObj.roomId !== "" && $scope.joinRoomObj.scrumMemberName !== ""){
-              checkForExistingroomId();
+              console.log("joinRoom");
+              signalRSvc.joinRoom($scope.joinRoomObj.scrumMemberName,$scope.joinRoomObj.roomId);
           }
       };
-      var checkForExistingroomId = function(roomId){
-          signalRSvc.createRoom($scope.joinRoomObj.scrumMemberName,$scope.joinRoomObj.roomId);
 
-          if(roomId === "123456"){
-              return true;
-          }else{
-              return false;
-          }
-      };
+
       PubSub.subscribe( 'roomJoined', function(msg, success){
           if(success){
+              console.log("room joined success");
               $scope.errors.invalidRoomId = false;
               var roomPath = '/room/' + $scope.joinRoomObj.roomId;
               $location.path(roomPath);
