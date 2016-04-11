@@ -1,8 +1,11 @@
 ﻿using Microsoft.AspNet.SignalR;
 using Microsoft.AspNet.SignalR.Hubs;
 using SPCore;
+using SPCore.DTO;
 
 using System;
+using System.Collections.Generic;
+using System.Threading.Tasks;
 
 namespace ScrumPokerService.Hubs
 {
@@ -27,6 +30,16 @@ namespace ScrumPokerService.Hubs
         {
             Boolean hasJoined = BusinessLogic.JoinRoom(name, id);
             Clients.Caller.roomJoined(hasJoined);
+
+            ICollection<UserDTO> participants = BusinessLogic.GetParticipants(id);
+            Clients.All.getParticipants(participants);
+        }
+
+        public override Task OnDisconnected(bool stopCalled)
+        {
+            ICollection<UserDTO> participants = BusinessLogic.GetParticipants(123);
+            Clients.All.getParticipants(participants);
+            return null;
         }
     }
 }
