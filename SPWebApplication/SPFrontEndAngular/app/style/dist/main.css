@@ -3444,6 +3444,12 @@ fieldset[disabled] .btn-link:focus {
 .btn-block {
   display: block;
   width: 100%;
+  padding-bottom: 15%;
+  padding-top: 15%;
+}
+.btn-block-full-width{
+    padding-bottom:5%;
+    padding-top:5%;
 }
 .btn-block + .btn-block {
   margin-top: 5px;
