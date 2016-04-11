@@ -1,0 +1,44 @@
+<h1>Welcome on the PokerShore website.</h1>
+<div class="row">
+    <div class="home-item-wrapper col-xs-12 col-sm-6">
+        <div class="home-item-block">
+            <h2>Are you a scrum master?</h2>
+            <form name="createRoomForm">
+                <div class="form-group">
+                    <label>Your name:</label>
+                    <input type="text" class="form-control" name="scrumMasterName" ng-model="createRoomObj.scrumMasterName" placeholder="Name" required="required" />
+                    <div ng-show="(createRoomForm.scrumMasterName.$error.required) &amp;&amp; createRoomFormSubmitted" class="error-message" role="alert">
+                        <span>Please fill in a name.</span>
+                    </div>
+                </div>
+
+                <button class="btn btn-primary" ng-click="createRoom()">Create a room</button>
+            </form>
+        </div>
+    </div>
+    <div class="home-item-wrapper col-xs-12 col-sm-6">
+        <div class="home-item-block">
+            <h2>Are you a scrum member?</h2>
+            <div class="alert alert-danger" role="alert" ng-show="errors.invalidRoomId">
+                <p>Please enter a valid room id.</p>
+            </div>
+            <form name="joinRoomForm">
+                <div class="form-group">
+                    <label>Room id:</label>
+                    <input type="text" class="form-control" ng-model="joinRoomObj.roomId" name="scrumMemberRoomId" placeholder="Room id" required="required" />
+                    <div ng-show="(joinRoomForm.scrumMemberRoomId.$error.required) &amp;&amp; joinRoomFormSubmitted" class="error-message" role="alert">
+                        <span>Please fill in a room id.</span>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label>Your name:</label>
+                    <input type="text" class="form-control" ng-model="joinRoomObj.scrumMemberName" name="scrumMemberName" placeholder="Name" required="required" >
+                    <div ng-show="(joinRoomForm.scrumMemberName.$error.required ) &amp;&amp; joinRoomFormSubmitted" class="error-message" role="alert">
+                        <span>Please fill in a name.</span>
+                    </div>
+                </div>
+                <button class="btn btn-primary" ng-click="joinRoom()">Join a room</button>
+            </form>
+        </div>
+    </div>
+</div>
