@@ -35,7 +35,7 @@
           console.log("success", success);
           if(success){
               $scope.errors.invalidRoomId = false;
-              var roomPath = '/room/' + $scope.joinRoomObj.roomId;
+              var roomPath = '/waitingRoomScrumMember/' + $scope.joinRoomObj.roomId;
               $location.path(roomPath);
           }else{
               $scope.errors.invalidRoomId = true;
@@ -46,7 +46,7 @@
       });
 
       PubSub.subscribe( 'roomCreated', function(msg, roomId){
-          var roomPath = '/room/' + roomId;
+          var roomPath = '/waitingRoomScrumMaster/' + roomId;
           $location.path(roomPath);
           $timeout(function(){
               $scope.$apply();
