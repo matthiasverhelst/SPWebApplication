@@ -36,6 +36,18 @@ namespace SPCore
             return room.RoomId;
         }
 
+        public static ICollection<UserDTO> GetParticipants(int id)
+        {
+            foreach (var room in rooms)
+            {
+                if (room.RoomId == id)
+                {
+                    return room.Participants;
+                }
+            }
+            return null;
+        }
+
         public static Boolean JoinRoom(string name, int id)
         {
             UserDTO user = new UserDTO()
