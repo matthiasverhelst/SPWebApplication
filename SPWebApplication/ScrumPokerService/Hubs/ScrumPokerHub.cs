@@ -22,22 +22,26 @@ namespace ScrumPokerService.Hubs
 
         public void CreateRoom(string scrumMasterName)
         {
-            int id = BusinessLogic.CreateRoom(scrumMasterName);
+            int id = BusinessLogic.CreateRoom(scrumMasterName, Context.ConnectionId);
             Clients.Caller.roomCreated(id);
+
+            ICollection<UserDTO> participants = BusinessLogic.GetParticipants(id);
+            Clients.Caller.getParticipants(participants); 
         }
 
         public void JoinRoom(string name, int id)
         {
-            Boolean hasJoined = BusinessLogic.JoinRoom(name, id);
+            Boolean hasJoined = BusinessLogic.JoinRoom(name, id, Context.ConnectionId);
             Clients.Caller.roomJoined(hasJoined);
 
             ICollection<UserDTO> participants = BusinessLogic.GetParticipants(id);
-            Clients.All.getParticipants(participants);
+            Clients.All.getParticipants(participants); 
         }
 
         public override Task OnDisconnected(bool stopCalled)
         {
-            ICollection<UserDTO> participants = BusinessLogic.GetParticipants(123);
+            int id = BusinessLogic.RemoveUser(Context.ConnectionId);
+            ICollection<UserDTO> participants = BusinessLogic.GetParticipants(id);
             Clients.All.getParticipants(participants);
             return null;
         }
