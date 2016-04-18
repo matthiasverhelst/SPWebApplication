@@ -48,6 +48,18 @@ namespace SPCore
             return null;
         }
 
+        public static ICollection<ProductBacklogItemDTO> GetPBIs(int id)
+        {
+            foreach (var room in rooms)
+            {
+                if (room.RoomId == id)
+                {
+                    return room.PBIs;
+                }
+            }
+            return null;
+        }
+
         public static Boolean JoinRoom(String name, int id, String connectionId)
         {
             UserDTO user = new UserDTO()

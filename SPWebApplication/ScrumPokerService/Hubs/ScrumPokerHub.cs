@@ -20,6 +20,12 @@ namespace ScrumPokerService.Hubs
             Clients.Caller.getParticipants(participants);
         }
 
+        public void GetPBIs(int id)
+        {
+            ICollection<ProductBacklogItemDTO> pbis = BusinessLogic.GetPBIs(id);
+            Clients.Caller.getPBIs(pbis);
+        }
+
         public void CreateRoom(string scrumMasterName)
         {
             int id = BusinessLogic.CreateRoom(scrumMasterName, Context.ConnectionId);
