@@ -38,3 +38,8 @@
     border:none;
 }
 
+tr.PBI_line:nth-child(even) {
+    background-color: #CCC;
+
+}
+
