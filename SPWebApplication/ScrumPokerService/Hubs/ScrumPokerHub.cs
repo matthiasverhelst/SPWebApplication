@@ -38,13 +38,18 @@ namespace ScrumPokerService.Hubs
         public void CreatePBI(int id, string title)
         {
             Boolean hasAdded = BusinessLogic.CreatePBI(id, title);
-            Clients.Caller.pushedPBI(hasAdded);
+            Clients.Caller.createdPBI(hasAdded);
+        }
+
+        public void AddEstimation(int id, string title, int score)
+        {
+            
         }
 
         public void RemovePBI(int id, string title)
         {
             Boolean hasBeenRemoved = BusinessLogic.RemovePBI(id, title);
-            Clients.Caller.pushedPBI(hasBeenRemoved);
+            Clients.Caller.removedPBI(hasBeenRemoved);
         }
 
         public void JoinRoom(string name, int id)
