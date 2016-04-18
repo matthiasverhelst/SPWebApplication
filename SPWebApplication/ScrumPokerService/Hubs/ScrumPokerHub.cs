@@ -29,6 +29,18 @@ namespace ScrumPokerService.Hubs
             Clients.Caller.getParticipants(participants); 
         }
 
+        public void CreatePBI(int id, string title)
+        {
+            Boolean hasAdded = BusinessLogic.CreatePBI(id, title);
+            Clients.Caller.pushedPBI(hasAdded);
+        }
+
+        public void RemovePBI(int id, string title)
+        {
+            Boolean hasBeenRemoved = BusinessLogic.RemovePBI(id, title);
+            Clients.Caller.pushedPBI(hasBeenRemoved);
+        }
+
         public void JoinRoom(string name, int id)
         {
             Boolean hasJoined = BusinessLogic.JoinRoom(name, id, Context.ConnectionId);
