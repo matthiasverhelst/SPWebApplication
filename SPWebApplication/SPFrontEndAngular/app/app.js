@@ -59,11 +59,16 @@
             this.proxy.invoke('joinRoom', name, id);
         };
 
+        var getParticipants = function (roomId) {
+            this.proxy.invoke('getParticipants', roomId);
+        };
+
         return {
             initialize: initialize,
             sendRequest: sendRequest,
             createRoom: createRoom,
-            joinRoom: joinRoom
+            joinRoom: joinRoom,
+            getParticipants: getParticipants
         };
     }]);
 

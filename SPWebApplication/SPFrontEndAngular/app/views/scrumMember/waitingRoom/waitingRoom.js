@@ -10,16 +10,18 @@
     });
   }])
 
-  .controller('waitingRoomScrumMemberCtrl', ['$scope','$routeParams', '$http','$timeout', function($scope, $routeParams, $http, $timeout) {
+  .controller('waitingRoomScrumMemberCtrl', ['$scope','$routeParams', '$http','$timeout','signalRSvc', function($scope, $routeParams, $http, $timeout,signalRSvc) {
       var roomId = $routeParams;
       $scope.roomNum = roomId.param1;
       $scope.participantsList = [];
+
       PubSub.subscribe( 'participantsListChanged', function(msg, participantsList){
           $scope.participantsList = participantsList;
-          console.log(participantsList);
           $timeout(function(){
               $scope.$apply();
           },0);
-      } );
+      });
+
+      signalRSvc.getParticipants($scope.roomNum);
   }]);
 })();
