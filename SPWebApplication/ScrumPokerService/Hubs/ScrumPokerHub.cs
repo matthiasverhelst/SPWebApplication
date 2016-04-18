@@ -35,7 +35,6 @@ namespace ScrumPokerService.Hubs
             Clients.Caller.roomJoined(hasJoined);
 
             ICollection<UserDTO> participants = BusinessLogic.GetParticipants(id);
-            Clients.Caller.getParticipants(participants);
             Clients.All.getParticipants(participants); 
         }
 

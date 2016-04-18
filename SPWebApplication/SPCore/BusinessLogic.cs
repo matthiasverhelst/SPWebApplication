@@ -76,11 +76,13 @@ namespace SPCore
                 {
                     if (user.ConnectionId.Equals(connectionId))
                     {
+                        room.Participants.Remove(user);
                         return room.RoomId;
                     }
                 }
             }
-            throw new Exception("User that was disconnecting not found!");
+            return 0;
+//            throw new Exception("User that was disconnecting not found!");
         }
     }
 }
