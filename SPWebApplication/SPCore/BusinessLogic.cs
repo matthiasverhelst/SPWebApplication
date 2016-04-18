@@ -76,6 +76,7 @@ namespace SPCore
                 {
                     if (user.ConnectionId.Equals(connectionId))
                     {
+                        room.Participants.Remove(user);
                         return room.RoomId;
                     }
                 }
