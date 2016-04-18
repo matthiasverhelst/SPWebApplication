@@ -20,6 +20,12 @@ namespace ScrumPokerService.Hubs
             Clients.Caller.getParticipants(participants);
         }
 
+        public void GetPBIs(int id)
+        {
+            ICollection<ProductBacklogItemDTO> pbis = BusinessLogic.GetPBIs(id);
+            Clients.Caller.getPBIs(pbis);
+        }
+
         public void CreateRoom(string scrumMasterName)
         {
             int id = BusinessLogic.CreateRoom(scrumMasterName, Context.ConnectionId);
@@ -27,6 +33,18 @@ namespace ScrumPokerService.Hubs
 
             ICollection<UserDTO> participants = BusinessLogic.GetParticipants(id);
             Clients.Caller.getParticipants(participants); 
+        }
+
+        public void CreatePBI(int id, string title)
+        {
+            Boolean hasAdded = BusinessLogic.CreatePBI(id, title);
+            Clients.Caller.pushedPBI(hasAdded);
+        }
+
+        public void RemovePBI(int id, string title)
+        {
+            Boolean hasBeenRemoved = BusinessLogic.RemovePBI(id, title);
+            Clients.Caller.pushedPBI(hasBeenRemoved);
         }
 
         public void JoinRoom(string name, int id)

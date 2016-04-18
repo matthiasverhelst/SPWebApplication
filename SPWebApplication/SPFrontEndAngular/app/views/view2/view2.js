@@ -28,12 +28,8 @@ angular.module('pokerShoreApp.view2', ['ngRoute'])
         }
     };
 
-    var focusNewPbi = function () {
-        console.log("focus");
-        document.getElementById("newPbi").focus();
-        $scope.setPbiFocus = false;
-    }
 
+    /** On press enter **/
     $scope.submit = function () {
         console.log("submit");
         document.activeElement.blur();
@@ -41,9 +37,23 @@ angular.module('pokerShoreApp.view2', ['ngRoute'])
         focusNewPbi();
     };
 
+    /** Focus on last input field **/
+    var focusNewPbi = function () {
+        console.log("focus");
+        document.getElementById("newPbi").focus();
+        $scope.setPbiFocus = false;
+    }
+
+    
+
 
     $scope.removePbi = function (index) {
+        console.log("removePbi");
         $scope.pbiArray.splice(index, 1);
+    };
+
+    $scope.pushPbi = function () {
+        console.log("pushPBI");
     };
 
     $scope.pbiArray = [];

@@ -33,6 +33,7 @@ namespace ScrumPokerService
                 // path.
                 map.RunSignalR(hubConfiguration);
             });
+            GlobalHost.Configuration.ConnectionTimeout = TimeSpan.FromSeconds(6000); // Should be lower in PRD
         }
     }
 }

@@ -1,5 +1,5 @@
 <div>
-    <h3 name="room_name">{{room_name}}</h3>
+    <h2 name="room_name">{{room_name}}</h2>
 </div>
 <div class="BPI_list" >
     <form ng-submit="submit()">
@@ -13,7 +13,7 @@
                 </th>
             </tr>
 
-            <tr ng-repeat="pbi in pbiArray">
+            <tr ng-repeat="pbi in pbiArray" class="PBI_line">
 
                 <td>
                     <input class="PBI_name" ng-model="pbi.PBI_name" />
@@ -22,7 +22,7 @@
                     <label class="PBI_score">{{pbi.PBI_score}}</label>
                 </td>
                 <td>
-                    <button class="PBI_push">Push</button>
+                    <button class="PBI_push" ng-click="pushPbi()">Push</button>
                 </td>
                 <td>
                     <button class="PBI_remove" ng-click="removePbi($index)">X</button>
@@ -55,7 +55,7 @@
 </div>
 
 <div class="live_participants_list">
-    <h4>Online participants</h4>
+    <h3>Online participants</h3>
     <table>
         <tr>
             <th>

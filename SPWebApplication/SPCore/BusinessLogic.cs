@@ -23,14 +23,13 @@ namespace SPCore
             RoomDTO room = new RoomDTO()
             {
                 ScrumMaster = scrumMaster,
-                RoomId = new Random().Next(1000, 9999)
+                RoomId = new Random().Next(1000, 9999),
+                Participants = new List<UserDTO>(),
+                PBIs = new List<ProductBacklogItemDTO>()
             };
 
             /* Do we need to add the scrumMaster to the users list? */
-            ICollection<UserDTO> participants = new List<UserDTO>();
-            participants.Add(scrumMaster);
-
-            room.Participants = participants;
+            room.Participants.Add(scrumMaster);
 
             rooms.Add(room);
 
@@ -44,6 +43,18 @@ namespace SPCore
                 if (room.RoomId == id)
                 {
                     return room.Participants;
+                }
+            }
+            return null;
+        }
+
+        public static ICollection<ProductBacklogItemDTO> GetPBIs(int id)
+        {
+            foreach (var room in rooms)
+            {
+                if (room.RoomId == id)
+                {
+                    return room.PBIs;
                 }
             }
             return null;
@@ -83,6 +94,44 @@ namespace SPCore
             }
             //throw new Exception("User that was disconnecting not found!");
             return 0;
+        }
+
+        public static bool CreatePBI(int id, string title)
+        {
+            foreach (var room in rooms)
+            {
+                if (room.RoomId == id)
+                {
+                    ProductBacklogItemDTO pbi = new ProductBacklogItemDTO()
+                    {
+                        Title = title,
+                        Room = room,
+                        Estimates = new List<EstimateDTO>()
+                    };
+                    room.PBIs.Add(pbi);
+                    return true;
+                }
+            }
+            return false;
+        }
+
+        public static bool RemovePBI(int id, string title)
+        {
+            foreach (var room in rooms)
+            {
+                if (room.RoomId == id)
+                {
+                    foreach (var pbi in room.PBIs)
+                    {
+                        if (pbi.Title == title)
+                        {
+                            room.PBIs.Remove(pbi);
+                            return true;
+                        }
+                    }
+                }
+            }
+            return false;
         }
     }
 }

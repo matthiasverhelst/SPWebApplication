@@ -14,6 +14,40 @@
       var roomId = $routeParams;
       $scope.roomNum = roomId.param1;
       $scope.participantsList = [];
+      $scope.createPbi = function (newPbi) {
+          if (newPbi && newPbi.length >= 1) {
+              var Pbi = {
+                  "PBI_name": newPbi,
+                  "PBI_score": ""
+              };
+              signalRSvc.createPBI(Pbi.PBI_name);
+
+              $scope.pbiArray.push(Pbi);
+              if ($scope.setPbiFocus) {
+                  focusNewPbi();
+              }
+          }
+      };
+
+      var focusNewPbi = function () {
+          document.getElementById("newPbi").focus();
+          $scope.setPbiFocus = false;
+      };
+
+      $scope.submit = function () {
+          document.activeElement.blur();
+          //document.getElementById("newPbi").blur();
+          focusNewPbi();
+      };
+
+
+      $scope.removePbi = function (index) {
+          signalRSvc.createPBI(pbiArray[index].PBI_name);
+          $scope.pbiArray.splice(index, 1);
+      };
+
+      $scope.pbiArray = [];
+
 
 
       PubSub.subscribe( 'participantsListChanged', function(msg, participantsList){

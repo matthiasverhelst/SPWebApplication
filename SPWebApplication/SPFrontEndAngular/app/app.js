@@ -17,6 +17,8 @@
 
     pokerShoreApp.service('signalRSvc', ['$', '$rootScope', function ($, $rootScope) {
         var proxy = null;
+        var roomId = "";
+
         var initialize = function () {
             //Getting the connection object
             var connection = $.hubConnection("http://localhost:12345/signalr", { useDefaultPath: false });
@@ -25,10 +27,12 @@
             this.proxy = connection.createHubProxy('scrumPokerHub');
 
             this.proxy.on('roomCreated', function (id) {
+                roomId = id;
                 PubSub.publish( 'roomCreated', id );
             });
 
             this.proxy.on('roomJoined', function (success) {
+                roomId = id;
                 PubSub.publish( 'roomJoined', success );
             });
 
@@ -46,6 +50,9 @@
             });
         };
 
+
+
+
         var sendRequest = function (name, message) {
             //Invoking greetAll method defined in hub
             this.proxy.invoke('send', name, message);
@@ -59,16 +66,28 @@
             this.proxy.invoke('joinRoom', name, id);
         };
 
-        var getParticipants = function (roomId) {
+        var getParticipants = function () {
             this.proxy.invoke('getParticipants', roomId);
         };
+
+        var createPBI = function (pbiName) {
+            this.proxy.invoke('createPBI', roomId, pbiName);
+        };
+
+        var removePBI = function (pbiName) {
+            this.proxy.invoke('removePBI', roomId, pbiName);
+        };
+
+
 
         return {
             initialize: initialize,
             sendRequest: sendRequest,
             createRoom: createRoom,
             joinRoom: joinRoom,
-            getParticipants: getParticipants
+            getParticipants: getParticipants,
+            createPBI: createPBI,
+            removePBI: removePBI
         };
     }]);
 
