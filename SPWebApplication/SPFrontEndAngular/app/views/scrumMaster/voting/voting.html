@@ -1,0 +1,20 @@
+<button type="button" name="button" ng-click="goToWaitingRoom()">goToWaitingRoom</button>
+
+<div class="page-header">
+    <h1 name="pbi_name">PBI Name {{pbi.name}}</h1>
+    <h3>Please vote</h3>
+    <h4>Given score: {{score}}</h4>
+</div>
+<form>
+    <div ng-repeat="row in rows">
+        <div class="row form-group">
+            <div ng-repeat="button in row.buttons">
+                <div ng-class="row.col">
+                    <button name="score" ng-class="button.class" class="btn btn-lg btn-primary btn-block" type="button" value="button.value">
+                        <span>{{button.text}}</span>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+</form>

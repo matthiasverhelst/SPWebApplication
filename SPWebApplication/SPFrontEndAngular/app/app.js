@@ -6,6 +6,7 @@
     'ngRoute',
     'pokerShoreApp.home',
     'pokerShoreApp.waitingRoomScrumMaster',
+    'pokerShoreApp.votingScrumMaster',
     'pokerShoreApp.waitingRoomScrumMember',
     'pokerShoreApp.view1',
     'pokerShoreApp.view2',
@@ -39,6 +40,13 @@
             this.proxy.on('getParticipants', function (participantsList) {
                 PubSub.publish( 'participantsListChanged', participantsList );
             });
+
+            this.proxy.on('getPBIS', function (pbiArray) {
+                console.log("getPBIS");
+                console.log(pbiArray);
+                PubSub.publish( 'getPBIList', pbiArray );
+            });
+
 
 
             //Starting connection
@@ -78,6 +86,10 @@
             this.proxy.invoke('removePBI', roomId, pbiName);
         };
 
+        var getPBIS = function () {
+            this.proxy.invoke('getPBIS', roomId);
+        };
+
 
 
         return {
@@ -87,7 +99,8 @@
             joinRoom: joinRoom,
             getParticipants: getParticipants,
             createPBI: createPBI,
-            removePBI: removePBI
+            removePBI: removePBI,
+            getPBIS : getPBIS
         };
     }]);
 
