@@ -14,10 +14,10 @@ namespace ScrumPokerService.Hubs
     // notification of changes to the ToDo database.
     [HubName("scrumPokerHub")]
     public class ScrumPokerHub : Hub {
-        public void Send(string name, string message)
+        public void GetParticipants(int id)
         {
-            // Call the broadcastMessage method to update clients.
-            Clients.All.broadcastMessage(name, message);
+            ICollection<UserDTO> participants = BusinessLogic.GetParticipants(id);
+            Clients.Caller.getParticipants(participants);
         }
 
         public void CreateRoom(string scrumMasterName)
