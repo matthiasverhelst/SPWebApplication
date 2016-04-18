@@ -10,7 +10,7 @@
     });
   }])
 
-  .controller('waitingRoomScrumMasterCtrl', ['$scope','$routeParams', '$http','$timeout','signalRSvc', function($scope, $routeParams, $http, $timeout,signalRSvc) {
+  .controller('waitingRoomScrumMasterCtrl', ['$scope','$routeParams', '$http','$timeout','signalRSvc','$location', function($scope, $routeParams, $http, $timeout,signalRSvc,$location) {
       var roomId = $routeParams;
       $scope.roomNum = roomId.param1;
       $scope.participantsList = [];
@@ -48,7 +48,15 @@
 
       $scope.pbiArray = [];
 
+      $scope.goToVoting = function(){
+          $location.path("/votingScrumMaster");
 
+      };
+
+      PubSub.subscribe( 'getPBIList', function(msg, pbiArray){
+          console.log("pbiArray");
+          console.log(pbiArray);
+      });
 
       PubSub.subscribe( 'participantsListChanged', function(msg, participantsList){
           $scope.participantsList = participantsList;
@@ -57,6 +65,7 @@
           },0);
       });
 
-      signalRSvc.getParticipants($scope.roomNum);
+      signalRSvc.getParticipants();
+      signalRSvc.getPBIS();
   }]);
 })();
