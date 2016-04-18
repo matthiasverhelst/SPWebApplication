@@ -122,10 +122,11 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
-    <TypeScriptCompile Include="app\views\scrumMember\waitingRoom\test.ts" />
-  </ItemGroup>
-  <ItemGroup>
+    <Folder Include="app\directives\" />
+    <Folder Include="app\media\" />
+    <Folder Include="app\templates\" />
     <Folder Include="app\views\scrumMaster\waitingRoom\" />
+    <Folder Include="app\views\scrumMember\waitingRoom\" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
