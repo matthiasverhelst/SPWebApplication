@@ -13,10 +13,6 @@ namespace SPCore.DTO
         [Key]
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         public int EstimateId { get; set; }
-
-        public int ProductBacklogItemId { get; set; }
-        
-        public int UserId { get; set; }
         
         [Required]
         public int Value { get; set; }

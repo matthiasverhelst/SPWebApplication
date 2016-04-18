@@ -21,7 +21,7 @@ namespace SPCore.DTO
         
         [ForeignKey("RoomId")]
         public virtual RoomDTO Room { get; set; }
-        
+
         public virtual ICollection<EstimateDTO> Estimates { get; set; }
     }
 }

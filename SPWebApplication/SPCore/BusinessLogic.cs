@@ -23,14 +23,13 @@ namespace SPCore
             RoomDTO room = new RoomDTO()
             {
                 ScrumMaster = scrumMaster,
-                RoomId = new Random().Next(1000, 9999)
+                RoomId = new Random().Next(1000, 9999),
+                Participants = new List<UserDTO>(),
+                PBIs = new List<ProductBacklogItemDTO>()
             };
 
             /* Do we need to add the scrumMaster to the users list? */
-            ICollection<UserDTO> participants = new List<UserDTO>();
-            participants.Add(scrumMaster);
-
-            room.Participants = participants;
+            room.Participants.Add(scrumMaster);
 
             rooms.Add(room);
 
@@ -94,7 +93,8 @@ namespace SPCore
                     ProductBacklogItemDTO pbi = new ProductBacklogItemDTO()
                     {
                         Title = title,
-                        Room = room
+                        Room = room,
+                        Estimates = new List<EstimateDTO>()
                     };
                     room.PBIs.Add(pbi);
                     return true;
