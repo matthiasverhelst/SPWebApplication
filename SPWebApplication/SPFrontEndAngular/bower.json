@@ -10,11 +10,11 @@
     "angular-route": "~1.4.0",
     "angular-loader": "~1.4.0",
     "angular-mocks": "~1.4.0",
-    "angular-messages":"~1.4.0",
+    "angular-messages": "~1.4.0",
     "html5-boilerplate": "~5.2.0",
-    "jquery" : "2.1.4",
+    "jquery": "2.1.4",
     "signalr": "2.2.0",
-    "pubsub-js" : "1.5.2"
+    "pubsub-js": "1.5.2"
   },
   "main": "",
   "moduleType": [],
@@ -25,5 +25,8 @@
     "app/bower_components",
     "test",
     "tests"
-  ]
+  ],
+  "resolutions": {
+    "angular": "1.4.10"
+  }
 }
