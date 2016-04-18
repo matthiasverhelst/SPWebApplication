@@ -10,7 +10,7 @@
         });
     }])
 
-    .controller('VotingCtrl', ['$scope', function ($scope) {
+    .controller('VotingCtrl', ['$scope', 'signalRSvc', function ($scope, signalRSvc) {
         $scope.rows = [
             {
                 "buttons": [{ value: '0', text: '0' }, { value: '0.5', text: '0.5' }, { value: '1', text: '1' }],
@@ -32,5 +32,7 @@
         $scope.vote = function vote(points) {
             $scope.score = points;
         }
+
+        //To update the view after PubSub, use setTimeout of 0ms to call $scope.apply()
     }]);
 })();
