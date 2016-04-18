@@ -81,8 +81,8 @@ namespace SPCore
                     }
                 }
             }
+            //throw new Exception("User that was disconnecting not found!");
             return 0;
-//            throw new Exception("User that was disconnecting not found!");
         }
     }
 }
