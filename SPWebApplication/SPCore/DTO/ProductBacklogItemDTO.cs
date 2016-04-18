@@ -16,8 +16,8 @@ namespace SPCore.DTO
         
         [Required]
         public string Title { get; set; }
-        
-        public string Description { get; set; }
+
+        public int FinalEstimation { get; set; }
         
         [ForeignKey("RoomId")]
         public virtual RoomDTO Room { get; set; }

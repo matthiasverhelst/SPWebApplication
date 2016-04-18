@@ -84,5 +84,42 @@ namespace SPCore
             //throw new Exception("User that was disconnecting not found!");
             return 0;
         }
+
+        public static bool CreatePBI(int id, string title)
+        {
+            foreach (var room in rooms)
+            {
+                if (room.RoomId == id)
+                {
+                    ProductBacklogItemDTO pbi = new ProductBacklogItemDTO()
+                    {
+                        Title = title,
+                        Room = room
+                    };
+                    room.PBIs.Add(pbi);
+                    return true;
+                }
+            }
+            return false;
+        }
+
+        public static bool RemovePBI(int id, string title)
+        {
+            foreach (var room in rooms)
+            {
+                if (room.RoomId == id)
+                {
+                    foreach (var pbi in room.PBIs)
+                    {
+                        if (pbi.Title == title)
+                        {
+                            room.PBIs.Remove(pbi);
+                            return true;
+                        }
+                    }
+                }
+            }
+            return false;
+        }
     }
 }
