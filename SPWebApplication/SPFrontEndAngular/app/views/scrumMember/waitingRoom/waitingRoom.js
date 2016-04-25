@@ -15,13 +15,13 @@
       $scope.roomNum = roomId.param1;
       $scope.participantsList = [];
 
-      PubSub.subscribe( 'participantsListChanged', function(msg, participantsList){
+      PubSub.subscribe( 'getParticipants', function(msg, participantsList){
           $scope.participantsList = participantsList;
           $timeout(function(){
               $scope.$apply();
           },0);
       });
 
-      signalRSvc.getParticipants($scope.roomNum);
+      signalRSvc.sendRequestWithRoomID(signalRSvc.CONST.GET_PARTICIPANTS);
   }]);
 })();

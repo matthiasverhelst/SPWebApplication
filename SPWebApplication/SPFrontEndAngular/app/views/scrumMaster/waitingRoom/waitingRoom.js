@@ -20,7 +20,7 @@
                   "PBI_name": newPbi,
                   "PBI_score": ""
               };
-              signalRSvc.createPBI(Pbi.PBI_name);
+            signalRSvc.sendRequestWithRoomID(signalRSvc.CONST.REMOVE_PBI, Pbi.PBI_name);
 
               $scope.pbiArray.push(Pbi);
               if ($scope.setPbiFocus) {
@@ -40,9 +40,8 @@
           focusNewPbi();
       };
 
-
       $scope.removePbi = function (index) {
-          signalRSvc.createPBI(pbiArray[index].PBI_name);
+          signalRSvc.sendRequestWithRoomID(signalRSvc.CONST.REMOVE_PBI, $scope.pbiArray[index].PBI_name);
           $scope.pbiArray.splice(index, 1);
       };
 
@@ -53,19 +52,18 @@
 
       };
 
-      PubSub.subscribe( 'getPBIList', function(msg, pbiArray){
-          console.log("pbiArray");
+      PubSub.subscribe( 'getPBIS', function(msg, pbiArray){
           console.log(pbiArray);
       });
 
-      PubSub.subscribe( 'participantsListChanged', function(msg, participantsList){
+      PubSub.subscribe('getParticipants', function(msg, participantsList){
           $scope.participantsList = participantsList;
           $timeout(function(){
               $scope.$apply();
           },0);
       });
 
-      signalRSvc.getParticipants();
-      signalRSvc.getPBIS();
+      signalRSvc.sendRequestWithRoomID(signalRSvc.CONST.GET_PARTICIPANTS);
+      signalRSvc.sendRequestWithRoomID(signalRSvc.CONST.GET_PBIS);
   }]);
 })();

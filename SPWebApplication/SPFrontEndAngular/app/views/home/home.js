@@ -19,17 +19,20 @@
 
       $scope.createRoom = function () {
          $scope.createRoomFormSubmitted = true;
-         signalRSvc.createRoom($scope.createRoomObj.scrumMasterName);
+         signalRSvc.sendRequest(signalRSvc.CONST.CREATE_ROOM, $scope.createRoomObj.scrumMasterName);
       };
 
       $scope.joinRoom = function(){
           $scope.errors={};
           $scope.joinRoomFormSubmitted = true;
           if($scope.joinRoomObj.roomId && $scope.joinRoomObj.scrumMemberName && $scope.joinRoomObj.roomId !== "" && $scope.joinRoomObj.scrumMemberName !== ""){
-              signalRSvc.joinRoom($scope.joinRoomObj.scrumMemberName,$scope.joinRoomObj.roomId);
+              var scrumMemberObj = {
+                  roomId : $scope.joinRoomObj.roomId,
+                  name : $scope.joinRoomObj.scrumMemberName
+              };
+              signalRSvc.sendRequest(signalRSvc.CONST.JOIN_ROOM, scrumMemberObj);
           }
       };
-
 
       PubSub.subscribe( 'roomJoined', function(msg, success){
           if(success){
