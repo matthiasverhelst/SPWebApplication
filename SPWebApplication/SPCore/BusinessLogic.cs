@@ -125,8 +125,7 @@ namespace SPCore
                     {
                         if (pbi.Title == title)
                         {
-                            room.PBIs.Remove(pbi);
-                            return true;
+                            return room.PBIs.Remove(pbi);
                         }
                     }
                 }
