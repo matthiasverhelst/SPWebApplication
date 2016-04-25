@@ -10,7 +10,7 @@ namespace SPCore
 {
     public class BusinessLogic
     {        
-        private static ICollection<RoomDTO> rooms = new List<RoomDTO>();
+        private static ICollection<RoomDTO> _rooms = new List<RoomDTO>();
 
         public static int CreateRoom(String scrumMasterName, String connectionId)
         {
@@ -23,7 +23,7 @@ namespace SPCore
             RoomDTO room = new RoomDTO()
             {
                 ScrumMaster = scrumMaster,
-                RoomId = new Random().Next(1000, 9999),
+                RoomId = GenerateRoomId(),
                 Participants = new List<UserDTO>(),
                 PBIs = new List<ProductBacklogItemDTO>()
             };
@@ -31,32 +31,45 @@ namespace SPCore
             /* Do we need to add the scrumMaster to the users list? */
             room.Participants.Add(scrumMaster);
 
-            rooms.Add(room);
+            _rooms.Add(room);
 
             return room.RoomId;
         }
 
+        private static int GenerateRoomId()
+        {
+            int result;
+            var random = new Random();
+
+            do
+            {
+                result = random.Next(1000, 9999);
+            } while (_rooms.Where(r => r.RoomId == result).Any());
+
+            return result;
+        }
+
         public static ICollection<UserDTO> GetParticipants(int id)
         {
-            foreach (var room in rooms)
+            var room = _rooms.Where(r => r.RoomId == id).FirstOrDefault();
+            
+            if(room != null)
             {
-                if (room.RoomId == id)
-                {
-                    return room.Participants;
-                }
+                return room.Participants;
             }
+
             return null;
         }
 
         public static ICollection<ProductBacklogItemDTO> GetPBIs(int id)
         {
-            foreach (var room in rooms)
+            var room = _rooms.Where(r => r.RoomId == id).FirstOrDefault();
+
+            if (room != null)
             {
-                if (room.RoomId == id)
-                {
-                    return room.PBIs;
-                }
+                return room.PBIs;
             }
+
             return null;
         }
 
@@ -68,20 +81,20 @@ namespace SPCore
                 ConnectionId = connectionId
             };
 
-            foreach (var room in rooms)
+            var room = _rooms.Where(r => r.RoomId == id).FirstOrDefault();
+
+            if (room == null)
             {
-                if (room.RoomId == id)
-                {
-                    room.Participants.Add(user);
-                    return true;
-                }
+                return false;
             }
-            return false;
+
+            room.Participants.Add(user);
+            return true;
         }
 
-        public static int RemoveUser(String connectionId)
+        public static int RemoveUser(string connectionId)
         {
-            foreach (var room in rooms)
+            foreach (var room in _rooms)
             {
                 foreach (var user in room.Participants)
                 {
@@ -98,39 +111,39 @@ namespace SPCore
 
         public static bool CreatePBI(int id, string title)
         {
-            foreach (var room in rooms)
+            var room = _rooms.Where(r => r.RoomId == id).FirstOrDefault();
+
+            if (room == null)
             {
-                if (room.RoomId == id)
-                {
-                    ProductBacklogItemDTO pbi = new ProductBacklogItemDTO()
-                    {
-                        Title = title,
-                        Room = room,
-                        Estimates = new List<EstimateDTO>()
-                    };
-                    room.PBIs.Add(pbi);
-                    return true;
-                }
+                return false;
             }
-            return false;
+
+            ProductBacklogItemDTO pbi = new ProductBacklogItemDTO()
+            {
+                Title = title,
+                Room = room,
+                Estimates = new List<EstimateDTO>()
+            };
+
+            room.PBIs.Add(pbi);
+            return true;
         }
 
         public static bool RemovePBI(int id, string title)
         {
-            foreach (var room in rooms)
+            var room = _rooms.Where(r => r.RoomId == id).FirstOrDefault();
+
+            if(room != null)
             {
-                if (room.RoomId == id)
+                var pbi = room.PBIs.Where(p => p.Title == title).FirstOrDefault();
+
+                if (pbi != null)
                 {
-                    foreach (var pbi in room.PBIs)
-                    {
-                        if (pbi.Title == title)
-                        {
-                            room.PBIs.Remove(pbi);
-                            return true;
-                        }
-                    }
+                    room.PBIs.Remove(pbi);
+                    return true;
                 }
             }
+            
             return false;
         }
     }
