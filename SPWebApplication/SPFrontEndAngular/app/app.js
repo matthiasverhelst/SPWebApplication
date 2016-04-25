@@ -90,6 +90,9 @@
             this.proxy.invoke('getPBIS', roomId);
         };
 
+        var addEstimation = function (pbiName, score) {
+            this.proxy.invoke('addEstimation', roomId, pbiName, score);
+        }
 
 
         return {
@@ -100,7 +103,8 @@
             getParticipants: getParticipants,
             createPBI: createPBI,
             removePBI: removePBI,
-            getPBIS : getPBIS
+            getPBIS: getPBIS,
+            addEstimation: addEstimation
         };
     }]);
 
