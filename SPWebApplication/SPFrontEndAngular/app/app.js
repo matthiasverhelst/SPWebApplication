@@ -33,7 +33,6 @@
             });
 
             this.proxy.on('roomJoined', function (success) {
-                roomId = id;
                 PubSub.publish( 'roomJoined', success );
             });
 
@@ -71,6 +70,7 @@
         };
 
         var joinRoom = function (name, id) {
+            roomId = id;
             this.proxy.invoke('joinRoom', name, id);
         };
 
