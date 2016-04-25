@@ -134,14 +134,14 @@ namespace SPCore
 			var room = _rooms.Where(r => r.RoomId == id).FirstOrDefault();
 
 			if(room != null)
-					{
+		    {
 				var pbi = room.PBIs.Where(p => p.Title == title).FirstOrDefault();
 
 				if (pbi != null)
-						{
-							return room.PBIs.Remove(pbi);
-						}
-					}
+				{
+					return room.PBIs.Remove(pbi);
+				}
+			}
 			
 			return false;
 		}
