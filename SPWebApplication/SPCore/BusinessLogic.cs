@@ -50,13 +50,13 @@ namespace SPCore
         }
 
         public static ICollection<UserDTO> GetParticipants(int id)
-        {
+                {
             var room = _rooms.Where(r => r.RoomId == id).FirstOrDefault();
             
             if(room != null)
             {
-                return room.Participants;
-            }
+                    return room.Participants;
+                }
 
             return null;
         }
@@ -67,8 +67,8 @@ namespace SPCore
 
             if (room != null)
             {
-                return room.PBIs;
-            }
+                    return room.PBIs;
+                }
 
             return null;
         }
@@ -88,9 +88,9 @@ namespace SPCore
                 return false;
             }
 
-            room.Participants.Add(user);
-            return true;
-        }
+                    room.Participants.Add(user);
+                    return true;
+                }
 
         public static int RemoveUser(string connectionId)
         {
@@ -114,35 +114,34 @@ namespace SPCore
             var room = _rooms.Where(r => r.RoomId == id).FirstOrDefault();
 
             if (room == null)
-            {
+                {
                 return false;
             }
 
-            ProductBacklogItemDTO pbi = new ProductBacklogItemDTO()
-            {
-                Title = title,
-                Room = room,
-                Estimates = new List<EstimateDTO>()
-            };
+                    ProductBacklogItemDTO pbi = new ProductBacklogItemDTO()
+                    {
+                        Title = title,
+                        Room = room,
+                        Estimates = new List<EstimateDTO>()
+                    };
 
-            room.PBIs.Add(pbi);
-            return true;
-        }
+                    room.PBIs.Add(pbi);
+                    return true;
+                }
 
         public static bool RemovePBI(int id, string title)
         {
             var room = _rooms.Where(r => r.RoomId == id).FirstOrDefault();
 
             if(room != null)
-            {
+                    {
                 var pbi = room.PBIs.Where(p => p.Title == title).FirstOrDefault();
 
                 if (pbi != null)
-                {
-                    room.PBIs.Remove(pbi);
-                    return true;
-                }
-            }
+                        {
+                            return room.PBIs.Remove(pbi);
+                        }
+                    }
             
             return false;
         }

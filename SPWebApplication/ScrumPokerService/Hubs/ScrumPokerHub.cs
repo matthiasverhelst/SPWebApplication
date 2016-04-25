@@ -26,13 +26,14 @@ namespace ScrumPokerService.Hubs
             Clients.Caller.getPBIs(pbis);
         }
 
-        public void CreateRoom(string scrumMasterName)
+        public async Task CreateRoom(string scrumMasterName)
         {
             int id = BusinessLogic.CreateRoom(scrumMasterName, Context.ConnectionId);
             Clients.Caller.roomCreated(id);
 
             ICollection<UserDTO> participants = BusinessLogic.GetParticipants(id);
-            Clients.Caller.getParticipants(participants); 
+            await Groups.Add(Context.ConnectionId, id.ToString());
+            Clients.Group(id.ToString()).getParticipants(participants); 
         }
 
         public void CreatePBI(int id, string title)
@@ -52,20 +53,24 @@ namespace ScrumPokerService.Hubs
             Clients.Caller.removedPBI(hasBeenRemoved);
         }
 
-        public void JoinRoom(string name, int id)
+        public async Task JoinRoom(string name, int id)
         {
             Boolean hasJoined = BusinessLogic.JoinRoom(name, id, Context.ConnectionId);
             Clients.Caller.roomJoined(hasJoined);
 
-            ICollection<UserDTO> participants = BusinessLogic.GetParticipants(id);
-            Clients.All.getParticipants(participants); 
+            if (hasJoined)
+            {
+                await Groups.Add(Context.ConnectionId, id.ToString());
+                ICollection<UserDTO> participants = BusinessLogic.GetParticipants(id);
+                Clients.Group(id.ToString()).getParticipants(participants); 
+            }           
         }
 
         public override Task OnDisconnected(bool stopCalled)
         {
             int id = BusinessLogic.RemoveUser(Context.ConnectionId);
             ICollection<UserDTO> participants = BusinessLogic.GetParticipants(id);
-            Clients.All.getParticipants(participants);
+            Clients.Group(id.ToString()).getParticipants(participants);
             return null;
         }
     }
