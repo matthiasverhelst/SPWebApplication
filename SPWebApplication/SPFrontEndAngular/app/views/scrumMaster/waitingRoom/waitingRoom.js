@@ -30,6 +30,9 @@
               }
           }
       };
+      $scope.pushPbi = function(index){
+          signalRSvc.sendRequestWithRoomID(signalRSvc.CONST.PUSH_PBI, $scope.pbiArray[i].PBI_name);
+      };
 
       var focusNewPbi = function () {
           document.getElementById("newPbi").focus();
@@ -64,6 +67,10 @@
               $scope.$apply();
           },0);
       });
+
+      PubSub.subscribe( 'PBIPushed', function(msg, pbiName){
+          console.log('PBIPushed', pbiName);
+    });
 
       signalRSvc.sendRequestWithRoomID(signalRSvc.CONST.GET_PARTICIPANTS);
       signalRSvc.sendRequestWithRoomID(signalRSvc.CONST.GET_PBIS);

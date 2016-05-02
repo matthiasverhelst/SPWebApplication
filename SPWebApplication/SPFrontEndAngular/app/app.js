@@ -8,8 +8,6 @@
     'pokerShoreApp.waitingRoomScrumMaster',
     'pokerShoreApp.votingScrumMaster',
     'pokerShoreApp.waitingRoomScrumMember',
-    'pokerShoreApp.view1',
-    'pokerShoreApp.view2',
     'pokerShoreApp.voting',
     'pokerShoreApp.version'
     ]);
@@ -26,7 +24,8 @@
             GET_PARTICIPANTS : 'GetParticipants',
             GET_PBIS : 'GetPBIs',
             CREATE_PBI : 'createPBI',
-            REMOVE_PBI : 'removePBI'
+            REMOVE_PBI : 'removePBI',
+            PUSH_PBI : 'pushPBI'
         };
 
         var initialize = function () {
@@ -46,7 +45,7 @@
                 });
             };
 
-            var onProxyVarsArray = ['roomCreated', 'roomJoined', 'getParticipants', 'getPBIS'];
+            var onProxyVarsArray = ['roomCreated', 'roomJoined', 'getParticipants', 'getPBIS', 'PBIPushed'];
 
             for(var i = 0; i < onProxyVarsArray.length; i++){
                 createProxyListener(this.proxy, onProxyVarsArray[i]);
