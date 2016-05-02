@@ -45,7 +45,7 @@
       };
 
       $scope.removePbi = function (index) {
-          signalRSvc.sendRequestWithRoomID(signalRSvc.CONST.REMOVE_PBI, $scope.pbiArray[index].PBI_name);
+          signalRSvc.sendRequestWithRoomID(signalRSvc.CONST.REMOVE_PBI, $scope.pbiArray[index].Title);
           $scope.pbiArray.splice(index, 1);
       };
 
