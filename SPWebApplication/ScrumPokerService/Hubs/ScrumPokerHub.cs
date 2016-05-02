@@ -43,7 +43,7 @@ namespace ScrumPokerService.Hubs
             Clients.Caller.createdPBI(hasAdded);
         }
 
-        public void AddEstimation(int id, string title, int score)
+        public void AddEstimation(int id, AddEstimateDTO addEstimateDTO)
         {
             
         }

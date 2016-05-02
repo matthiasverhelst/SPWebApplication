@@ -114,6 +114,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="App_Start\SocketStartup.cs" />
+    <Compile Include="DTO\AddEstimateDTO.cs" />
     <Compile Include="DTO\JoinRoomDTO.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
