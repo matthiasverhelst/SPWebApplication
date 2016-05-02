@@ -1,6 +1,5 @@
 <h1>This is a Room</h1>
 <h3>Room id: {{roomID}}</h3>
-<button type="button" name="button" ng-click="goToVoting()">Go To Voting</button>
 <div class="BPI_list" >
     <form ng-submit="submit()">
         <table>
@@ -20,10 +19,10 @@
                     <label class="PBI_score">{{pbi.PBI_score}}</label>
                 </td>
                 <td>
-                    <button class="PBI_push" ng-click="pushPbi($index)">Push</button>
+                    <span  class="PBI_push btn btn-primary" ng-click="pushPbi($index)">Push</span>
                 </td>
                 <td>
-                    <button class="PBI_remove" ng-click="removePbi($index)">X</button>
+                    <span class="PBI_remove btn btn-default" ng-click="removePbi($index)">X</span>
                 </td>
             </tr>
             <tr>
@@ -43,7 +42,7 @@
     </form>
 </div>
 <div>
-    <h2>Partipants</h2>
+    <h2>Participants</h2>
     <ul>
         <li ng-repeat="participant in participantsList">
             <span>{{participant.Name}}</span>

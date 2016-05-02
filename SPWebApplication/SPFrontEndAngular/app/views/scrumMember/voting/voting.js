@@ -4,15 +4,14 @@
     angular.module('pokerShoreApp.voting', ['ngRoute'])
 
     .config(['$routeProvider', function ($routeProvider) {
-        $routeProvider.when('/voting/:room', {
+        $routeProvider.when('/voting/:pbi', {
             templateUrl: 'views/voting/voting.html',
             controller: 'VotingCtrl'
         });
     }])
 
     .controller('VotingCtrl', ['$scope', '$location', '$routeParams', 'signalRSvc', function ($scope, $location, $routeParams, signalRSvc) {
-        $scope.roomID = $routeParams.room;
-        $scope.pbiName = "Test PBI";
+        $scope.pbiName = $routeParams.pbi;
         $scope.rows = [
             {
                 "buttons": [{ value: '0', text: '0' }, { value: '0.5', text: '0.5' }, { value: '1', text: '1' }]
@@ -28,10 +27,10 @@
         ];
 
         $scope.vote = function vote(score) {
-            var voteObj = { "PBI": $scope.pbiName, "estimate": score };
+            var voteObj = { "pbiName": $scope.pbiName, "estimate": score };
             signalRSvc.sendRequestWithRoomID(signalRSvc.CONST.ADD_ESTIMATE, voteObj);
-            var roomPath = '/waitingRoomScrumMember/' + $scope.roomID;
-            $location.path(roomPath);
+            //var roomPath = '/waitingRoomScrumMember/';
+            //$location.path(roomPath);
         }
 
         //To update the view after PubSub, use setTimeout of 0ms to call $scope.apply()
