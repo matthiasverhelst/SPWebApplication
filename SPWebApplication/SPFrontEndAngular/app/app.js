@@ -72,43 +72,10 @@
             }
         };
 
-        var joinRoom = function (name, id) {
-            roomId = id;
-            this.proxy.invoke('joinRoom', name, id);
-        };
-
-        var getParticipants = function () {
-            this.proxy.invoke('getParticipants', roomId);
-        };
-
-        var createPBI = function (pbiName) {
-            this.proxy.invoke('createPBI', roomId, pbiName);
-        };
-
-        var removePBI = function (pbiName) {
-            this.proxy.invoke('removePBI', roomId, pbiName);
-        };
-
-        var getPBIS = function () {
-            this.proxy.invoke('getPBIS', roomId);
-        };
-
-        var addEstimation = function (pbiName, score) {
-            this.proxy.invoke('addEstimation', roomId, pbiName, score);
-        }
-
-
         return {
             initialize: initialize,
             CONST : CONST,
             sendRequest: sendRequest,
-            createRoom: createRoom,
-            joinRoom: joinRoom,
-            getParticipants: getParticipants,
-            createPBI: createPBI,
-            removePBI: removePBI,
-            getPBIS: getPBIS,
-            addEstimation: addEstimation,
             sendRequestWithRoomID : sendRequestWithRoomID
         };
     }]);
