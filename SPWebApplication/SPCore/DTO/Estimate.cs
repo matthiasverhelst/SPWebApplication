@@ -8,7 +8,7 @@ using System.Web;
 namespace SPCore.DTO
 {
     [Table("Estimate")]
-    public class EstimateDTO
+    public class Estimate
     {
         [Key]
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
@@ -17,10 +17,7 @@ namespace SPCore.DTO
         [Required]
         public int Value { get; set; }
         
-        [ForeignKey("ProductBacklogItemId")]
-        public virtual ProductBacklogItemDTO ProductBacklogItem { get; set; }
-        
         [ForeignKey("ParticipantId")]
-        public virtual UserDTO Participant { get; set; }
+        public virtual User Participant { get; set; }
     }
 }

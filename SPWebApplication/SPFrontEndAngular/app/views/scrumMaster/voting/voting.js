@@ -10,7 +10,7 @@
         });
     }])
 
-    .controller('VotingCtrlScrumMaster', ['$scope','$location', function ($scope,$location) {
+    .controller('VotingCtrlScrumMaster', ['$scope','$location','signalRSvc', function ($scope,$location,signalRSvc) {
         $scope.rows = [
             {
                 "buttons": [{ value: '0', text: '0' }, { value: '0.5', text: '0.5' }, { value: '1', text: '1' }],
@@ -30,7 +30,9 @@
             }];
 
         $scope.goToWaitingRoom = function(){
-             $location.path("/waitingRoomScrumMaster/1234");
+             var pathString = "/waitingRoomScrumMaster/" + signalRSvc.getRoomId();
+             console.log(pathString);
+             $location.path(pathString);
         };
     }]);
 })();
