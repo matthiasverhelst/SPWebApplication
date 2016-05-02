@@ -37,6 +37,11 @@ namespace ScrumPokerService.Hubs
             Clients.Group(id.ToString()).getParticipants(participants); 
         }
 
+        public void PushPBI(int id, string pbiName)
+        {
+            Clients.Group(id.ToString()).pbiPushed(pbiName);
+        }
+
         public void CreatePBI(int id, string title)
         {
             Boolean hasAdded = BusinessLogic.CreatePBI(id, title);
@@ -45,7 +50,8 @@ namespace ScrumPokerService.Hubs
 
         public void AddEstimation(int id, AddEstimateDTO addEstimateDTO)
         {
-            
+            Boolean isAdded = BusinessLogic.AddEstimate(id, addEstimateDTO.PBIName, addEstimateDTO.Estimate);
+            Clients.Caller.addedEstimation(isAdded);
         }
 
         public void RemovePBI(int id, string title)
