@@ -4,13 +4,13 @@
     angular.module('pokerShoreApp.votingScrumMaster', ['ngRoute'])
 
     .config(['$routeProvider', function ($routeProvider) {
-        $routeProvider.when('/votingScrumMaster', {
+        $routeProvider.when('/votingScrumMaster/:pbiName', {
             templateUrl: 'views/scrumMaster/voting/voting.html',
             controller: 'VotingCtrlScrumMaster'
         });
     }])
-
-    .controller('VotingCtrlScrumMaster', ['$scope','$location','signalRSvc', function ($scope,$location,signalRSvc) {
+    .controller('VotingCtrlScrumMaster', ['$scope', '$location', '$routeParams', 'signalRSvc', function ($scope, $location, $routeParams, signalRSvc) {
+        $scope.pbiName = $routeParams.pbiName;
         $scope.rows = [
             {
                 "buttons": [{ value: '0', text: '0' }, { value: '0.5', text: '0.5' }, { value: '1', text: '1' }],
@@ -31,7 +31,6 @@
 
         $scope.goToWaitingRoom = function(){
              var pathString = "/waitingRoomScrumMaster/" + signalRSvc.getRoomId();
-             console.log(pathString);
              $location.path(pathString);
         };
     }]);

@@ -68,7 +68,12 @@
       });
 
       PubSub.subscribe( 'PBIPushed', function(msg, pbiName){
+          var pathString = "/votingScrumMaster/" + pbiName;
+          $location.path(pathString);
           console.log('PBIPushed', pbiName);
+          $timeout(function(){
+              $scope.$apply();
+          },0);
     });
 
       signalRSvc.sendRequestWithRoomID(signalRSvc.CONST.GET_PARTICIPANTS);
