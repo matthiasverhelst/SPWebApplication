@@ -13,10 +13,10 @@
             </tr>
             <tr ng-repeat="pbi in pbiArray" class="PBI_line">
                 <td>
-                    <input class="PBI_name" ng-model="pbi.PBI_name" />
+                    <input class="PBI_name" ng-model="pbi.Title"/>
                 </td>
                 <td>
-                    <label class="PBI_score">{{pbi.PBI_score}}</label>
+                    <label class="PBI_score">{{pbi.FinalEstimation}}</label>
                 </td>
                 <td>
                     <span  class="PBI_push btn btn-primary" ng-click="pushPbi($index)">Push</span>
