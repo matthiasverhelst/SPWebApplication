@@ -20,7 +20,7 @@
                   "PBI_name": newPbi,
                   "PBI_score": ""
               };
-            signalRSvc.sendRequestWithRoomID(signalRSvc.CONST.REMOVE_PBI, Pbi.PBI_name);
+            signalRSvc.sendRequestWithRoomID(signalRSvc.CONST.CREATE_PBI, Pbi.PBI_name);
 
               $scope.pbiArray.push(Pbi);
               if ($scope.setPbiFocus) {
