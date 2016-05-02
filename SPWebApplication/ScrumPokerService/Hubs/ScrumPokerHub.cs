@@ -21,12 +21,6 @@ namespace ScrumPokerService.Hubs
             Clients.Caller.getParticipants(participants);
         }
 
-        public void GetPBIs(int id)
-        {
-            ICollection<ProductBacklogItem> pbis = BusinessLogic.GetPBIs(id);
-            Clients.Caller.getPBIs(pbis);
-        }
-
         public async Task CreateRoom(string scrumMasterName)
         {
             int id = BusinessLogic.CreateRoom(scrumMasterName, Context.ConnectionId);
@@ -35,29 +29,6 @@ namespace ScrumPokerService.Hubs
             ICollection<User> participants = BusinessLogic.GetParticipants(id);
             await Groups.Add(Context.ConnectionId, id.ToString());
             Clients.Group(id.ToString()).getParticipants(participants); 
-        }
-
-        public void PushPBI(int id, string pbiName)
-        {
-            Clients.Group(id.ToString()).pbiPushed(pbiName);
-        }
-
-        public void CreatePBI(int id, string title)
-        {
-            Boolean hasAdded = BusinessLogic.CreatePBI(id, title);
-            Clients.Caller.createdPBI(hasAdded);
-        }
-
-        public void AddEstimation(int id, AddEstimateDTO addEstimateDTO)
-        {
-            Boolean isAdded = BusinessLogic.AddEstimate(id, Context.ConnectionId, addEstimateDTO.PBIName, addEstimateDTO.Estimate);
-            Clients.Caller.addedEstimation(isAdded);
-        }
-
-        public void RemovePBI(int id, string title)
-        {
-            Boolean hasBeenRemoved = BusinessLogic.RemovePBI(id, title);
-            Clients.Caller.removedPBI(hasBeenRemoved);
         }
 
         public async Task JoinRoom(JoinRoomDTO joinRoomDTO)
@@ -71,8 +42,37 @@ namespace ScrumPokerService.Hubs
             {
                 await Groups.Add(Context.ConnectionId, id.ToString());
                 ICollection<User> participants = BusinessLogic.GetParticipants(id);
-                Clients.Group(id.ToString()).getParticipants(participants); 
-            }           
+                Clients.Group(id.ToString()).getParticipants(participants);
+            }
+        }
+
+        public void GetPBIs(int id)
+        {
+            ICollection<ProductBacklogItem> pbis = BusinessLogic.GetPBIs(id);
+            Clients.Caller.getPBIs(pbis);
+        }
+
+        public void PushPBI(int id, string pbiName)
+        {
+            Clients.Group(id.ToString()).pbiPushed(pbiName);
+        }
+
+        public void CreatePBI(int id, string title)
+        {
+            Boolean hasAdded = BusinessLogic.CreatePBI(id, title);
+            Clients.Caller.createdPBI(hasAdded);
+        }
+
+        public void RemovePBI(int id, string title)
+        {
+            Boolean hasBeenRemoved = BusinessLogic.RemovePBI(id, title);
+            Clients.Caller.removedPBI(hasBeenRemoved);
+        }
+
+        public void AddEstimation(int id, AddEstimateDTO addEstimateDTO)
+        {
+            Boolean isAdded = BusinessLogic.AddEstimate(id, Context.ConnectionId, addEstimateDTO.PBIName, addEstimateDTO.Estimate);
+            Clients.Caller.addedEstimation(isAdded);
         }
 
         public override Task OnDisconnected(bool stopCalled)
