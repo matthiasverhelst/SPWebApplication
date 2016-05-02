@@ -18,10 +18,10 @@
       $scope.createPbi = function (newPbi) {
           if (newPbi && newPbi.length >= 1) {
               var Pbi = {
-                  "title": newPbi,
-                  "finalEstimation": ""
+                  "Title": newPbi,
+                  "FinalEstimation": ""
               };
-              signalRSvc.sendRequestWithRoomID(signalRSvc.CONST.CREATE_PBI, Pbi.PBI_name);
+              signalRSvc.sendRequestWithRoomID(signalRSvc.CONST.CREATE_PBI, Pbi.Title);
 
               $scope.pbiArray.push(Pbi);
               if ($scope.setPbiFocus) {
@@ -30,7 +30,7 @@
           }
       };
       $scope.pushPbi = function(index){
-          signalRSvc.sendRequestWithRoomID(signalRSvc.CONST.PUSH_PBI, $scope.pbiArray[index].title);
+          signalRSvc.sendRequestWithRoomID(signalRSvc.CONST.PUSH_PBI, $scope.pbiArray[index].Title);
       };
 
       var focusNewPbi = function () {
@@ -45,7 +45,7 @@
       };
 
       $scope.removePbi = function (index) {
-          signalRSvc.sendRequestWithRoomID(signalRSvc.CONST.REMOVE_PBI, $scope.pbiArray[index].PBI_name);
+          signalRSvc.sendRequestWithRoomID(signalRSvc.CONST.REMOVE_PBI, $scope.pbiArray[index].Title);
           $scope.pbiArray.splice(index, 1);
       };
 
@@ -53,6 +53,9 @@
           console.log("pbiArray");
           console.log(pbiArray);
           $scope.pbiArray = pbiArray;
+          $timeout(function(){
+              $scope.$apply();
+          },0);
       });
 
       PubSub.subscribe('getParticipants', function(msg, participantsList){
