@@ -30,7 +30,7 @@
 
         $scope.vote = function vote(score) {
             $scope.score = score;
-            signalRSvc.addEstimation($scope.pbiName, score);
+            //signalRSvc.addEstimation($scope.pbiName, score);
             var roomPath = '/waitingRoomScrumMember/' + $scope.roomId;
             $location.path(roomPath);
         }
