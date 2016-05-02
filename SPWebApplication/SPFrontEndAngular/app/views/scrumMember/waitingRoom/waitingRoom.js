@@ -10,7 +10,7 @@
     });
   }])
 
-  .controller('waitingRoomScrumMemberCtrl', ['$scope','$routeParams', '$http','$timeout','signalRSvc', function($scope, $routeParams, $http, $timeout,signalRSvc) {
+  .controller('waitingRoomScrumMemberCtrl', ['$scope','$routeParams', '$http','$timeout','signalRSvc','$location', function($scope, $routeParams, $http, $timeout,signalRSvc,$location) {
       $scope.roomID = $routeParams.room;
       $scope.participantsList = [];
 
@@ -20,6 +20,14 @@
               $scope.$apply();
           },0);
       });
+
+      PubSub.subscribe( 'PBIPushed', function(msg, pbiName){
+          var pathString = "/votingScrumMaster/" + pbiName;
+          $location.path(pathString);
+          $timeout(function(){
+              $scope.$apply();
+          },0);
+    });
 
       signalRSvc.sendRequestWithRoomID(signalRSvc.CONST.GET_PARTICIPANTS);
   }]);
