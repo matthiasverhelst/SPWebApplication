@@ -1,7 +1,8 @@
 ﻿using Microsoft.AspNet.SignalR;
 using Microsoft.AspNet.SignalR.Hubs;
 using SPCore;
-using SPCore.DTO;
+using SPCore.Model;
+using ScrumPokerService.DTO;
 
 using System;
 using System.Collections.Generic;
@@ -53,8 +54,10 @@ namespace ScrumPokerService.Hubs
             Clients.Caller.removedPBI(hasBeenRemoved);
         }
 
-        public async Task JoinRoom(string name, int id)
+        public async Task JoinRoom(JoinRoomDTO joinRoomDTO)
         {
+            int id = joinRoomDTO.RoomId;
+            string name = joinRoomDTO.Name;
             Boolean hasJoined = BusinessLogic.JoinRoom(name, id, Context.ConnectionId);
             Clients.Caller.roomJoined(hasJoined);
 
