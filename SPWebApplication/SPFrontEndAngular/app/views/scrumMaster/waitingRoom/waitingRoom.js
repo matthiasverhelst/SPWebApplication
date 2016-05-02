@@ -31,7 +31,7 @@
           }
       };
       $scope.pushPbi = function(index){
-          signalRSvc.sendRequestWithRoomID(signalRSvc.CONST.PUSH_PBI, $scope.pbiArray[i].PBI_name);
+          signalRSvc.sendRequestWithRoomID(signalRSvc.CONST.PUSH_PBI, $scope.pbiArray[index].PBI_name);
       };
 
       var focusNewPbi = function () {
