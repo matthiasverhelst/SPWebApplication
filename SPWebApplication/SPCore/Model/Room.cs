@@ -5,7 +5,7 @@ using System.ComponentModel.DataAnnotations.Schema;
 using System.Linq;
 using System.Web;
 
-namespace SPCore.DTO
+namespace SPCore.Model
 {
     [Table("Room")]
     public class Room

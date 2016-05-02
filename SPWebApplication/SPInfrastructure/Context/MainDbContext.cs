@@ -1,4 +1,4 @@
-﻿using SPCore.DTO;
+﻿using SPCore.Model;
 using System;
 using System.Collections.Generic;
 using System.Data.Entity;

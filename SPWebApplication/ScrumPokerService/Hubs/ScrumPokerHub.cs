@@ -1,7 +1,8 @@
 ﻿using Microsoft.AspNet.SignalR;
 using Microsoft.AspNet.SignalR.Hubs;
 using SPCore;
-using SPCore.DTO;
+using SPCore.Model;
+using ScrumPokerService.DTO;
 
 using System;
 using System.Collections.Generic;
@@ -36,15 +37,21 @@ namespace ScrumPokerService.Hubs
             Clients.Group(id.ToString()).getParticipants(participants); 
         }
 
+        public void PushPBI(int id, string pbiName)
+        {
+            Clients.Group(id.ToString()).pbiPushed(pbiName);
+        }
+
         public void CreatePBI(int id, string title)
         {
             Boolean hasAdded = BusinessLogic.CreatePBI(id, title);
             Clients.Caller.createdPBI(hasAdded);
         }
 
-        public void AddEstimation(int id, string title, int score)
+        public void AddEstimation(int id, AddEstimateDTO addEstimateDTO)
         {
-            
+            Boolean isAdded = BusinessLogic.AddEstimate(id, Context.ConnectionId, addEstimateDTO.PBIName, addEstimateDTO.Estimate);
+            Clients.Caller.addedEstimation(isAdded);
         }
 
         public void RemovePBI(int id, string title)
@@ -53,8 +60,10 @@ namespace ScrumPokerService.Hubs
             Clients.Caller.removedPBI(hasBeenRemoved);
         }
 
-        public async Task JoinRoom(string name, int id)
+        public async Task JoinRoom(JoinRoomDTO joinRoomDTO)
         {
+            int id = joinRoomDTO.RoomId;
+            string name = joinRoomDTO.Name;
             Boolean hasJoined = BusinessLogic.JoinRoom(name, id, Context.ConnectionId);
             Clients.Caller.roomJoined(hasJoined);
 

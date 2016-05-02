@@ -21,13 +21,16 @@
                   "PBI_name": newPbi,
                   "PBI_score": ""
               };
-            signalRSvc.sendRequestWithRoomID(signalRSvc.CONST.CREATE_PBI, Pbi.PBI_name);
+              signalRSvc.sendRequestWithRoomID(signalRSvc.CONST.REMOVE_PBI, Pbi.PBI_name);
 
               $scope.pbiArray.push(Pbi);
               if ($scope.setPbiFocus) {
                   focusNewPbi();
               }
           }
+      };
+      $scope.pushPbi = function(index){
+          signalRSvc.sendRequestWithRoomID(signalRSvc.CONST.PUSH_PBI, $scope.pbiArray[index].PBI_name);
       };
 
       var focusNewPbi = function () {
@@ -63,6 +66,10 @@
               $scope.$apply();
           },0);
       });
+
+      PubSub.subscribe( 'PBIPushed', function(msg, pbiName){
+          console.log('PBIPushed', pbiName);
+    });
 
       signalRSvc.sendRequestWithRoomID(signalRSvc.CONST.GET_PARTICIPANTS);
       signalRSvc.sendRequestWithRoomID(signalRSvc.CONST.GET_PBIS);

@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using SPCore.Interfaces;
-using SPCore.DTO;
+using SPCore.Model;
 
 namespace SPCore
 {
@@ -144,5 +144,41 @@ namespace SPCore
 			
 			return false;
 		}
+
+        public static bool AddEstimate(int id, string connectionId, string title, int score)
+        {
+            var room = _rooms.Where(r => r.RoomId == id).FirstOrDefault();
+
+            if (room != null)
+            {
+                var pbi = room.PBIs.Where(p => p.Title == title).FirstOrDefault();
+
+                Estimate estimate = new Estimate()
+                {
+                    Value = score,
+                    Participant = GetUserByConnectionId(id, connectionId)
+                };
+
+                pbi.Estimates.Add(estimate);
+            }
+
+            return false;
+        }
+
+        private static User GetUserByConnectionId(int id, string connectionId)
+        {
+            var room = _rooms.Where(r => r.RoomId == id).FirstOrDefault();
+
+            if (room != null)
+            {
+                var user = room.Participants.Where(u => u.ConnectionId == connectionId).FirstOrDefault();
+
+                if (user != null)
+                {
+                    return user;
+                }
+            }
+            throw new Exception("No user found with connectionId: " + connectionId);
+        }
 	}
 }

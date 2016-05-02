@@ -5,19 +5,19 @@ using System.ComponentModel.DataAnnotations.Schema;
 using System.Linq;
 using System.Web;
 
-namespace SPCore.DTO
+namespace SPCore.Model
 {
-    [Table("User")]
-    public class User
+    [Table("Estimate")]
+    public class Estimate
     {
         [Key]
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
-        public int UserId { get; set; }
-       
+        public int EstimateId { get; set; }
+        
         [Required]
-        public string Name { get; set; }
-
-        [Required]
-        public string ConnectionId { get; set; }
+        public int Value { get; set; }
+        
+        [ForeignKey("ParticipantId")]
+        public virtual User Participant { get; set; }
     }
 }

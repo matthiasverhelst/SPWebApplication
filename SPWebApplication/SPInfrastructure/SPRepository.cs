@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using SPCore.Interfaces;
-using SPCore.DTO;
+using SPCore.Model;
 using SPInfrastructure.Context;
 using SPInfrastructure.DAO;
 
