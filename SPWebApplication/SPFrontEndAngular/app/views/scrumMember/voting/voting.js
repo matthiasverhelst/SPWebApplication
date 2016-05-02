@@ -4,13 +4,15 @@
     angular.module('pokerShoreApp.voting', ['ngRoute'])
 
     .config(['$routeProvider', function ($routeProvider) {
-        $routeProvider.when('/voting', {
+        $routeProvider.when('/voting/:room', {
             templateUrl: 'views/voting/voting.html',
             controller: 'VotingCtrl'
         });
     }])
 
-    .controller('VotingCtrl', ['$scope', '$location', 'signalRSvc', function ($scope, $location, signalRSvc) {
+    .controller('VotingCtrl', ['$scope', '$location', '$routeParams', 'signalRSvc', function ($scope, $location, $routeParams, signalRSvc) {
+        $scope.roomID = $routeParams.room;
+        $scope.pbiName = "Test PBI";
         $scope.rows = [
             {
                 "buttons": [{ value: '0', text: '0' }, { value: '0.5', text: '0.5' }, { value: '1', text: '1' }]
@@ -25,13 +27,10 @@
             }
         ];
 
-        $scope.roomId = "testId";
-        $scope.pbiName = "Test PBI";
-
         $scope.vote = function vote(score) {
-            $scope.score = score;
-            //signalRSvc.addEstimation($scope.pbiName, score);
-            var roomPath = '/waitingRoomScrumMember/' + $scope.roomId;
+            var voteObj = { "PBI": $scope.pbiName, "estimate": score };
+            signalRSvc.sendRequestWithRoomID(signalRSvc.CONST.ADD_ESTIMATE, voteObj);
+            var roomPath = '/waitingRoomScrumMember/' + $scope.roomID;
             $location.path(roomPath);
         }
 

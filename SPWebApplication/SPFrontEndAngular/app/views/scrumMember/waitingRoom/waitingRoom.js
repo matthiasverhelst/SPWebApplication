@@ -4,15 +4,14 @@
   angular.module('pokerShoreApp.waitingRoomScrumMember', ['ngRoute'])
 
   .config(['$routeProvider', function($routeProvider) {
-    $routeProvider.when('/waitingRoomScrumMember/:param1', {
+    $routeProvider.when('/waitingRoomScrumMember/:room', {
       templateUrl: 'views/scrumMember/waitingRoom/waitingRoom.html',
       controller: 'waitingRoomScrumMemberCtrl'
     });
   }])
 
   .controller('waitingRoomScrumMemberCtrl', ['$scope','$routeParams', '$http','$timeout','signalRSvc', function($scope, $routeParams, $http, $timeout,signalRSvc) {
-      var roomId = $routeParams;
-      $scope.roomNum = roomId.param1;
+      $scope.roomID = $routeParams.room;
       $scope.participantsList = [];
 
       PubSub.subscribe( 'getParticipants', function(msg, participantsList){
