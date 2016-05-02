@@ -49,14 +49,9 @@
           $scope.pbiArray.splice(index, 1);
       };
 
-
-
-      $scope.goToVoting = function(){
-          $location.path("/votingScrumMaster");
-
-      };
-
       PubSub.subscribe( 'getPBIS', function(msg, pbiArray){
+          console.log("pbiArray");
+          console.log(pbiArray);
           $scope.pbiArray = pbiArray;
       });
 
