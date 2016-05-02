@@ -4,7 +4,7 @@ using System.Data.Entity;
 using System.Linq;
 using System.Web;
 using SPInfrastructure.Context;
-using SPCore.DTO;
+using SPCore.Model;
 
 namespace SPInfrastructure.DAO
 {

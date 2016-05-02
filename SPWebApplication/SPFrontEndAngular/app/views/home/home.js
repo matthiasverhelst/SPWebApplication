@@ -30,6 +30,7 @@
                   roomId : $scope.joinRoomObj.roomId,
                   name : $scope.joinRoomObj.scrumMemberName
               };
+              console.log("calling singnalR");
               signalRSvc.sendRequest(signalRSvc.CONST.JOIN_ROOM, scrumMemberObj);
           }
       };
