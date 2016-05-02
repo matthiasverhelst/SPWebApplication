@@ -1,20 +1,38 @@
 <button type="button" name="button" ng-click="goToWaitingRoom()">goToWaitingRoom</button>
 
 <div class="page-header">
-    <h1 name="pbi_name">PBI Name {{pbiName}}</h1>
+    <h1 name="pbi_name">{{pbiName}}</h1>
     <h3>Please vote</h3>
     <h4>Given score: {{score}}</h4>
 </div>
 <form>
+    <div class="row form-group hidden-xs">
+        <div class="col-xs-6">
+            <button name="skip" class="btn btn-warning">Skip</button>
+        </div>
+        <div class="col-xs-6">
+            <button name="abort" class="btn btn-danger">Abort</button>
+        </div>
+    </div>
     <div ng-repeat="row in rows">
         <div class="row form-group">
             <div ng-repeat="button in row.buttons">
-                <div ng-class="row.col">
-                    <button name="score" ng-class="button.class" class="btn btn-lg btn-primary btn-block" type="button" value="button.value">
+                <div ng-class="$parent.$last ? 'col-xs-12 col-sm-6' : 'col-xs-4 col-sm-2'">
+                    <button name="score" ng-class="{'btn-block-full-width':$parent.$last}" class="btn btn-lg btn-primary btn-block" type="button" value="button.value" ng-click="vote(button.value)">
                         <span>{{button.text}}</span>
                     </button>
                 </div>
             </div>
         </div>
     </div>
+    <div class="row form-group visible-xs-block">
+        <div class="col-xs-6">
+            <button name="skip" class="btn btn-warning">Skip</button>
+        </div>
+        <div class="col-xs-6">
+            <button name="abort" class="btn btn-danger">Abort</button>
+        </div>
+    </div>
 </form>
+
+
