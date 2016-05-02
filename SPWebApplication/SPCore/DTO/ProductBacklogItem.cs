@@ -7,17 +7,18 @@ using System.Web;
 
 namespace SPCore.DTO
 {
-    [Table("User")]
-    public class UserDTO
+    [Table("ProductBacklogItem")]
+    public class ProductBacklogItem
     {
         [Key]
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
-        public int UserId { get; set; }
-       
+        public int ProductBacklogItemId { get; set; }
+        
         [Required]
-        public string Name { get; set; }
+        public string Title { get; set; }
 
-        [Required]
-        public string ConnectionId { get; set; }
+        public int FinalEstimation { get; set; }
+
+        public virtual ICollection<Estimate> Estimates { get; set; }
     }
 }

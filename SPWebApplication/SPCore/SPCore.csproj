@@ -41,10 +41,10 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="BusinessLogic.cs" />
-    <Compile Include="DTO\EstimateDTO.cs" />
-    <Compile Include="DTO\ProductBacklogItemDTO.cs" />
-    <Compile Include="DTO\RoomDTO.cs" />
-    <Compile Include="DTO\UserDTO.cs" />
+    <Compile Include="DTO\Estimate.cs" />
+    <Compile Include="DTO\ProductBacklogItem.cs" />
+    <Compile Include="DTO\Room.cs" />
+    <Compile Include="DTO\User.cs" />
     <Compile Include="ISPRepository.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
