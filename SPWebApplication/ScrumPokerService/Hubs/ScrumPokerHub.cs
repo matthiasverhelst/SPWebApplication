@@ -50,7 +50,7 @@ namespace ScrumPokerService.Hubs
 
         public void AddEstimation(int id, AddEstimateDTO addEstimateDTO)
         {
-            Boolean isAdded = BusinessLogic.AddEstimate(id, addEstimateDTO.PBIName, addEstimateDTO.Estimate);
+            Boolean isAdded = BusinessLogic.AddEstimate(id, Context.ConnectionId, addEstimateDTO.PBIName, addEstimateDTO.Estimate);
             Clients.Caller.addedEstimation(isAdded);
         }
 

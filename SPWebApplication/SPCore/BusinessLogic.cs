@@ -145,7 +145,7 @@ namespace SPCore
 			return false;
 		}
 
-        public static bool AddEstimate(int id, string title, int score)
+        public static bool AddEstimate(int id, string connectionId, string title, int score)
         {
             var room = _rooms.Where(r => r.RoomId == id).FirstOrDefault();
 
@@ -156,17 +156,29 @@ namespace SPCore
                 Estimate estimate = new Estimate()
                 {
                     Value = score,
-                    Participant = GetUserByConnectionId("")
+                    Participant = GetUserByConnectionId(id, connectionId)
                 };
-                
+
+                pbi.Estimates.Add(estimate);
             }
 
             return false;
         }
 
-        private static User GetUserByConnectionId(string connectionId)
+        private static User GetUserByConnectionId(int id, string connectionId)
         {
-            return new User();
+            var room = _rooms.Where(r => r.RoomId == id).FirstOrDefault();
+
+            if (room != null)
+            {
+                var user = room.Participants.Where(u => u.ConnectionId == connectionId).FirstOrDefault();
+
+                if (user != null)
+                {
+                    return user;
+                }
+            }
+            throw new Exception("No user found with connectionId: " + connectionId);
         }
 	}
 }
