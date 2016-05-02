@@ -17,16 +17,16 @@ namespace SPInfrastructure.DAO
             _db = db;
         }
 
-        public bool CreateUser(UserDTO user)
+        public bool CreateUser(User user)
         {
             _db.Users.Add(user);
             int result = _db.SaveChanges();
             return (result > 0);
         }
 
-        public UserDTO GetUserById(int id)
+        public User GetUserById(int id)
         {
-            IQueryable<UserDTO> query = from user in _db.Users where user.UserId.Equals(id) select user;
+            IQueryable<User> query = from user in _db.Users where user.UserId.Equals(id) select user;
             return query.First();
         }
     }

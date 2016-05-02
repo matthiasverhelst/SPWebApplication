@@ -9,8 +9,8 @@ namespace SPCore.Interfaces
 {
     public interface ISPRepository
     {
-        bool StoreFinalEstimate(EstimateDTO estimate);
-        bool CreateRoom(RoomDTO room);
-        bool CreateUser(UserDTO user);
+        bool StoreFinalEstimate(Estimate estimate);
+        bool CreateRoom(Room room);
+        bool CreateUser(User user);
     }
 }

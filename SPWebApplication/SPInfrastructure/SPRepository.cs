@@ -14,19 +14,19 @@ namespace SPInfrastructure.Repositories
     {
         private MainDbContext _db = new MainDbContext();
 
-        public bool StoreFinalEstimate(EstimateDTO estimate)
+        public bool StoreFinalEstimate(Estimate estimate)
         {
             var estimateDao = new DAOEstimate(_db);
             return estimateDao.StoreFinalEstimate(estimate);
         }
 
-        public bool CreateRoom(RoomDTO room)
+        public bool CreateRoom(Room room)
         {
             var roomDao = new DAORoom(_db);
             return roomDao.CreateRoom(room);
         }
 
-        public bool CreateUser(UserDTO user)
+        public bool CreateUser(User user)
         {
             var userDao = new DAOUser(_db);
             return userDao.CreateUser(user);

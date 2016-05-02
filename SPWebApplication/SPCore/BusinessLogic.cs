@@ -10,22 +10,22 @@ namespace SPCore
 {
 	public class BusinessLogic
 	{        
-		private static ICollection<RoomDTO> _rooms = new List<RoomDTO>();
+		private static ICollection<Room> _rooms = new List<Room>();
 
 		public static int CreateRoom(String scrumMasterName, String connectionId)
 		{
-			UserDTO scrumMaster = new UserDTO()
+			User scrumMaster = new User()
 			{
 				Name = scrumMasterName,
 				ConnectionId = connectionId
 			};
 
-			RoomDTO room = new RoomDTO()
+			Room room = new Room()
 			{
 				ScrumMaster = scrumMaster,
 				RoomId = GenerateRoomId(),
-				Participants = new List<UserDTO>(),
-				PBIs = new List<ProductBacklogItemDTO>()
+				Participants = new List<User>(),
+				PBIs = new List<ProductBacklogItem>()
 			};
 
 			/* Do we need to add the scrumMaster to the users list? */
@@ -49,7 +49,7 @@ namespace SPCore
 			return result;
 		}
 
-		public static ICollection<UserDTO> GetParticipants(int id)
+		public static ICollection<User> GetParticipants(int id)
 		{
 			var room = _rooms.Where(r => r.RoomId == id).FirstOrDefault();
 			
@@ -61,7 +61,7 @@ namespace SPCore
 			return null;
 		}
 
-		public static ICollection<ProductBacklogItemDTO> GetPBIs(int id)
+		public static ICollection<ProductBacklogItem> GetPBIs(int id)
 		{
 			var room = _rooms.Where(r => r.RoomId == id).FirstOrDefault();
 
@@ -75,7 +75,7 @@ namespace SPCore
 
 		public static Boolean JoinRoom(String name, int id, String connectionId)
 		{
-			UserDTO user = new UserDTO()
+			User user = new User()
 			{
 				Name = name,
 				ConnectionId = connectionId
@@ -118,11 +118,10 @@ namespace SPCore
 				return false;
 			}
 
-		    ProductBacklogItemDTO pbi = new ProductBacklogItemDTO()
+		    ProductBacklogItem pbi = new ProductBacklogItem()
 		    {
 			    Title = title,
-			    Room = room,
-			    Estimates = new List<EstimateDTO>()
+			    Estimates = new List<Estimate>()
 		    };
 
 		    room.PBIs.Add(pbi);

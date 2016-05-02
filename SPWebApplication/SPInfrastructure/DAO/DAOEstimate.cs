@@ -17,7 +17,7 @@ namespace SPInfrastructure.DAO
             _db = db;
         }
 
-        public bool StoreFinalEstimate(EstimateDTO Estimate)
+        public bool StoreFinalEstimate(Estimate Estimate)
         {
             _db.Estimates.Add(Estimate);
             int result = _db.SaveChanges();

@@ -16,13 +16,13 @@ namespace ScrumPokerService.Hubs
     public class ScrumPokerHub : Hub {
         public void GetParticipants(int id)
         {
-            ICollection<UserDTO> participants = BusinessLogic.GetParticipants(id);
+            ICollection<User> participants = BusinessLogic.GetParticipants(id);
             Clients.Caller.getParticipants(participants);
         }
 
         public void GetPBIs(int id)
         {
-            ICollection<ProductBacklogItemDTO> pbis = BusinessLogic.GetPBIs(id);
+            ICollection<ProductBacklogItem> pbis = BusinessLogic.GetPBIs(id);
             Clients.Caller.getPBIs(pbis);
         }
 
@@ -31,7 +31,7 @@ namespace ScrumPokerService.Hubs
             int id = BusinessLogic.CreateRoom(scrumMasterName, Context.ConnectionId);
             Clients.Caller.roomCreated(id);
 
-            ICollection<UserDTO> participants = BusinessLogic.GetParticipants(id);
+            ICollection<User> participants = BusinessLogic.GetParticipants(id);
             await Groups.Add(Context.ConnectionId, id.ToString());
             Clients.Group(id.ToString()).getParticipants(participants); 
         }
@@ -61,7 +61,7 @@ namespace ScrumPokerService.Hubs
             if (hasJoined)
             {
                 await Groups.Add(Context.ConnectionId, id.ToString());
-                ICollection<UserDTO> participants = BusinessLogic.GetParticipants(id);
+                ICollection<User> participants = BusinessLogic.GetParticipants(id);
                 Clients.Group(id.ToString()).getParticipants(participants); 
             }           
         }
@@ -69,7 +69,7 @@ namespace ScrumPokerService.Hubs
         public override Task OnDisconnected(bool stopCalled)
         {
             int id = BusinessLogic.RemoveUser(Context.ConnectionId);
-            ICollection<UserDTO> participants = BusinessLogic.GetParticipants(id);
+            ICollection<User> participants = BusinessLogic.GetParticipants(id);
             Clients.Group(id.ToString()).getParticipants(participants);
             return null;
         }

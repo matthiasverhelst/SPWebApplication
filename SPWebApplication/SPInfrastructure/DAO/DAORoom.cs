@@ -17,7 +17,7 @@ namespace SPInfrastructure.DAO
             _db = db;
         }
 
-        public bool CreateRoom(RoomDTO room)
+        public bool CreateRoom(Room room)
         {
             _db.Rooms.Add(room);
             int result = _db.SaveChanges();
