@@ -18,10 +18,10 @@
       $scope.createPbi = function (newPbi) {
           if (newPbi && newPbi.length >= 1) {
               var Pbi = {
-                  "PBI_name": newPbi,
-                  "PBI_score": ""
+                  "title": newPbi,
+                  "finalEstimation": ""
               };
-              signalRSvc.sendRequestWithRoomID(signalRSvc.CONST.CREATE_ROOM, Pbi.PBI_name);
+              signalRSvc.sendRequestWithRoomID(signalRSvc.CONST.CREATE_PBI, Pbi.PBI_name);
 
               $scope.pbiArray.push(Pbi);
               if ($scope.setPbiFocus) {
@@ -30,7 +30,7 @@
           }
       };
       $scope.pushPbi = function(index){
-          signalRSvc.sendRequestWithRoomID(signalRSvc.CONST.PUSH_PBI, $scope.pbiArray[index].PBI_name);
+          signalRSvc.sendRequestWithRoomID(signalRSvc.CONST.PUSH_PBI, $scope.pbiArray[index].title);
       };
 
       var focusNewPbi = function () {
