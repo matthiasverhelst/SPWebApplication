@@ -14,6 +14,8 @@
       var roomId = $routeParams;
       $scope.roomNum = roomId.param1;
       $scope.participantsList = [];
+      $scope.pbiArray = [];
+
       $scope.createPbi = function (newPbi) {
           if (newPbi && newPbi.length >= 1) {
               var Pbi = {
@@ -45,7 +47,7 @@
           $scope.pbiArray.splice(index, 1);
       };
 
-      $scope.pbiArray = [];
+
 
       $scope.goToVoting = function(){
           $location.path("/votingScrumMaster");
@@ -53,7 +55,7 @@
       };
 
       PubSub.subscribe( 'getPBIS', function(msg, pbiArray){
-          console.log(pbiArray);
+          $scope.pbiArray = pbiArray;
       });
 
       PubSub.subscribe('getParticipants', function(msg, participantsList){

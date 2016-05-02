@@ -72,11 +72,16 @@
             }
         };
 
+        var getRoomId = function(){
+                return roomId;
+        };
+
         return {
             initialize: initialize,
             CONST : CONST,
             sendRequest: sendRequest,
-            sendRequestWithRoomID : sendRequestWithRoomID
+            sendRequestWithRoomID : sendRequestWithRoomID,
+            getRoomId : getRoomId
         };
     }]);
 
