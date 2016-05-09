@@ -73,6 +73,24 @@ namespace SPCore
 			return null;
 		}
 
+        public static ICollection<Estimate> GetEstimates(int id, string pbiTitle)
+        {
+            var room = _rooms.Where(r => r.RoomId == id).FirstOrDefault();
+
+            if (room != null)
+            {
+                var pbi = room.PBIs.Where(p => p.Title == pbiTitle).FirstOrDefault();
+
+                if (pbi != null)
+                {
+                    return pbi.Estimates;
+                }
+
+            }
+
+            return null;
+        }
+
 		public static Boolean JoinRoom(String name, int id, String connectionId)
 		{
 			User user = new User()

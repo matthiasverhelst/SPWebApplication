@@ -3,6 +3,7 @@ using Microsoft.AspNet.SignalR.Hubs;
 using SPCore;
 using SPCore.Model;
 using ScrumPokerService.DTO;
+using ScrumPokerService.Converters;
 
 using System;
 using System.Collections.Generic;
@@ -73,6 +74,14 @@ namespace ScrumPokerService.Hubs
         {
             Boolean isAdded = BusinessLogic.AddEstimate(id, Context.ConnectionId, addEstimateDTO.PBIName, addEstimateDTO.Estimate);
             Clients.Caller.addedEstimation(isAdded);
+        }
+
+        public void GetUserEstimates(int id, string title)
+        {
+            ICollection<User> participants = BusinessLogic.GetParticipants(id);
+            ICollection<Estimate> estimates = BusinessLogic.GetEstimates(id, title);
+            ICollection<UserEstimateDTO> userEstimates = ConvertersDTO.ConvertToUserEstimates(participants, estimates);
+            Clients.Caller.getUserEstimates(userEstimates);
         }
 
         public override Task OnDisconnected(bool stopCalled)
