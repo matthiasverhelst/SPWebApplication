@@ -36,7 +36,7 @@
       };
 
       PubSub.subscribe( 'roomJoined', function(msg, success){
-          if(success){
+          if (success) {
               $scope.errors.invalidRoomId = false;
               var roomPath = '/waitingRoomScrumMember/' + $scope.joinRoomObj.roomId;
               $location.path(roomPath);
