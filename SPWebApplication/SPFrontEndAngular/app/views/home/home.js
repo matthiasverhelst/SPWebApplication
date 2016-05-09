@@ -38,6 +38,7 @@
       PubSub.subscribe( 'roomJoined', function(msg, success){
           if (success) {
               $scope.errors.invalidRoomId = false;
+              signalRSvc.setRoomId($scope.joinRoomObj.roomId);
               var roomPath = '/waitingRoomScrumMember/' + $scope.joinRoomObj.roomId;
               $location.path(roomPath);
           }else{
