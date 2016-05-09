@@ -12,28 +12,19 @@
 
   .controller('resultOverviewScrumMasterCtrl', ['$scope', '$routeParams', '$http', '$timeout', 'signalRSvc', '$location', function ($scope, $routeParams, $http, $timeout, signalRSvc, $location) {
       $scope.roomID = $routeParams.room;
+      console.log("routeparams:");
+      console.log($routeParams);
       $scope.participantsList = [];
-      
 
-      PubSub.subscribe( 'getPBIS', function(msg, pbiArray){
-          console.log("pbiArray");
-          console.log(pbiArray);
-          $scope.pbiArray = pbiArray;
-          $timeout(function(){
-              $scope.$apply();
-          },0);
-      });
-
-      PubSub.subscribe('getParticipants', function(msg, participantsList){
+      PubSub.subscribe('getUserEstimates', function (msg, participantsList) {
           $scope.participantsList = participantsList;
+          console.log("ParticipantsList:");
+          console.log($scope.participantsList);
           $timeout(function(){
               $scope.$apply();
           },0);
       });
 
-
-
-      signalRSvc.sendRequestWithRoomID(signalRSvc.CONST.GET_PARTICIPANTS);
-      signalRSvc.sendRequestWithRoomID(signalRSvc.CONST.GET_PBIS);
+      signalRSvc.sendRequestWithRoomID(signalRSvc.CONST.GET_USER_ESTIMATES, "test");
   }]);
 })();
