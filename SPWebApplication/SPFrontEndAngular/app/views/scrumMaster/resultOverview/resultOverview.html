@@ -1,22 +1,64 @@
-<h1>Overview</h1>
+<h1>Results</h1>
 <div class="PBI_list" >
         <table>
             <tr>
-                <th style="width: 200px">
+                <th style="width: 300px">
                     <label class="PBI_name">Name</label>
                 </th>
-                <th style="width: 50px">
+    
+                <th style="width: 60px">
                     <label class="PBI_score">Score</label>
                 </th>
             </tr>
-            <tr ng-repeat="participant in participantsList">
+            <tr ng-repeat="participant in participantsList" class="PBI_line">
                 <td class="participant_name">
                     <label>{{participant.Name}}</label>
                 </td>
+
                 <td class="participant_estimate">
-                    <label>{{participant.estimate}}</label>
+                    <label>{{participant.estimate}} 5</label>
                 </td>
             </tr>
         </table>
+    <br>
+    <table>
+        <tr>
+            <th style="width: 175px">
+                <button type="button" class="btn btn-primary btn-block btn-block-full-width" ng-click=" ">Revote</button>
+            </th>
+            <th style="width: 10px"></th>
+            <th style="width: 175px">
+                <button type="button" class="btn btn-primary btn-block btn-block-full-width" ng-click=" ">Final Estimate</button>
+            </th>
+        </tr>
+    </table>
 </div>
 
+<!--div class="row">
+    <div class="col-sm-6">
+        <div class="container-fluid">
+            <div class="row" ng-repeat="participant in participantsList">
+                <div class="col-xs-8">
+                    <label>{{participant.Name}}</label>
+                </div>
+                <div class="col-xs-4">
+                    <label>{{participant.estimate}} 5</label>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>-->
+    <!--<div class="row">
+        <div class="col-sm-6">
+            <div class="container-fluid">
+                <div class="row">
+                    <div class="col-xs-6">
+                        <button type="button" class="btn btn-primary btn-block btn-block-full-width" ng-click=" ">Revote</button>
+                    </div>
+                    <div class="col-xs-6">
+                        <button type="button" class="btn btn-primary btn-block btn-block-full-width" ng-click=" ">Final Estimate</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>-->
