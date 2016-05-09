@@ -7,6 +7,7 @@
     'pokerShoreApp.home',
     'pokerShoreApp.waitingRoomScrumMaster',
     'pokerShoreApp.votingScrumMaster',
+    'pokerShoreApp.resultOverviewScrumMaster',
     'pokerShoreApp.waitingRoomScrumMember',
     'pokerShoreApp.voting',
     'pokerShoreApp.version'
