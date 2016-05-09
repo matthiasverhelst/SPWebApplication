@@ -8,7 +8,7 @@
     'pokerShoreApp.waitingRoomScrumMaster',
     'pokerShoreApp.votingScrumMaster',
     'pokerShoreApp.waitingRoomScrumMember',
-    'pokerShoreApp.voting',
+    'pokerShoreApp.votingScrumMember',
     'pokerShoreApp.version'
     ]);
 

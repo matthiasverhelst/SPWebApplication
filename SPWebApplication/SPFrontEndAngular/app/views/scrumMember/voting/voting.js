@@ -1,16 +1,16 @@
 'use strict';
 
 (function () {
-    angular.module('pokerShoreApp.voting', ['ngRoute'])
+    angular.module('pokerShoreApp.votingScrumMember', ['ngRoute'])
 
     .config(['$routeProvider', function ($routeProvider) {
-        $routeProvider.when('/voting/:pbi', {
-            templateUrl: 'views/voting/voting.html',
-            controller: 'VotingCtrl'
+        $routeProvider.when('/votingScrumMember/:pbi', {
+            templateUrl: 'views/scrumMember/voting/voting.html',
+            controller: 'VotingCtrlScrumMember'
         });
     }])
 
-    .controller('VotingCtrl', ['$scope', '$location', '$routeParams', 'signalRSvc', function ($scope, $location, $routeParams, signalRSvc) {
+    .controller('VotingCtrlScrumMember', ['$scope', '$location', '$routeParams', 'signalRSvc', function ($scope, $location, $routeParams, signalRSvc) {
         $scope.pbiName = $routeParams.pbi;
         $scope.buttons = [
             { value: '0', text: '0' }, { value: '0.5', text: '0.5' }, { value: '1', text: '1' },
