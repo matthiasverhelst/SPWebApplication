@@ -22,7 +22,7 @@
       });
 
       PubSub.subscribe( 'PBIPushed', function(msg, pbiName){
-          var pathString = "/votingScrumMaster/" + pbiName;
+          var pathString = "/votingScrumMember/" + pbiName;
           $location.path(pathString);
           $timeout(function(){
               $scope.$apply();

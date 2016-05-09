@@ -77,18 +77,6 @@
     <Content Include="app\views\home\home.html" />
     <Content Include="app\views\home\home.js" />
     <Content Include="app\views\home\home_test.js" />
-    <Content Include="app\views\room\room.html" />
-    <Content Include="app\views\room\room.js" />
-    <Content Include="app\views\room\room_test.js" />
-    <Content Include="app\views\view1\view1.html" />
-    <Content Include="app\views\view1\view1.js" />
-    <Content Include="app\views\view1\view1_test.js" />
-    <Content Include="app\views\view2\view2.html" />
-    <Content Include="app\views\view2\view2.js" />
-    <Content Include="app\views\view2\view2_test.js" />
-    <Content Include="app\views\voting\voting.html" />
-    <Content Include="app\views\voting\voting.js" />
-    <Content Include="app\views\voting\voting_test.js" />
     <Content Include="bower.json" />
     <Content Include="LICENSE" />
     <Content Include="package.json" />
@@ -125,6 +113,7 @@
     <Folder Include="app\directives\" />
     <Folder Include="app\media\" />
     <Folder Include="app\templates\" />
+    <Folder Include="app\views\scrumMaster\resultOverview\" />
     <Folder Include="app\views\scrumMaster\waitingRoom\" />
     <Folder Include="app\views\scrumMember\waitingRoom\" />
   </ItemGroup>

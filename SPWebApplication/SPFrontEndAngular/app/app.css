@@ -40,6 +40,16 @@
 
 tr.PBI_line:nth-child(even) {
     background-color: #CCC;
+}
 
+td.participant_name {
+    border-collapse: separate;
+    border-spacing: 10px;
+    border-style: solid;
+}
+td.participant_estimate {
+    border-collapse: separate;
+    border-spacing: 10px;
+    border-style: solid;
 }
 

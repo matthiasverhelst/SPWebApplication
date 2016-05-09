@@ -1,0 +1,22 @@
+<h1>Overview</h1>
+<div class="PBI_list" >
+        <table>
+            <tr>
+                <th style="width: 200px">
+                    <label class="PBI_name">Name</label>
+                </th>
+                <th style="width: 50px">
+                    <label class="PBI_score">Score</label>
+                </th>
+            </tr>
+            <tr ng-repeat="participant in participantsList">
+                <td class="participant_name">
+                    <label>{{participant.Name}}</label>
+                </td>
+                <td class="participant_estimate">
+                    <label>{{participant.estimate}}</label>
+                </td>
+            </tr>
+        </table>
+</div>
+

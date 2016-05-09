@@ -26,7 +26,7 @@
         }
 
         $scope.goToWaitingRoom = function(){
-             var pathString = "/waitingRoomScrumMaster/" + signalRSvc.getRoomId();
+            var pathString = "/resultOverview/" + $scope.pbiName;
              $location.path(pathString);
         };
     }]);
