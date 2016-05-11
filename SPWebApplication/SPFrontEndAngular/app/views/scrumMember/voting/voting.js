@@ -10,7 +10,7 @@
         });
     }])
 
-    .controller('VotingCtrlScrumMember', ['$scope', '$location', '$routeParams', 'signalRSvc', function ($scope, $location, $routeParams, signalRSvc) {
+    .controller('VotingCtrlScrumMember', ['$scope', '$location', '$timeout', '$routeParams', 'signalRSvc', function ($scope, $location, $timeout, $routeParams, signalRSvc) {
         $scope.pbiName = $routeParams.pbi;
         $scope.buttons = [
             { value: '0', text: '0' }, { value: '0.5', text: '0.5' }, { value: '1', text: '1' },
@@ -23,14 +23,20 @@
         $scope.vote = function vote(score) {
             var voteObj = { "pbiName": $scope.pbiName, "estimate": score };
             signalRSvc.sendRequestWithRoomID(signalRSvc.CONST.ADD_ESTIMATE, voteObj);
-            $scope.goToWaitingRoom();
         }
 
-        $scope.goToWaitingRoom = function () {
-            var pathString = "/waitingRoomScrumMember/" + signalRSvc.getRoomId();
-            $location.path(pathString);
-        };
+        PubSub.subscribe('addedEstimation', function (msg, succes) {
+            if (succes) {
+                $scope.goToResultOverview();
+            }
+        });
 
-        //To update the view after PubSub, use setTimeout of 0ms to call $scope.apply()
+        $scope.goToResultOverview = function () {
+            var pathString = "/resultOverview/" + $scope.pbiName;
+            $location.path(pathString);
+            $timeout(function () {
+                $scope.$apply();
+            }, 0);
+        };
     }]);
 })();

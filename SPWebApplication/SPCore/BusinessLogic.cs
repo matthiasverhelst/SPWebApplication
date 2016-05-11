@@ -171,13 +171,18 @@ namespace SPCore
             {
                 var pbi = room.PBIs.Where(p => p.Title == title).FirstOrDefault();
 
-                Estimate estimate = new Estimate()
+                if (pbi != null)
                 {
-                    Value = score,
-                    Participant = GetUserByConnectionId(id, connectionId)
-                };
+                    Estimate estimate = new Estimate()
+                    {
+                        Value = score,
+                        Participant = GetUserByConnectionId(id, connectionId)
+                    };
 
-                pbi.Estimates.Add(estimate);
+                    pbi.Estimates.Add(estimate);
+                    return true;
+                }
+                
             }
 
             return false;

@@ -10,6 +10,7 @@
     'pokerShoreApp.resultOverviewScrumMaster',
     'pokerShoreApp.waitingRoomScrumMember',
     'pokerShoreApp.votingScrumMember',
+    'pokerShoreApp.resultOverviewScrumMember',
     'pokerShoreApp.version'
     ]);
 
@@ -48,7 +49,7 @@
                 });
             };
 
-            var onProxyVarsArray = ['roomCreated', 'roomJoined', 'getParticipants', 'getPBIS', 'PBIPushed', 'estimateAdded', 'getUserEstimates'];
+            var onProxyVarsArray = ['roomCreated', 'roomJoined', 'getParticipants', 'getPBIS', 'PBIPushed', 'addedEstimation', 'getUserEstimates'];
 
             for(var i = 0; i < onProxyVarsArray.length; i++){
                 createProxyListener(this.proxy, onProxyVarsArray[i]);
@@ -70,14 +71,14 @@
         };
 
         var sendRequestWithRoomID = function (reqName, obj) {
-            if (obj){
+            if (obj) {
                 this.proxy.invoke(reqName, roomId, obj);
-            }else{
+            } else {
                 this.proxy.invoke(reqName, roomId);
             }
         };
 
-        var getRoomId = function(){
+        var getRoomId = function() {
                 return roomId;
         };
 

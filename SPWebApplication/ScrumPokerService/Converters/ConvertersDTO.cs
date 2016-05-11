@@ -18,15 +18,26 @@ namespace ScrumPokerService.Converters
 
             foreach (User u in users) 
             {
-                Estimate estimate = estimates.Where(e => e.Participant == u).FirstOrDefault();
+                Estimate est = estimates.Where(e => e.Participant == u).FirstOrDefault();
+                int estVal;
+                if (est != null)
+                {
+                    estVal = est.Value;
+                }
+                else
+                {
+                    estVal = 0;
+                }
                 UserEstimateDTO userEstimate = new UserEstimateDTO()
                 {
                     UserName = u.Name,
-                    Estimate = estimate.Value
+                    Estimate = estVal
                 };
+
+                userEstimates.Add(userEstimate);
             }
 
-            return null;
+            return userEstimates;
         }
     }
 }

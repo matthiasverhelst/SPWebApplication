@@ -74,14 +74,12 @@ namespace ScrumPokerService.Hubs
         {
             Boolean isAdded = BusinessLogic.AddEstimate(id, Context.ConnectionId, addEstimateDTO.PBIName, addEstimateDTO.Estimate);
             Clients.Caller.addedEstimation(isAdded);
+            Clients.Group(id.ToString()).getUserEstimates(FindUserEstimates(id, addEstimateDTO.PBIName));
         }
 
         public void GetUserEstimates(int id, string title)
         {
-            ICollection<User> participants = BusinessLogic.GetParticipants(id);
-            ICollection<Estimate> estimates = BusinessLogic.GetEstimates(id, title);
-            ICollection<UserEstimateDTO> userEstimates = ConvertersDTO.ConvertToUserEstimates(participants, estimates);
-            Clients.Caller.getUserEstimates(userEstimates);
+            Clients.Caller.getUserEstimates(FindUserEstimates(id, title));
         }
 
         public override Task OnDisconnected(bool stopCalled)
@@ -90,6 +88,13 @@ namespace ScrumPokerService.Hubs
             ICollection<User> participants = BusinessLogic.GetParticipants(id);
             Clients.Group(id.ToString()).getParticipants(participants);
             return null;
+        }
+
+        private ICollection<UserEstimateDTO> FindUserEstimates(int id, string title)
+        {
+            ICollection<User> participants = BusinessLogic.GetParticipants(id);
+            ICollection<Estimate> estimates = BusinessLogic.GetEstimates(id, title);
+            return ConvertersDTO.ConvertToUserEstimates(participants, estimates);
         }
     }
 }

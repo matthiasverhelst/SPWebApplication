@@ -115,6 +115,7 @@
     <Folder Include="app\templates\" />
     <Folder Include="app\views\scrumMaster\resultOverview\" />
     <Folder Include="app\views\scrumMaster\waitingRoom\" />
+    <Folder Include="app\views\scrumMember\resultOverview\" />
     <Folder Include="app\views\scrumMember\waitingRoom\" />
   </ItemGroup>
   <PropertyGroup>
@@ -132,7 +133,7 @@
     <VisualStudio>
       <FlavorProperties GUID="{349c5851-65df-11da-9384-00065b846f21}">
         <WebProjectProperties>
-          <UseIIS>True</UseIIS>
+          <UseIIS>False</UseIIS>
           <AutoAssignPort>True</AutoAssignPort>
           <DevelopmentServerPort>50771</DevelopmentServerPort>
           <DevelopmentServerVPath>/</DevelopmentServerVPath>
