@@ -82,12 +82,17 @@
                 return roomId;
         };
 
+        var setRoomId = function(id){
+            roomId = id;
+        };
+
         return {
             initialize: initialize,
             CONST : CONST,
             sendRequest: sendRequest,
             sendRequestWithRoomID : sendRequestWithRoomID,
-            getRoomId : getRoomId
+            getRoomId : getRoomId,
+            setRoomId : setRoomId
         };
     }]);
 

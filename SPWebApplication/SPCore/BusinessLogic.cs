@@ -112,17 +112,15 @@ namespace SPCore
 
 		public static int RemoveUser(string connectionId)
 		{
-			foreach (var room in _rooms)
-			{
-				foreach (var user in room.Participants)
-				{
-					if (user.ConnectionId.Equals(connectionId))
-					{
-						room.Participants.Remove(user);
-						return room.RoomId;
-					}
-				}
-			}
+            var room = _rooms.Where(r => r.Participants.Any(p => p.ConnectionId == connectionId)).FirstOrDefault();
+            
+            if (room != null)
+            {
+                var user = room.Participants.Where(p => p.ConnectionId == connectionId).First();
+                room.Participants.Remove(user);
+                return room.RoomId;
+            }
+
 			//throw new Exception("User that was disconnecting not found!");
 			return 0;
 		}

@@ -4,7 +4,7 @@
     angular.module('pokerShoreApp.resultOverviewScrumMember', ['ngRoute'])
 
   .config(['$routeProvider', function($routeProvider) {
-      $routeProvider.when('/resultOverview/:pbiName', {
+      $routeProvider.when('/resultOverviewScrumMember/:pbiName', {
         templateUrl: 'views/scrumMember/resultOverview/resultOverview.html',
         controller: 'resultOverviewScrumMemberCtrl'
     });
@@ -16,17 +16,18 @@
 
       PubSub.subscribe('getUserEstimates', function (msg, participantsList) {
           $scope.participantsList = participantsList;
-          console.log("ParticipantsList:", $scope.participantsList);
           $timeout(function(){
               $scope.$apply();
           },0);
       });
 
-      $scope.goToWaitingRoom = function () {
-          var pathString = "/resultOverview/" + $scope.pbiName;
-          console.log("path: ", pathString);
+      PubSub.subscribe('PBIPushed', function (msg, pbiName) {
+          var pathString = "/votingScrumMember/" + pbiName;
           $location.path(pathString);
-      };
+          $timeout(function () {
+              $scope.$apply();
+          }, 0);
+      });
 
       signalRSvc.sendRequestWithRoomID(signalRSvc.CONST.GET_USER_ESTIMATES, $scope.pbiName);
   }]);

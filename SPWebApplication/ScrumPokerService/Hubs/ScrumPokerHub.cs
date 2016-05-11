@@ -84,9 +84,9 @@ namespace ScrumPokerService.Hubs
 
         public override Task OnDisconnected(bool stopCalled)
         {
-            int id = BusinessLogic.RemoveUser(Context.ConnectionId);
-            ICollection<User> participants = BusinessLogic.GetParticipants(id);
-            Clients.Group(id.ToString()).getParticipants(participants);
+            int roomId = BusinessLogic.RemoveUser(Context.ConnectionId);
+            ICollection<User> participants = BusinessLogic.GetParticipants(roomId);
+            Clients.Group(roomId.ToString()).getParticipants(participants);
             return null;
         }
 

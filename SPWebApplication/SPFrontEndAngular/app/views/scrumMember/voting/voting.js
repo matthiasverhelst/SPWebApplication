@@ -32,7 +32,7 @@
         });
 
         $scope.goToResultOverview = function () {
-            var pathString = "/resultOverview/" + $scope.pbiName;
+            var pathString = "/resultOverviewScrumMember/" + $scope.pbiName;
             $location.path(pathString);
             $timeout(function () {
                 $scope.$apply();

@@ -32,7 +32,7 @@
         });
 
         $scope.goToWaitingRoom = function () {
-            var pathString = "/resultOverview/" + $scope.pbiName;
+            var pathString = "/resultOverviewScrumMaster/" + $scope.pbiName;
             console.log("path: ", pathString);
             $location.path(pathString);
             $timeout(function () {
