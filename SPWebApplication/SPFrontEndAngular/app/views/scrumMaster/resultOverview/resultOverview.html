@@ -6,13 +6,21 @@
                 <label class="PBI_name">Name</label>
             </th>
     
-            <th style="width: 60px">
+            <th style="width: 60px" ng-hide="showEstimates">
+                <label class="PBI_score">Voted</label>
+            </th>
+
+            <th style="width: 60px" ng-show="showEstimates">
                 <label class="PBI_score">Score</label>
             </th>
         </tr>
         <tr ng-repeat="participant in participantsList" class="PBI_line">
             <td class="participant_name">
                 <label>{{participant.UserName}}</label>
+            </td>
+
+            <td class="participant_voted" ng-hide="showEstimates">
+                <label>{{hasVoted(participant.Estimate)}}</label>
             </td>
 
             <td class="participant_estimate" ng-show="showEstimates">
@@ -23,16 +31,16 @@
     <br>
     <table>
         <tr>
-            <th style="width: 175px">
-                <button type="button" class="btn btn-primary btn-block btn-block-full-width" ng-click="pushEstimates()" ng-hide="showEstimates">Show Estimates</button>
+            <th style="width: 175px" ng-hide="showEstimates">
+                <button type="button" class="btn btn-primary btn-block btn-block-full-width" ng-click="pushEstimates()">Show Estimates</button>
+            </th>
+            <th style="width: 10px" ng-hide="showEstimates"></th>
+            <th style="width: 175px" ng-show="showEstimates">
+                <button type="button" class="btn btn-primary btn-block btn-block-full-width" ng-click="pushPbi()">Revote</button>
             </th>
             <th style="width: 10px"></th>
-            <th style="width: 175px">
-                <button type="button" class="btn btn-primary btn-block btn-block-full-width" ng-click="goToWaitingRoom()" ng-show="showEstimates">Revote</button>
-            </th>
-            <th style="width: 10px"></th>
-            <th style="width: 175px">
-                <button type="button" class="btn btn-primary btn-block btn-block-full-width" ng-click="goToWaitingRoom()" ng-show="showEstimates">Final Estimate</button>
+            <th style="width: 175px" ng-show="showEstimates">
+                <button type="button" class="btn btn-primary btn-block btn-block-full-width" ng-click="goToWaitingRoom()">Final Estimate</button>
             </th>
         </tr>
     </table>
