@@ -31,7 +31,8 @@
             REMOVE_PBI: 'removePBI',
             UPDATE_PBI: 'updatePBI',
             PUSH_PBI: 'pushPBI',
-            ADD_ESTIMATE: 'addEstimation'
+            ADD_ESTIMATE: 'addEstimation',
+            SET_FINAL_ESTIMATE: 'setFinalEstimate'
         };
 
         var initialize = function () {
@@ -51,7 +52,8 @@
                 });
             };
 
-            var onProxyVarsArray = ['roomCreated', 'roomJoined', 'getParticipants', 'getPBIS', 'PBIPushed', 'addedEstimation', 'getUserEstimates', 'showEstimates', 'updatedPBI'];
+            var onProxyVarsArray = ['roomCreated', 'roomJoined', 'getParticipants', 'getPBIS', 'PBIPushed', 'addedEstimation', 'getUserEstimates', 'showEstimates', 'finalEstimateSet', 'updatedPBI'];
+
 
             for(var i = 0; i < onProxyVarsArray.length; i++){
                 createProxyListener(this.proxy, onProxyVarsArray[i]);

@@ -30,6 +30,26 @@
           }, 0);
       });
 
+      PubSub.subscribe('PBIPushed', function (msg, pbiName) {
+          var pathString = "/votingScrumMaster/" + pbiName;
+          $location.path(pathString);
+          $timeout(function () {
+              $scope.$apply();
+          }, 0);
+      });
+
+      $scope.pushPbi = function () {
+          signalRSvc.sendRequestWithRoomID(signalRSvc.CONST.PUSH_PBI, $scope.pbiName);
+      };
+
+      $scope.hasVoted = function (score) {
+          if (score == 0) {
+              return false;
+          } else {
+              return true;
+          };
+      };
+
       $scope.goToWaitingRoom = function () {
           var pathString = "/waitingRoomScrumMaster/" + signalRSvc.getRoomId();
           $location.path(pathString);
