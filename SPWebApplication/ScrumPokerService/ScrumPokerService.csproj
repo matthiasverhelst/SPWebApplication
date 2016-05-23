@@ -117,6 +117,7 @@
     <Compile Include="Converters\ConvertersDTO.cs" />
     <Compile Include="DTO\AddEstimateDTO.cs" />
     <Compile Include="DTO\JoinRoomDTO.cs" />
+    <Compile Include="DTO\UpdatePBIDTO.cs" />
     <Compile Include="DTO\UserEstimateDTO.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>

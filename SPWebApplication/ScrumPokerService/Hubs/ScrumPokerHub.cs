@@ -61,6 +61,11 @@ namespace ScrumPokerService.Hubs
             Clients.Caller.createdPBI(hasAdded);
         }
 
+        public void UpdatePBI(int id, UpdatePBIDTO updateDTO)
+        {
+            Clients.Group(id.ToString()).updatedPBI(true);
+        }
+
         public void RemovePBI(int id, string title)
         {
             Boolean hasBeenRemoved = BusinessLogic.RemovePBI(id, title);

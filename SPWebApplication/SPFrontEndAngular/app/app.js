@@ -27,7 +27,7 @@
             GET_PBIS : 'GetPBIs',
             GET_USER_ESTIMATES: 'GetUserEstimates',
             SHOW_ESTIMATES : 'ShowEstimates',
-            CREATE_PBI : 'createPBI',
+            CREATE_PBI: 'createPBI',
             REMOVE_PBI : 'removePBI',
             PUSH_PBI: 'pushPBI',
             ADD_ESTIMATE: 'addEstimation',

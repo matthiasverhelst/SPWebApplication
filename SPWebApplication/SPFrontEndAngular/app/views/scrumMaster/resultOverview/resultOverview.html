@@ -15,7 +15,7 @@
                 <label>{{participant.UserName}}</label>
             </td>
 
-            <td class="participant_estimate">
+            <td class="participant_estimate" ng-show="showEstimates">
                 <label>{{participant.Estimate}}</label>
             </td>
         </tr>
@@ -24,11 +24,15 @@
     <table>
         <tr>
             <th style="width: 175px">
-                <button type="button" class="btn btn-primary btn-block btn-block-full-width" ng-click="goToWaitingRoom()">Revote</button>
+                <button type="button" class="btn btn-primary btn-block btn-block-full-width" ng-click="pushEstimates()" ng-hide="showEstimates">Show Estimates</button>
             </th>
             <th style="width: 10px"></th>
             <th style="width: 175px">
-                <button type="button" class="btn btn-primary btn-block btn-block-full-width" ng-click="showEstimates()">Final Estimate</button>
+                <button type="button" class="btn btn-primary btn-block btn-block-full-width" ng-click="goToWaitingRoom()" ng-show="showEstimates">Revote</button>
+            </th>
+            <th style="width: 10px"></th>
+            <th style="width: 175px">
+                <button type="button" class="btn btn-primary btn-block btn-block-full-width" ng-click="goToWaitingRoom()" ng-show="showEstimates">Final Estimate</button>
             </th>
         </tr>
     </table>
