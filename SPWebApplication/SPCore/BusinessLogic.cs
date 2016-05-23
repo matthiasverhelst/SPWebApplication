@@ -91,6 +91,21 @@ namespace SPCore
             return null;
         }
 
+        public static void RemoveEstimates(int id, string pbiTitle)
+        {
+            var room = _rooms.Where(r => r.RoomId == id).FirstOrDefault();
+
+            if (room != null)
+            {
+                var pbi = room.PBIs.Where(p => p.Title == pbiTitle).FirstOrDefault();
+
+                if (pbi != null)
+                {
+                    pbi.Estimates = new List<Estimate>();
+                }
+            }
+        }
+
 		public static Boolean JoinRoom(String name, int id, String connectionId)
 		{
 			User user = new User()

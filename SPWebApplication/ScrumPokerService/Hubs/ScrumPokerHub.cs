@@ -52,6 +52,7 @@ namespace ScrumPokerService.Hubs
 
         public void PushPBI(int id, string pbiName)
         {
+            BusinessLogic.RemoveEstimates(id, pbiName);
             Clients.Group(id.ToString()).pbiPushed(pbiName);
         }
 

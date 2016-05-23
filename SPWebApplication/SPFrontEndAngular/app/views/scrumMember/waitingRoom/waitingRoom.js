@@ -27,7 +27,7 @@
           $timeout(function(){
               $scope.$apply();
           },0);
-    });
+      });
 
       signalRSvc.sendRequestWithRoomID(signalRSvc.CONST.GET_PARTICIPANTS);
   }]);
