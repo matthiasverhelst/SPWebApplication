@@ -25,7 +25,8 @@
             JOIN_ROOM : 'joinRoom',
             GET_PARTICIPANTS : 'GetParticipants',
             GET_PBIS : 'GetPBIs',
-            GET_USER_ESTIMATES : 'GetUserEstimates',
+            GET_USER_ESTIMATES: 'GetUserEstimates',
+            SHOW_ESTIMATES : 'ShowEstimates',
             CREATE_PBI : 'createPBI',
             REMOVE_PBI : 'removePBI',
             PUSH_PBI: 'pushPBI',
@@ -49,7 +50,7 @@
                 });
             };
 
-            var onProxyVarsArray = ['roomCreated', 'roomJoined', 'getParticipants', 'getPBIS', 'PBIPushed', 'addedEstimation', 'getUserEstimates'];
+            var onProxyVarsArray = ['roomCreated', 'roomJoined', 'getParticipants', 'getPBIS', 'PBIPushed', 'addedEstimation', 'getUserEstimates', 'showEstimates'];
 
             for(var i = 0; i < onProxyVarsArray.length; i++){
                 createProxyListener(this.proxy, onProxyVarsArray[i]);

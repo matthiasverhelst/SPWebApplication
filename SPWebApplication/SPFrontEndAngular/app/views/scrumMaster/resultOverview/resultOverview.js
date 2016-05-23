@@ -26,6 +26,10 @@
           $location.path(pathString);
       };
 
+      $scope.showEstimates = function () {
+          signalRSvc.sendRequestWithRoomID(signalRSvc.CONST.SHOW_ESTIMATES, null);
+      };
+
       signalRSvc.sendRequestWithRoomID(signalRSvc.CONST.GET_USER_ESTIMATES, $scope.pbiName);
   }]);
 })();

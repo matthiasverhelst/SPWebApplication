@@ -11,9 +11,6 @@ using System.Threading.Tasks;
 
 namespace ScrumPokerService.Hubs
 {
-    // This hub has no inbound APIs, since all inbound communication is done
-    // via the HTTP API. It's here for clients which want to get continuous
-    // notification of changes to the ToDo database.
     [HubName("scrumPokerHub")]
     public class ScrumPokerHub : Hub {
         public void GetParticipants(int id)
@@ -80,6 +77,11 @@ namespace ScrumPokerService.Hubs
         public void GetUserEstimates(int id, string title)
         {
             Clients.Caller.getUserEstimates(FindUserEstimates(id, title));
+        }
+
+        public void ShowEstimates(int id)
+        {
+            Clients.Group(id.ToString()).showEstimates();
         }
 
         public override Task OnDisconnected(bool stopCalled)

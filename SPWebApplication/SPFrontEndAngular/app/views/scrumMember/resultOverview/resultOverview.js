@@ -13,6 +13,7 @@
   .controller('resultOverviewScrumMemberCtrl', ['$scope', '$routeParams', '$http', '$timeout', 'signalRSvc', '$location', function ($scope, $routeParams, $http, $timeout, signalRSvc, $location) {
       $scope.pbiName = $routeParams.pbiName;
       $scope.participantsList = [];
+      $scope.showEstimates = false;
 
       PubSub.subscribe('getUserEstimates', function (msg, participantsList) {
           $scope.participantsList = participantsList;
@@ -24,6 +25,14 @@
       PubSub.subscribe('PBIPushed', function (msg, pbiName) {
           var pathString = "/votingScrumMember/" + pbiName;
           $location.path(pathString);
+          $timeout(function () {
+              $scope.$apply();
+          }, 0);
+      });
+
+      PubSub.subscribe('showEstimates', function (msg) {
+          console.log("Showing estimates...");
+          $scope.showEstimates = true;
           $timeout(function () {
               $scope.$apply();
           }, 0);
