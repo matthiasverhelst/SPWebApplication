@@ -13,12 +13,21 @@
   .controller('resultOverviewScrumMasterCtrl', ['$scope', '$routeParams', '$http', '$timeout', 'signalRSvc', '$location', function ($scope, $routeParams, $http, $timeout, signalRSvc, $location) {
       $scope.pbiName = $routeParams.pbiName;
       $scope.participantsList = [];
+      $scope.showEstimates = false;
 
       PubSub.subscribe('getUserEstimates', function (msg, participantsList) {
           $scope.participantsList = participantsList;
-          $timeout(function(){
+          $timeout(function() {
               $scope.$apply();
           },0);
+      });
+
+      PubSub.subscribe('showEstimates', function (msg) {
+          console.log("Showing estimates...");
+          $scope.showEstimates = true;
+          $timeout(function () {
+              $scope.$apply();
+          }, 0);
       });
 
       $scope.goToWaitingRoom = function () {
@@ -26,7 +35,7 @@
           $location.path(pathString);
       };
 
-      $scope.showEstimates = function () {
+      $scope.pushEstimates = function () {
           signalRSvc.sendRequestWithRoomID(signalRSvc.CONST.SHOW_ESTIMATES, null);
       };
 
