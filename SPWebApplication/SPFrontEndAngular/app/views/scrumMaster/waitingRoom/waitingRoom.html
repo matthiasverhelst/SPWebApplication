@@ -13,7 +13,7 @@
             </tr>
             <tr ng-repeat="pbi in pbiArray" class="PBI_line">
                 <td>
-                    <input class="PBI_name" ng-model="pbi.Title"/>
+                    <input class="PBI_name" ng-model="pbi.Title" ng-blur="changePbi($index)" ng-focus="startChangePbi($index)" />
                 </td>
                 <td>
                     <label class="PBI_score">{{pbi.FinalEstimation}}</label>
