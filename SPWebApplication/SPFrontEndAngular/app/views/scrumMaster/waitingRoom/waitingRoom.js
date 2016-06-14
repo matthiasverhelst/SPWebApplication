@@ -40,11 +40,11 @@
           var updatePBIDTO = {
               "OldTitle": $scope.pbiArray[index].OldTitle,
               "NewTitle": $scope.pbiArray[index].Title
-          }
+          };
           signalRSvc.sendRequestWithRoomID(signalRSvc.CONST.UPDATE_PBI, updatePBIDTO);
           $scope.pbiArray[index].OldTitle = $scope.pbiArray[index].Title;
-      }
-      
+      };
+
       var tempPbiName = "";
       $scope.startChangePbi = function (index) {
           tempPbiName = $scope.pbiArray[index].Title;
