@@ -94,7 +94,19 @@ namespace ScrumPokerService.Hubs
         public void SetFinalEstimate(int id, AddEstimateDTO finalEstimate)
         {
             Boolean isAdded = BusinessLogic.SetFinalEstimate(id, finalEstimate.PBIName, finalEstimate.Estimate);
-            Clients.Caller.finalEstimateSet(isAdded);
+            if (isAdded) 
+            {
+                Clients.Group(id.ToString()).finalEstimateSet(finalEstimate.Estimate);
+            }
+            else
+            {
+                Clients.Group(id.ToString()).finalEstimateSet(false);
+            }
+        }
+
+        public void GetFinalEstimate(int id, string title)
+        {
+            
         }
 
         public override Task OnDisconnected(bool stopCalled)

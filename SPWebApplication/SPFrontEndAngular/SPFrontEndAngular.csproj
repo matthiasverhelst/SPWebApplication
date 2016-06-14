@@ -77,6 +77,9 @@
     <Content Include="app\views\home\home.html" />
     <Content Include="app\views\home\home.js" />
     <Content Include="app\views\home\home_test.js" />
+    <Content Include="app\views\scrumMember\seeFinalEstimate\seeFinalEstimate.html" />
+    <Content Include="app\views\scrumMember\seeFinalEstimate\seeFinalEstimate.js" />
+    <Content Include="app\views\scrumMember\seeFinalEstimate\seeFinalEstimate_test.js" />
     <Content Include="bower.json" />
     <Content Include="LICENSE" />
     <Content Include="package.json" />

@@ -26,7 +26,7 @@
         }
 
         PubSub.subscribe('finalEstimateSet', function (msg, succes) {
-            if (succes) {
+            if (succes != false) {
                 $scope.goToWaitingRoom();
             }
         });
