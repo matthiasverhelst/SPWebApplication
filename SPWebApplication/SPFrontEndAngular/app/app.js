@@ -29,7 +29,7 @@
             SHOW_ESTIMATES : 'ShowEstimates',
             CREATE_PBI: 'createPBI',
             REMOVE_PBI: 'removePBI',
-            UPDATE_PBI: 'UpdatePBI',
+            UPDATE_PBI: 'updatePBI',
             PUSH_PBI: 'pushPBI',
             ADD_ESTIMATE: 'addEstimation',
             SET_FINAL_ESTIMATE: 'setFinalEstimate'

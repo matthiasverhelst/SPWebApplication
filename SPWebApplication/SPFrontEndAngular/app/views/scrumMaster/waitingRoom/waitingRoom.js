@@ -44,6 +44,35 @@
           signalRSvc.sendRequestWithRoomID(signalRSvc.CONST.UPDATE_PBI, updatePBIDTO);
           $scope.pbiArray[index].OldTitle = $scope.pbiArray[index].Title;
       }
+      
+      var tempPbiName = "";
+      $scope.startChangePbi = function (index) {
+          tempPbiName = $scope.pbiArray[index].Title;
+      };
+
+      var updateIndex = -1;
+      $scope.changePbi = function (index) {
+          //console.log("start change: " + tempPbiName);
+          //console.log("change: " + $scope.pbiArray[index].Title);
+          if (tempPbiName != $scope.pbiArray[index].Title) {
+              updateIndex = index;
+             var changedPbiObject = {
+               OldTitle: tempPbiName,
+               NewTitle: $scope.pbiArray[index].Title
+            };
+              signalRSvc.sendRequestWithRoomID(signalRSvc.CONST.UPDATE_PBI, changedPbiObject);
+         };
+      };
+
+      PubSub.subscribe('updatedPBI', function (msg, succeeded) {
+          if (!succeeded) {
+              //console.log("Revert name change");
+              $scope.pbiArray[updateIndex].Title = tempPbiName;
+          };
+          $timeout(function () {
+              $scope.$apply();
+          }, 0);
+      });
 
       $scope.pushPbi = function(index){
           signalRSvc.sendRequestWithRoomID(signalRSvc.CONST.PUSH_PBI, $scope.pbiArray[index].Title);
@@ -74,12 +103,6 @@
           $timeout(function(){
               $scope.$apply();
           },0);
-      });
-
-      PubSub.subscribe('updatedPBI', function (msg, success) {
-          if (!success) {
-              console.log("Updating the PBI failed...");
-          };
       });
 
       PubSub.subscribe( 'PBIPushed', function(msg, pbiName){
