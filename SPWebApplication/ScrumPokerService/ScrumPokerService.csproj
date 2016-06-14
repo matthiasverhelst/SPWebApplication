@@ -130,6 +130,10 @@
       <Project>{957bea64-ef83-4f1d-8700-3ba4e7ef8706}</Project>
       <Name>SPCore</Name>
     </ProjectReference>
+    <ProjectReference Include="..\SPInfrastructure\SPInfrastructure.csproj">
+      <Project>{e49c33a2-f240-4770-9d8f-2250aa3413e0}</Project>
+      <Name>SPInfrastructure</Name>
+    </ProjectReference>
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
