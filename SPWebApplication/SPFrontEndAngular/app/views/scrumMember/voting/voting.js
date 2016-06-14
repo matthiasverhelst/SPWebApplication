@@ -27,12 +27,20 @@
 
         PubSub.subscribe('addedEstimation', function (msg, succes) {
             if (succes) {
-                $scope.goToResultOverview();
+                $scope.goToResultOverview(false);
             }
         });
 
-        $scope.goToResultOverview = function () {
-            var pathString = "/resultOverviewScrumMember/" + $scope.pbiName;
+        PubSub.subscribe('showEstimates', function (msg) {
+            $scope.goToResultOverview(true);
+        });
+
+        $scope.goToResultOverview = function (showEstimates) {
+            var params = {
+                "pbiName": $scope.pbiName,
+                "showEstimates": showEstimates
+            }
+            var pathString = "/resultOverviewScrumMember/" + $scope.pbiName + "/" + showEstimates;
             $location.path(pathString);
             $timeout(function () {
                 $scope.$apply();

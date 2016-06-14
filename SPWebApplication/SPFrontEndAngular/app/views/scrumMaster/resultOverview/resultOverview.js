@@ -55,6 +55,11 @@
           $location.path(pathString);
       };
 
+      $scope.finalEstimate = function () {
+          var pathString = "/setFinalEstimate/" + $scope.pbiName;
+          $location.path(pathString);
+      };
+
       $scope.pushEstimates = function () {
           signalRSvc.sendRequestWithRoomID(signalRSvc.CONST.SHOW_ESTIMATES, null);
       };

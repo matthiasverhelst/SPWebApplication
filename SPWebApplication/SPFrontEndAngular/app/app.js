@@ -11,6 +11,7 @@
     'pokerShoreApp.waitingRoomScrumMember',
     'pokerShoreApp.votingScrumMember',
     'pokerShoreApp.resultOverviewScrumMember',
+    'pokerShoreApp.setFinalEstimate',
     'pokerShoreApp.version'
     ]);
 

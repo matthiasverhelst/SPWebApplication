@@ -91,6 +91,12 @@ namespace ScrumPokerService.Hubs
             Clients.Group(id.ToString()).showEstimates();
         }
 
+        public void SetFinalEstimate(int id, AddEstimateDTO finalEstimate)
+        {
+            Boolean isAdded = BusinessLogic.SetFinalEstimate(id, finalEstimate.PBIName, finalEstimate.Estimate);
+            Clients.Caller.finalEstimateSet(isAdded);
+        }
+
         public override Task OnDisconnected(bool stopCalled)
         {
             int roomId = BusinessLogic.RemoveUser(Context.ConnectionId);

@@ -218,6 +218,24 @@ namespace SPCore
             return false;
         }
 
+        public static bool SetFinalEstimate(int id, string title, int score)
+        {
+            var room = _rooms.Where(r => r.RoomId == id).FirstOrDefault();
+
+            if (room != null)
+            {
+                var pbi = room.PBIs.Where(p => p.Title == title).FirstOrDefault();
+
+                if (pbi != null)
+                {
+                    pbi.FinalEstimation = score;
+                    return true;
+                }
+
+            }
+            return false;
+        }
+
         private static User GetUserByConnectionId(int id, string connectionId)
         {
             var room = _rooms.Where(r => r.RoomId == id).FirstOrDefault();
