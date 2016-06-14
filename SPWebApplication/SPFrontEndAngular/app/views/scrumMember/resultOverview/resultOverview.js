@@ -40,11 +40,12 @@
           }, 0);
       });
 
-      PubSub.subscribe('finalEstimateSet', function (msg, estimate) {
-          if (estimate != false) {
-              var pathString = "/seeFinalEstimate/";
-              $location.path(pathString);
-          }
+//      PubSub.subscribe('finalEstimateSet', function (msg, estimate) {
+//         console.log("final estimate: " + estimate);
+//          if (estimate != false) {
+//             var pathString = "/seeFinalEstimate/";
+//              $location.path(pathString);
+//          }
       });
 
       signalRSvc.sendRequestWithRoomID(signalRSvc.CONST.GET_USER_ESTIMATES, $scope.pbiName);
