@@ -28,7 +28,8 @@
             GET_USER_ESTIMATES: 'GetUserEstimates',
             SHOW_ESTIMATES : 'ShowEstimates',
             CREATE_PBI: 'createPBI',
-            REMOVE_PBI : 'removePBI',
+            REMOVE_PBI: 'removePBI',
+            UPDATE_PBI: 'UpdatePBI',
             PUSH_PBI: 'pushPBI',
             ADD_ESTIMATE: 'addEstimation',
             SET_FINAL_ESTIMATE: 'setFinalEstimate'
@@ -51,7 +52,7 @@
                 });
             };
 
-            var onProxyVarsArray = ['roomCreated', 'roomJoined', 'getParticipants', 'getPBIS', 'PBIPushed', 'addedEstimation', 'getUserEstimates', 'showEstimates', 'finalEstimateSet'];
+            var onProxyVarsArray = ['roomCreated', 'roomJoined', 'getParticipants', 'getPBIS', 'PBIPushed', 'PBIUpdated', 'addedEstimation', 'getUserEstimates', 'showEstimates', 'finalEstimateSet'];
 
             for(var i = 0; i < onProxyVarsArray.length; i++){
                 createProxyListener(this.proxy, onProxyVarsArray[i]);

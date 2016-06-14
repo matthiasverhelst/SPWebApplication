@@ -19,6 +19,7 @@
           if (newPbi && newPbi.length >= 1) {
               var Pbi = {
                   "Title": newPbi,
+                  "OldTitle": newPbi,
                   "FinalEstimation": ""
               };
               signalRSvc.sendRequestWithRoomID(signalRSvc.CONST.CREATE_PBI, Pbi.Title);
@@ -29,6 +30,21 @@
               }
           }
       };
+
+      $scope.removePbi = function (index) {
+          signalRSvc.sendRequestWithRoomID(signalRSvc.CONST.REMOVE_PBI, $scope.pbiArray[index].Title);
+          $scope.pbiArray.splice(index, 1);
+      };
+
+      $scope.updatePbi = function (index) {
+          var updatePBIDTO = {
+              "OldTitle": $scope.pbiArray[index].OldTitle,
+              "NewTitle": $scope.pbiArray[index].Title
+          }
+          signalRSvc.sendRequestWithRoomID(signalRSvc.CONST.UPDATE_PBI, updatePBIDTO);
+          $scope.pbiArray[index].OldTitle = $scope.pbiArray[index].Title;
+      }
+
       $scope.pushPbi = function(index){
           signalRSvc.sendRequestWithRoomID(signalRSvc.CONST.PUSH_PBI, $scope.pbiArray[index].Title);
       };
@@ -42,11 +58,6 @@
           document.activeElement.blur();
           //document.getElementById("newPbi").blur();
           focusNewPbi();
-      };
-
-      $scope.removePbi = function (index) {
-          signalRSvc.sendRequestWithRoomID(signalRSvc.CONST.REMOVE_PBI, $scope.pbiArray[index].Title);
-          $scope.pbiArray.splice(index, 1);
       };
 
       PubSub.subscribe( 'getPBIS', function(msg, pbiArray){
@@ -63,6 +74,12 @@
           $timeout(function(){
               $scope.$apply();
           },0);
+      });
+
+      PubSub.subscribe('updatedPBI', function (msg, success) {
+          if (!success) {
+              console.log("Updating the PBI failed...");
+          };
       });
 
       PubSub.subscribe( 'PBIPushed', function(msg, pbiName){

@@ -64,7 +64,8 @@ namespace ScrumPokerService.Hubs
 
         public void UpdatePBI(int id, UpdatePBIDTO updateDTO)
         {
-            Clients.Group(id.ToString()).updatedPBI(true);
+            Boolean isUpdated = BusinessLogic.UpdatePBI(id, updateDTO.OldTitle, updateDTO.NewTitle);
+            Clients.Group(id.ToString()).updatedPBI(isUpdated);
         }
 
         public void RemovePBI(int id, string title)

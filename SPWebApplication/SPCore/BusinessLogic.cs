@@ -159,6 +159,23 @@ namespace SPCore
 		    return true;
 	    }
 
+        public static bool UpdatePBI(int id, string oldTitle, string newTitle)
+        {
+            var room = _rooms.Where(r => r.RoomId == id).FirstOrDefault();
+
+            if (room != null)
+            {
+                var pbi = room.PBIs.Where(p => p.Title == oldTitle).FirstOrDefault();
+
+                if (pbi != null)
+                {
+                    pbi.Title = newTitle;
+                    return true;
+                }
+            }
+            return false;
+        }
+
 		public static bool RemovePBI(int id, string title)
 		{
 			var room = _rooms.Where(r => r.RoomId == id).FirstOrDefault();
