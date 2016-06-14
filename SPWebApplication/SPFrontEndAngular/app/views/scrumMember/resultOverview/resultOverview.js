@@ -46,7 +46,7 @@
 //             var pathString = "/seeFinalEstimate/";
 //              $location.path(pathString);
 //          }
-      });
+//      });
 
       signalRSvc.sendRequestWithRoomID(signalRSvc.CONST.GET_USER_ESTIMATES, $scope.pbiName);
   }]);
