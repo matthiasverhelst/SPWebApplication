@@ -8,6 +8,6 @@ namespace ScrumPokerService.DTO
     public class UserEstimateDTO
     {
         public String UserName { get; set; }
-        public int Estimate { get; set; }
+        public string Estimate { get; set; }
     }
 }

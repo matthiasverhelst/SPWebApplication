@@ -25,7 +25,6 @@
         }
 
         PubSub.subscribe('addedEstimation', function (msg, succes) {
-            console.log("master added estimation, succes: ", succes);
             if (succes) {
                 $scope.goToWaitingRoom();
             }
@@ -33,7 +32,6 @@
 
         $scope.goToWaitingRoom = function () {
             var pathString = "/resultOverviewScrumMaster/" + $scope.pbiName;
-            console.log("path: ", pathString);
             $location.path(pathString);
             $timeout(function () {
                 $scope.$apply();

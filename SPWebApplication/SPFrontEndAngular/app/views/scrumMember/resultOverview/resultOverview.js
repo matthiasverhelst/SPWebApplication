@@ -14,8 +14,6 @@
       $scope.pbiName = $routeParams.pbiName;
       $scope.participantsList = [];
       $scope.showEstimates = ($routeParams.showEstimates === 'true');
-      console.log("pbiname: " + $scope.pbiName);
-      console.log("showEstimates: " + $scope.showEstimates);
 
       PubSub.subscribe('getUserEstimates', function (msg, participantsList) {
           $scope.participantsList = participantsList;
@@ -33,7 +31,6 @@
       });
 
       PubSub.subscribe('showEstimates', function (msg) {
-          console.log("Showing estimates...");
           $scope.showEstimates = true;
           $timeout(function () {
               $scope.$apply();

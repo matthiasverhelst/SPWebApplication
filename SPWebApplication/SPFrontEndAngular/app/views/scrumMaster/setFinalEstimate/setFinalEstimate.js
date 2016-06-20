@@ -25,8 +25,8 @@
             signalRSvc.sendRequestWithRoomID(signalRSvc.CONST.SET_FINAL_ESTIMATE, voteObj);
         }
 
-        PubSub.subscribe('finalEstimateSet', function (msg, succes) {
-            if (succes != false) {
+        PubSub.subscribe('finalEstimateSet', function (msg, success) {
+            if (success !== false) {
                 $scope.goToWaitingRoom();
             }
         });

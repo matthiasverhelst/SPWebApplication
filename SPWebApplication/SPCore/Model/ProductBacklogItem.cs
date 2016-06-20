@@ -17,7 +17,7 @@ namespace SPCore.Model
         [Required]
         public string Title { get; set; }
 
-        public int FinalEstimation { get; set; }
+        public string FinalEstimation { get; set; }
 
         public virtual ICollection<Estimate> Estimates { get; set; }
     }

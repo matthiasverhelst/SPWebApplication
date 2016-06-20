@@ -18,8 +18,10 @@
       $scope.joinRoomFormSubmitted = false;
 
       $scope.createRoom = function () {
-         $scope.createRoomFormSubmitted = true;
-         signalRSvc.sendRequest(signalRSvc.CONST.CREATE_ROOM, $scope.createRoomObj.scrumMasterName);
+          $scope.createRoomFormSubmitted = true;
+          if ($scope.createRoomObj.scrumMasterName && $scope.createRoomObj.scrumMasterName !== "") {
+              signalRSvc.sendRequest(signalRSvc.CONST.CREATE_ROOM, $scope.createRoomObj.scrumMasterName);
+          }
       };
 
       $scope.joinRoom = function(){
@@ -30,7 +32,6 @@
                   roomId : $scope.joinRoomObj.roomId,
                   name : $scope.joinRoomObj.scrumMemberName
               };
-              console.log("calling singnalR");
               signalRSvc.sendRequest(signalRSvc.CONST.JOIN_ROOM, scrumMemberObj);
           }
       };

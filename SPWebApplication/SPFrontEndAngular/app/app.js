@@ -45,7 +45,6 @@
 
             var createProxyListener = function(proxyObj, proxyID){
                 proxyObj.on(proxyID, function (obj){
-                    console.log(proxyID);
                     if(proxyID === "roomCreated"){
                         roomId = obj;
                     }
@@ -69,8 +68,6 @@
         }
 
         var sendRequest = function (reqName, obj) {
-            console.log(reqName);
-            console.log(obj);
             this.proxy.invoke(reqName, obj);
         };
 

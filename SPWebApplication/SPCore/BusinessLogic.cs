@@ -193,7 +193,7 @@ namespace SPCore
 			return false;
 		}
 
-        public static bool AddEstimate(int id, string connectionId, string title, int score)
+        public static bool AddEstimate(int id, string connectionId, string title, string score)
         {
             var room = _rooms.Where(r => r.RoomId == id).FirstOrDefault();
 
@@ -218,7 +218,7 @@ namespace SPCore
             return false;
         }
 
-        public static bool SetFinalEstimate(int id, string title, int score)
+        public static bool SetFinalEstimate(int id, string title, string score)
         {
             var room = _rooms.Where(r => r.RoomId == id).FirstOrDefault();
 

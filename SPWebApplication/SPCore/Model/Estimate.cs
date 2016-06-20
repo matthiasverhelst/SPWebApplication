@@ -15,7 +15,7 @@ namespace SPCore.Model
         public int EstimateId { get; set; }
         
         [Required]
-        public int Value { get; set; }
+        public string Value { get; set; }
         
         [ForeignKey("ParticipantId")]
         public virtual User Participant { get; set; }

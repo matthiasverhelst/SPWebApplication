@@ -23,7 +23,6 @@
       });
 
       PubSub.subscribe('showEstimates', function (msg) {
-          console.log("Showing estimates...");
           $scope.showEstimates = true;
           $timeout(function () {
               $scope.$apply();
@@ -43,7 +42,7 @@
       };
 
       $scope.hasVoted = function (score) {
-          if (score == 0) {
+          if (score === "") {
               return false;
           } else {
               return true;

@@ -52,8 +52,6 @@
 
       var updateIndex = -1;
       $scope.changePbi = function (index) {
-          //console.log("start change: " + tempPbiName);
-          //console.log("change: " + $scope.pbiArray[index].Title);
           if (tempPbiName != $scope.pbiArray[index].Title) {
               updateIndex = index;
              var changedPbiObject = {
@@ -66,7 +64,6 @@
 
       PubSub.subscribe('updatedPBI', function (msg, succeeded) {
           if (!succeeded) {
-              //console.log("Revert name change");
               $scope.pbiArray[updateIndex].Title = tempPbiName;
           };
           $timeout(function () {
@@ -90,8 +87,6 @@
       };
 
       PubSub.subscribe( 'getPBIS', function(msg, pbiArray){
-          console.log("pbiArray");
-          console.log(pbiArray);
           $scope.pbiArray = pbiArray;
           $timeout(function(){
               $scope.$apply();
@@ -108,7 +103,6 @@
       PubSub.subscribe( 'PBIPushed', function(msg, pbiName){
           var pathString = "/votingScrumMaster/" + pbiName;
           $location.path(pathString);
-          console.log('PBIPushed', pbiName);
           $timeout(function(){
               $scope.$apply();
           },0);
