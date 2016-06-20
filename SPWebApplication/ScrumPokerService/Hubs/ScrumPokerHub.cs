@@ -106,7 +106,13 @@ namespace ScrumPokerService.Hubs
 
         public void GetFinalEstimate(int id, string title)
         {
-            
+            string finalEstimate = BusinessLogic.GetFinalEstimate(id, title);
+            Clients.Caller.getFinalEstimate(finalEstimate);
+        }
+
+        public void AbortVoting(int id)
+        {
+            Clients.Group(id.ToString()).votingAborted();
         }
 
         public override Task OnDisconnected(bool stopCalled)

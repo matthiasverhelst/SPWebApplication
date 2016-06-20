@@ -37,9 +37,17 @@
           }, 0);
       });
 
+      PubSub.subscribe('votingAborted', function (msg, succes) {
+          var pathString = "/waitingRoomScrumMember/" + signalRSvc.getRoomId();
+          $location.path(pathString);
+          $timeout(function () {
+              $scope.$apply();
+          }, 0);
+      });
+
 //      PubSub.subscribe('finalEstimateSet', function (msg, estimate) {
 //         console.log("final estimate: " + estimate);
-//          if (estimate != false) {
+//          if (estimate !== false) {
 //             var pathString = "/seeFinalEstimate/";
 //              $location.path(pathString);
 //          }

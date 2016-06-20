@@ -35,6 +35,14 @@
             $scope.goToResultOverview(true);
         });
 
+        PubSub.subscribe('votingAborted', function (msg, succes) {
+            var pathString = "/waitingRoomScrumMember/" + signalRSvc.getRoomId();
+            $location.path(pathString);
+            $timeout(function () {
+                $scope.$apply();
+            }, 0);
+        });
+
         $scope.goToResultOverview = function (showEstimates) {
             var params = {
                 "pbiName": $scope.pbiName,
