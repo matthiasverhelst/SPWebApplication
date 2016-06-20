@@ -15,6 +15,32 @@
       $scope.participantsList = [];
       $scope.showEstimates = false;
 
+      $scope.hasVoted = function (score) {
+          if (score === "") {
+              return false;
+          } else {
+              return true;
+          };
+      };
+
+      $scope.pushPbi = function () {
+          signalRSvc.sendRequestWithRoomID(signalRSvc.CONST.PUSH_PBI, $scope.pbiName);
+      };
+
+      $scope.goToWaitingRoom = function () {
+          var pathString = "/waitingRoomScrumMaster/" + signalRSvc.getRoomId();
+          $location.path(pathString);
+      };
+
+      $scope.finalEstimate = function () {
+          var pathString = "/setFinalEstimate/" + $scope.pbiName;
+          $location.path(pathString);
+      };
+
+      $scope.pushEstimates = function () {
+          signalRSvc.sendRequestWithRoomID(signalRSvc.CONST.SHOW_ESTIMATES, null);
+      };
+
       PubSub.subscribe('getUserEstimates', function (msg, participantsList) {
           $scope.participantsList = participantsList;
           $timeout(function() {
@@ -36,32 +62,6 @@
               $scope.$apply();
           }, 0);
       });
-
-      $scope.pushPbi = function () {
-          signalRSvc.sendRequestWithRoomID(signalRSvc.CONST.PUSH_PBI, $scope.pbiName);
-      };
-
-      $scope.hasVoted = function (score) {
-          if (score === "") {
-              return false;
-          } else {
-              return true;
-          };
-      };
-
-      $scope.goToWaitingRoom = function () {
-          var pathString = "/waitingRoomScrumMaster/" + signalRSvc.getRoomId();
-          $location.path(pathString);
-      };
-
-      $scope.finalEstimate = function () {
-          var pathString = "/setFinalEstimate/" + $scope.pbiName;
-          $location.path(pathString);
-      };
-
-      $scope.pushEstimates = function () {
-          signalRSvc.sendRequestWithRoomID(signalRSvc.CONST.SHOW_ESTIMATES, null);
-      };
 
       signalRSvc.sendRequestWithRoomID(signalRSvc.CONST.GET_USER_ESTIMATES, $scope.pbiName);
   }]);

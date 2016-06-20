@@ -15,6 +15,14 @@
       $scope.participantsList = [];
       $scope.showEstimates = ($routeParams.showEstimates === 'true');
 
+      $scope.hasVoted = function (score) {
+          if (score === "") {
+              return false;
+          } else {
+              return true;
+          };
+      };
+
       PubSub.subscribe('getUserEstimates', function (msg, participantsList) {
           $scope.participantsList = participantsList;
           $timeout(function(){
