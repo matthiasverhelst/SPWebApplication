@@ -51,7 +51,7 @@
                     if(proxyID === "roomCreated") {
                         roomId = obj;
                     }
-                    PubSub.publish(proxyID, obj );
+                    PubSub.publish(proxyID, obj);
                     PubSub.publish(proxyID, obj);
                 });
             };
