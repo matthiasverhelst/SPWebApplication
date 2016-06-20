@@ -12,6 +12,7 @@
     'pokerShoreApp.votingScrumMember',
     'pokerShoreApp.resultOverviewScrumMember',
     'pokerShoreApp.setFinalEstimate',
+    'pokerShoreApp.seeFinalEstimateScrumMember',
     'pokerShoreApp.version'
     ]);
 
@@ -33,7 +34,8 @@
             UPDATE_PBI: 'updatePBI',
             PUSH_PBI: 'pushPBI',
             ADD_ESTIMATE: 'addEstimation',
-            SET_FINAL_ESTIMATE: 'setFinalEstimate'
+            SET_FINAL_ESTIMATE: 'setFinalEstimate',
+            GET_FINAL_ESTIMATE: 'getFinalEstimate'
         };
 
         var initialize = function () {
@@ -48,6 +50,9 @@
                     if(proxyID === "roomCreated"){
                         roomId = obj;
                     }
+                    console.log("proxyID", proxyID);
+                    console.log("obj", obj);
+
                     PubSub.publish(proxyID, obj );
                 });
             };

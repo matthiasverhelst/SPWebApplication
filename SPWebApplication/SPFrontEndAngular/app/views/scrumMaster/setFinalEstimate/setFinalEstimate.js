@@ -23,7 +23,7 @@
         $scope.vote = function vote(score) {
             var voteObj = { "pbiName": $scope.pbiName, "estimate": score };
             signalRSvc.sendRequestWithRoomID(signalRSvc.CONST.SET_FINAL_ESTIMATE, voteObj);
-        }
+        };
 
         PubSub.subscribe('finalEstimateSet', function (msg, success) {
             if (success !== false) {

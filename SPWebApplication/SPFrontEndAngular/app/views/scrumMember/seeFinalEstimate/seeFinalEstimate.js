@@ -1,16 +1,16 @@
 'use strict';
 
 (function () {
-    angular.module('pokerShoreApp.finalEstimateScrumMember', ['ngRoute'])
+    angular.module('pokerShoreApp.seeFinalEstimateScrumMember', ['ngRoute'])
 
   .config(['$routeProvider', function($routeProvider) {
-      $routeProvider.when('/finalEstimateScrumMember', {
-        templateUrl: 'views/scrumMember/seeFinalEstimate/resultOverview.html',
-        controller: 'finalEstimateScrumMemberCtrl'
+      $routeProvider.when('/seeFinalEstimateScrumMember/:finalEstimate', {
+        templateUrl: 'views/scrumMember/seeFinalEstimate/seeFinalEstimate.html',
+        controller: 'seeFinalEstimateScrumMemberCtrl'
     });
   }])
 
-  .controller('finalEstimateScrumMemberCtrl', ['$scope', '$routeParams', '$http', '$timeout', 'signalRSvc', '$location', function ($scope, $routeParams, $http, $timeout, signalRSvc, $location) {
-
+  .controller('seeFinalEstimateScrumMemberCtrl', ['$scope', '$routeParams', '$http', '$timeout', 'signalRSvc', '$location', function ($scope, $routeParams, $http, $timeout, signalRSvc, $location) {
+      $scope.finalEstimate = $routeParams.finalEstimate;
   }]);
 })();
