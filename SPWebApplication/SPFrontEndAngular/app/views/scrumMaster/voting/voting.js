@@ -24,13 +24,25 @@
             signalRSvc.sendRequestWithRoomID(signalRSvc.CONST.ADD_ESTIMATE, voteObj);
         }
 
+        $scope.abortVoting = function () {
+            signalRSvc.sendRequestWithRoomID(signalRSvc.CONST.ABORT_VOTING, null);
+        }
+
         PubSub.subscribe('addedEstimation', function (msg, succes) {
             if (succes) {
-                $scope.goToWaitingRoom();
+                $scope.goToResultOverview();
             }
         });
 
-        $scope.goToWaitingRoom = function () {
+        PubSub.subscribe('votingAborted', function (msg, succes) {
+            var pathString = "/waitingRoomScrumMaster/" + $scope.pbiName;
+            $location.path(pathString);
+            $timeout(function () {
+                $scope.$apply();
+            }, 0);
+        });
+
+        $scope.goToResultOverview = function () {
             var pathString = "/resultOverviewScrumMaster/" + $scope.pbiName;
             $location.path(pathString);
             $timeout(function () {

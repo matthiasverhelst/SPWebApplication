@@ -46,6 +46,13 @@
              }, 0);
          }
      });
+      PubSub.subscribe('votingAborted', function (msg, succes) {
+          var pathString = "/waitingRoomScrumMember/" + signalRSvc.getRoomId();
+          $location.path(pathString);
+          $timeout(function () {
+              $scope.$apply();
+          }, 0);
+      });
 
       signalRSvc.sendRequestWithRoomID(signalRSvc.CONST.GET_USER_ESTIMATES, $scope.pbiName);
   }]);

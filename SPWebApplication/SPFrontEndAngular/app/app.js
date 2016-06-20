@@ -35,7 +35,8 @@
             PUSH_PBI: 'pushPBI',
             ADD_ESTIMATE: 'addEstimation',
             SET_FINAL_ESTIMATE: 'setFinalEstimate',
-            GET_FINAL_ESTIMATE: 'getFinalEstimate'
+            GET_FINAL_ESTIMATE: 'getFinalEstimate',
+            ABORT_VOTING: 'abortVoting'
         };
 
         var initialize = function () {
@@ -45,19 +46,17 @@
             //Creating proxy
             this.proxy = connection.createHubProxy('scrumPokerHub');
 
-            var createProxyListener = function(proxyObj, proxyID){
-                proxyObj.on(proxyID, function (obj){
-                    if(proxyID === "roomCreated"){
+            var createProxyListener = function(proxyObj, proxyID) {
+                proxyObj.on(proxyID, function (obj) {
+                    if(proxyID === "roomCreated") {
                         roomId = obj;
                     }
-                    console.log("proxyID", proxyID);
-                    console.log("obj", obj);
-
                     PubSub.publish(proxyID, obj );
+                    PubSub.publish(proxyID, obj);
                 });
             };
 
-            var onProxyVarsArray = ['roomCreated', 'roomJoined', 'getParticipants', 'getPBIS', 'PBIPushed', 'PBIUpdated', 'addedEstimation', 'getUserEstimates', 'showEstimates', 'finalEstimateSet'];
+            var onProxyVarsArray = ['roomCreated', 'roomJoined', 'getParticipants', 'getPBIS', 'PBIPushed', 'PBIUpdated', 'addedEstimation', 'getUserEstimates', 'showEstimates', 'finalEstimateSet', 'votingAborted'];
 
             for(var i = 0; i < onProxyVarsArray.length; i++){
                 createProxyListener(this.proxy, onProxyVarsArray[i]);
@@ -88,7 +87,7 @@
                 return roomId;
         };
 
-        var setRoomId = function(id){
+        var setRoomId = function(id) {
             roomId = id;
         };
 
