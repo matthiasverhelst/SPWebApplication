@@ -31,10 +31,14 @@ namespace ScrumPokerService.Hubs
 
         public async Task JoinRoom(JoinRoomDTO joinRoomDTO)
         {
-            int id = joinRoomDTO.RoomId;
-            string name = joinRoomDTO.Name;
-            Boolean hasJoined = BusinessLogic.JoinRoom(name, id, Context.ConnectionId);
-            Clients.Caller.roomJoined(hasJoined);
+            int id;
+            Boolean hasJoined = false;
+            if (Int32.TryParse(joinRoomDTO.RoomId, out id))
+            {
+                string name = joinRoomDTO.Name;
+                hasJoined = BusinessLogic.JoinRoom(name, id, Context.ConnectionId);
+            }
+            Clients.Caller.roomJoined(hasJoined);       
 
             if (hasJoined)
             {

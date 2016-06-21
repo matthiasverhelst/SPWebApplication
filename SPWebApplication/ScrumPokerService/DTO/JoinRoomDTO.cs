@@ -7,7 +7,7 @@ namespace ScrumPokerService.DTO
 {
     public class JoinRoomDTO
     {
-        public int RoomId { get; set; }
+        public string RoomId { get; set; }
         public string Name { get; set; }
     }
 }
