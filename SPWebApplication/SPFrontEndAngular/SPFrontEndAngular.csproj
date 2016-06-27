@@ -101,13 +101,28 @@
     <Content Include="app\lib\pubsub.js">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
+    <Content Include="app\media\border-header.png" />
+    <Content Include="app\media\comma-white.png" />
+    <Content Include="app\media\logo.png" />
+    <Content Include="app\style\dist\main.css" />
+    <Content Include="app\templates\header.html" />
     <Content Include="app\views\home\home.html" />
     <Content Include="app\views\home\home.js" />
     <Content Include="app\views\home\home_test.js" />
+    <Content Include="app\views\scrumMaster\setFinalEstimate\setFinalEstimate.html" />
+    <Content Include="app\views\scrumMaster\setFinalEstimate\setFinalEstimate.js" />
+    <Content Include="app\views\scrumMaster\setFinalEstimate\setFinalEstimate_test.js" />
+    <Content Include="app\views\scrumMaster\voting\voting.html" />
+    <Content Include="app\views\scrumMaster\voting\voting.js" />
+    <Content Include="app\views\scrumMaster\voting\voting_test.js" />
     <Content Include="app\views\scrumMember\seeFinalEstimate\seeFinalEstimate.html" />
     <Content Include="app\views\scrumMember\seeFinalEstimate\seeFinalEstimate.js" />
     <Content Include="app\views\scrumMember\seeFinalEstimate\seeFinalEstimate_test.js" />
+    <Content Include="app\views\scrumMember\voting\voting.html" />
+    <Content Include="app\views\scrumMember\voting\voting.js" />
+    <Content Include="app\views\scrumMember\voting\voting_test.js" />
     <Content Include="bower.json" />
+    <Content Include="gulpfile.js" />
     <Content Include="LICENSE" />
     <Content Include="package.json" />
     <Content Include="README.md" />
@@ -141,8 +156,6 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="app\directives\" />
-    <Folder Include="app\media\" />
-    <Folder Include="app\templates\" />
     <Folder Include="app\views\scrumMaster\resultOverview\" />
     <Folder Include="app\views\scrumMaster\waitingRoom\" />
     <Folder Include="app\views\scrumMember\resultOverview\" />
