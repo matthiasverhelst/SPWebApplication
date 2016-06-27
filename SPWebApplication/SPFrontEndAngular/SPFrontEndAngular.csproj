@@ -73,6 +73,81 @@
     <Content Include=".bowerrc" />
     <Content Include=".jshintrc" />
     <Content Include=".travis.yml" />
+    <Content Include="app\directives\common-directives.js" />
+    <Content Include="app\style\src\bootstrap\alerts.less" />
+    <Content Include="app\style\src\bootstrap\badges.less" />
+    <Content Include="app\style\src\bootstrap\bootstrap.less" />
+    <Content Include="app\style\src\bootstrap\breadcrumbs.less" />
+    <Content Include="app\style\src\bootstrap\button-groups.less" />
+    <Content Include="app\style\src\bootstrap\buttons.less" />
+    <Content Include="app\style\src\bootstrap\carousel.less" />
+    <Content Include="app\style\src\bootstrap\close.less" />
+    <Content Include="app\style\src\bootstrap\code.less" />
+    <Content Include="app\style\src\bootstrap\component-animations.less" />
+    <Content Include="app\style\src\bootstrap\dropdowns.less" />
+    <Content Include="app\style\src\bootstrap\forms.less" />
+    <Content Include="app\style\src\bootstrap\glyphicons.less" />
+    <Content Include="app\style\src\bootstrap\grid.less" />
+    <Content Include="app\style\src\bootstrap\input-groups.less" />
+    <Content Include="app\style\src\bootstrap\jumbotron.less" />
+    <Content Include="app\style\src\bootstrap\labels.less" />
+    <Content Include="app\style\src\bootstrap\list-group.less" />
+    <Content Include="app\style\src\bootstrap\media.less" />
+    <Content Include="app\style\src\bootstrap\mixins.less" />
+    <Content Include="app\style\src\bootstrap\mixins\alerts.less" />
+    <Content Include="app\style\src\bootstrap\mixins\background-variant.less" />
+    <Content Include="app\style\src\bootstrap\mixins\border-radius.less" />
+    <Content Include="app\style\src\bootstrap\mixins\buttons.less" />
+    <Content Include="app\style\src\bootstrap\mixins\center-block.less" />
+    <Content Include="app\style\src\bootstrap\mixins\clearfix.less" />
+    <Content Include="app\style\src\bootstrap\mixins\forms.less" />
+    <Content Include="app\style\src\bootstrap\mixins\gradients.less" />
+    <Content Include="app\style\src\bootstrap\mixins\grid-framework.less" />
+    <Content Include="app\style\src\bootstrap\mixins\grid.less" />
+    <Content Include="app\style\src\bootstrap\mixins\hide-text.less" />
+    <Content Include="app\style\src\bootstrap\mixins\image.less" />
+    <Content Include="app\style\src\bootstrap\mixins\labels.less" />
+    <Content Include="app\style\src\bootstrap\mixins\list-group.less" />
+    <Content Include="app\style\src\bootstrap\mixins\nav-divider.less" />
+    <Content Include="app\style\src\bootstrap\mixins\nav-vertical-align.less" />
+    <Content Include="app\style\src\bootstrap\mixins\opacity.less" />
+    <Content Include="app\style\src\bootstrap\mixins\pagination.less" />
+    <Content Include="app\style\src\bootstrap\mixins\panels.less" />
+    <Content Include="app\style\src\bootstrap\mixins\progress-bar.less" />
+    <Content Include="app\style\src\bootstrap\mixins\reset-filter.less" />
+    <Content Include="app\style\src\bootstrap\mixins\reset-text.less" />
+    <Content Include="app\style\src\bootstrap\mixins\resize.less" />
+    <Content Include="app\style\src\bootstrap\mixins\responsive-visibility.less" />
+    <Content Include="app\style\src\bootstrap\mixins\size.less" />
+    <Content Include="app\style\src\bootstrap\mixins\tab-focus.less" />
+    <Content Include="app\style\src\bootstrap\mixins\table-row.less" />
+    <Content Include="app\style\src\bootstrap\mixins\text-emphasis.less" />
+    <Content Include="app\style\src\bootstrap\mixins\text-overflow.less" />
+    <Content Include="app\style\src\bootstrap\mixins\vendor-prefixes.less" />
+    <Content Include="app\style\src\bootstrap\modals.less" />
+    <Content Include="app\style\src\bootstrap\navbar.less" />
+    <Content Include="app\style\src\bootstrap\navs.less" />
+    <Content Include="app\style\src\bootstrap\normalize.less" />
+    <Content Include="app\style\src\bootstrap\pager.less" />
+    <Content Include="app\style\src\bootstrap\pagination.less" />
+    <Content Include="app\style\src\bootstrap\panels.less" />
+    <Content Include="app\style\src\bootstrap\popovers.less" />
+    <Content Include="app\style\src\bootstrap\print.less" />
+    <Content Include="app\style\src\bootstrap\progress-bars.less" />
+    <Content Include="app\style\src\bootstrap\responsive-embed.less" />
+    <Content Include="app\style\src\bootstrap\responsive-utilities.less" />
+    <Content Include="app\style\src\bootstrap\scaffolding.less" />
+    <Content Include="app\style\src\bootstrap\tables.less" />
+    <Content Include="app\style\src\bootstrap\theme.less" />
+    <Content Include="app\style\src\bootstrap\thumbnails.less" />
+    <Content Include="app\style\src\bootstrap\tooltip.less" />
+    <Content Include="app\style\src\bootstrap\type.less" />
+    <Content Include="app\style\src\bootstrap\utilities.less" />
+    <Content Include="app\style\src\bootstrap\variables.less" />
+    <Content Include="app\style\src\bootstrap\wells.less" />
+    <Content Include="app\style\src\home.less" />
+    <Content Include="app\style\src\main.less" />
+    <Content Include="app\style\src\navigation.less" />
     <None Include="app\style\src\vote.less" />
     <Content Include="app\lib\angular-messages.min.js">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
@@ -109,18 +184,30 @@
     <Content Include="app\views\home\home.html" />
     <Content Include="app\views\home\home.js" />
     <Content Include="app\views\home\home_test.js" />
+    <Content Include="app\views\scrumMaster\resultOverview\resultOverview.html" />
+    <Content Include="app\views\scrumMaster\resultOverview\resultOverview.js" />
+    <Content Include="app\views\scrumMaster\resultOverview\resultOverview_test.js" />
     <Content Include="app\views\scrumMaster\setFinalEstimate\setFinalEstimate.html" />
     <Content Include="app\views\scrumMaster\setFinalEstimate\setFinalEstimate.js" />
     <Content Include="app\views\scrumMaster\setFinalEstimate\setFinalEstimate_test.js" />
     <Content Include="app\views\scrumMaster\voting\voting.html" />
     <Content Include="app\views\scrumMaster\voting\voting.js" />
     <Content Include="app\views\scrumMaster\voting\voting_test.js" />
+    <Content Include="app\views\scrumMaster\waitingRoom\waitingRoom.html" />
+    <Content Include="app\views\scrumMaster\waitingRoom\waitingRoom.js" />
+    <Content Include="app\views\scrumMaster\waitingRoom\waitingRoom_test.js" />
+    <Content Include="app\views\scrumMember\resultOverview\resultOverview.html" />
+    <Content Include="app\views\scrumMember\resultOverview\resultOverview.js" />
+    <Content Include="app\views\scrumMember\resultOverview\resultOverview_test.js" />
     <Content Include="app\views\scrumMember\seeFinalEstimate\seeFinalEstimate.html" />
     <Content Include="app\views\scrumMember\seeFinalEstimate\seeFinalEstimate.js" />
     <Content Include="app\views\scrumMember\seeFinalEstimate\seeFinalEstimate_test.js" />
     <Content Include="app\views\scrumMember\voting\voting.html" />
     <Content Include="app\views\scrumMember\voting\voting.js" />
     <Content Include="app\views\scrumMember\voting\voting_test.js" />
+    <Content Include="app\views\scrumMember\waitingRoom\waitingRoom.html" />
+    <Content Include="app\views\scrumMember\waitingRoom\waitingRoom.js" />
+    <Content Include="app\views\scrumMember\waitingRoom\waitingRoom_test.js" />
     <Content Include="bower.json" />
     <Content Include="gulpfile.js" />
     <Content Include="LICENSE" />
@@ -154,13 +241,7 @@
   <ItemGroup>
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="app\directives\" />
-    <Folder Include="app\views\scrumMaster\resultOverview\" />
-    <Folder Include="app\views\scrumMaster\waitingRoom\" />
-    <Folder Include="app\views\scrumMember\resultOverview\" />
-    <Folder Include="app\views\scrumMember\waitingRoom\" />
-  </ItemGroup>
+  <ItemGroup />
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
     <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
