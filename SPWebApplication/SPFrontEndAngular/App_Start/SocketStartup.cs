@@ -20,7 +20,7 @@ namespace ScrumPokerService
                 // By default this will allow all origins. You can 
                 // configure the set of origins and/or http verbs by
                 // providing a cors options with a different policy.
-                map.UseCors(CorsOptions.AllowAll);
+                // map.UseCors(CorsOptions.AllowAll);
                 var hubConfiguration = new HubConfiguration();
 
                 // Run the SignalR pipeline. We're not using MapSignalR
@@ -28,7 +28,7 @@ namespace ScrumPokerService
                 // path.
                 map.RunSignalR(hubConfiguration);
             });
-            GlobalHost.Configuration.ConnectionTimeout = TimeSpan.FromSeconds(6000); // Should be lower in PRD
+            GlobalHost.Configuration.ConnectionTimeout = TimeSpan.FromSeconds(30 * 60); // Should be lower in PRD?
         }
     }
 }
