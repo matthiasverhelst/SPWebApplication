@@ -1,5 +1,5 @@
 <h1>Overview</h1>
-<div class="PBI_list" >
+<div class="resultOverview" >
     <table>
         <tr>
             <th style="width: 300px">
@@ -20,13 +20,12 @@
             </td>
 
             <td class="participant_voted" ng-hide="showEstimates">
-                <label>{{hasVoted(participant.Estimate)}}</label>
+                <label ng-show="hasVoted(participant.Estimate)"><img src="/app/media/checkmark.png" width="20px" alt="" class="checkmark"></label>
+                <label ng-hide="hasVoted(participant.Estimate)"><img src="/app/media/waiting.gif" width="50px" alt="" class="waiting" ></label>
             </td>
-
             <td class="participant_estimate" ng-show="showEstimates">
                 <label>{{participant.Estimate}}</label>
             </td>
         </tr>
     </table>
 </div>
-

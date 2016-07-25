@@ -6886,3 +6886,6 @@ tr.PBI_line:nth-child(even) {
   content: "";
   padding: 0;
 }
+.resultOverview .checkmark {
+  margin-left: 15px;
+}

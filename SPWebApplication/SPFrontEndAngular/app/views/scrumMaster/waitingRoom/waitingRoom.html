@@ -1,51 +1,62 @@
-<h1>Room ID: {{roomID}}</h1>
-<h3>Add PBI's and push them.</h3>
-<div class="BPI_list" >
-    <form ng-submit="submit()">
-        <table>
-            <tr>
-                <th style="width: 200px">
-                    <label class="PBI_name">PBI</label>
-                </th>
-                <th style="width: 50px">
-                    <label class="PBI_score">Score</label>
-                </th>
-            </tr>
-            <tr ng-repeat="pbi in pbiArray" class="PBI_line">
-                <td>
-                    <input class="PBI_name" ng-model="pbi.Title" ng-blur="changePbi($index)" ng-focus="startChangePbi($index)" />
-                </td>
-                <td>
-                    <label class="PBI_score">{{pbi.FinalEstimation}}</label>
-                </td>
-                <td>
-                    <span  class="PBI_push btn btn-primary" ng-click="pushPbi($index)">Push</span>
-                </td>
-                <td>
-                    <span class="PBI_remove btn btn-default" ng-click="removePbi($index)">X</span>
-                </td>
-            </tr>
-            <tr>
-                <td>
-                    <input id="newPbi" type="text" ng-model="newPbi" ng-blur="createPbi(newPbi); newPbi = '';" />
-                </td>
-                <td colspan="3"></td>
-            </tr>
-            <tr id="newPbi2" ng-show="newPbi.length >= 1;" ng-mousedown="setPbiFocus = true;">
-                <td>
-                    <input type="text" />
-                </td>
-                <td colspan="3"></td>
-            </tr>
-        </table>
-        <input type="submit" style="position: absolute; left: -9999px" />
-    </form>
-</div>
+<div class="row waitingRoom">
+    <div class="col-md-2"></div>
+    <div class="col-xs-12 col-md-8">
+        <h1>Room ID: {{roomID}}</h1>
+        <h3>Add PBI's and push them.</h3>
+        <div class="home-item-wrapper">
+            <div class="home-item-block">
+                <div class="PBI_list" >
+                    <form ng-submit="submit()">
+                        <table>
+                            <tr>
+                                <th style="width: 200px">
+                                    <label class="PBI_name">PBI</label>
+                                </th>
+                                <th style="width: 50px">
+                                    <label class="PBI_score">Score</label>
+                                </th>
+                            </tr>
+                            <tr ng-repeat="pbi in pbiArray" class="PBI_line">
+                                <td>
+                                    <input class="PBI_name" ng-model="pbi.Title" ng-blur="changePbi($index)" ng-focus="startChangePbi($index)" />
+                                </td>
+                                <td>
+                                    <label class="PBI_score">{{pbi.FinalEstimation}}</label>
+                                </td>
+                                <td>
+                                    <span  class="PBI_push btn btn-primary" ng-click="pushPbi($index)">Push</span>
+                                </td>
+                                <td>
+                                    <span class="PBI_remove btn btn-default" ng-click="removePbi($index)">X</span>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <input id="newPbi" type="text" ng-model="newPbi" ng-blur="createPbi(newPbi); newPbi = '';" />
+                                </td>
+                                <td colspan="3"></td>
+                            </tr>
+                            <tr id="newPbi2" ng-show="newPbi.length >= 1;" ng-mousedown="setPbiFocus = true;">
+                                <td>
+                                    <input type="text" />
+                                </td>
+                                <td colspan="3"></td>
+                            </tr>
+                        </table>
+                        <input type="submit" style="position: absolute; left: -9999px" />
+                    </form>
+                </div>
+            </div>
+        </div>
+        <div class="home-item-wrapper">
+            <div class="home-item-block">
+                <h2>Participants</h2>
+                <ul>
+                    <li ng-repeat="participant in participantsList">
+                        <span>{{participant.Name}}</span>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
 <div>
-    <h2>Participants</h2>
-    <ul>
-        <li ng-repeat="participant in participantsList">
-            <span>{{participant.Name}}</span>
-        </li>
-    </ul>
-</div>
