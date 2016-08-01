@@ -1,5 +1,20 @@
 .waitingRoom{
     .PBI_list{
-
+        tr.PBI_line{
+            border-bottom: 1px solid #ccc;
+            background-color: #FFF;
+            &:last-child{
+                border: none;
+            }
+        }
+        td{
+            padding: 7px;
+            &:last-child{
+                padding-right: 0px;
+            }
+            &:first-child{
+                padding-left: 0px;
+            }
+        }
     }
 }

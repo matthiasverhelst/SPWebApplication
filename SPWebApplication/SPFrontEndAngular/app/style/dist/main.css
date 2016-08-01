@@ -6725,7 +6725,7 @@ button.close {
   }
 }
 body {
-  background-color: #FFF;
+  background-color: #b3c1c3;
 }
 .viewContainer {
   margin-top: 15px;
@@ -6738,9 +6738,13 @@ body {
   color: maroon;
   margin-bottom: 10px;
 }
+.form-cap {
+  padding-top: 20px;
+}
 .form-cap-input {
   display: inline-block;
   width: 100%;
+  border-radius: 0px;
 }
 .validation-error {
   color: red;
@@ -6789,16 +6793,15 @@ body {
   padding: 10px;
 }
 .home-item-wrapper .home-item-block {
-  margin: 10px;
-  padding: 20px;
+  margin: 15px;
+  padding: 30px;
   background-color: white;
-  -webkit-box-shadow: 0px 0px 15px 8px rgba(0, 152, 204, 0.25);
-  -moz-box-shadow: 0px 0px 15px 8px rgba(0, 152, 204, 0.25);
-  box-shadow: 0px 0px 15px 8px rgba(0, 152, 204, 0.25);
-  border-radius: 10px;
 }
 .home-item-wrapper .home-item-block h2 {
   margin-top: 0px;
+}
+.home-item-wrapper:last-child {
+  margin-bottom: 50px;
 }
 .home-title {
   display: inline-block;
@@ -6844,8 +6847,9 @@ tr.PBI_line:nth-child(even) {
 }
 .btn-cap {
   font-weight: bold;
-  border-radius: 6px;
+  border-radius: 0px;
   line-height: 1.5;
+  margin-top: 20px;
 }
 .btn-cap-block {
   display: inline-block;
@@ -6888,4 +6892,20 @@ tr.PBI_line:nth-child(even) {
 }
 .resultOverview .checkmark {
   margin-left: 15px;
+}
+.waitingRoom .PBI_list tr.PBI_line {
+  border-bottom: 1px solid #ccc;
+  background-color: #FFF;
+}
+.waitingRoom .PBI_list tr.PBI_line:last-child {
+  border: none;
+}
+.waitingRoom .PBI_list td {
+  padding: 7px;
+}
+.waitingRoom .PBI_list td:last-child {
+  padding-right: 0px;
+}
+.waitingRoom .PBI_list td:first-child {
+  padding-left: 0px;
 }
