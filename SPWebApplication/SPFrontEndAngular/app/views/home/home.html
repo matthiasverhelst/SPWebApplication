@@ -7,7 +7,7 @@
                 <div class="alert alert-danger" role="alert" ng-show="errors.invalidRoomId">
                     <p>Please enter a valid room id.</p>
                 </div>
-                <form name="joinRoomForm">
+                <form class ="form-cap" name="joinRoomForm">
                     <div class="form-group">
                         <input type="text" class="form-control form-cap-input" ng-model="joinRoomObj.roomId" name="scrumMemberRoomId" placeholder="Room ID" required="required" />
                         <div ng-show="(joinRoomForm.scrumMemberRoomId.$error.required) &amp;&amp; joinRoomFormSubmitted" class="error-message" role="alert">
@@ -27,7 +27,7 @@
         <div class="home-item-wrapper">
             <div class="home-item-block">
                 <h2 class="home-item-title">Create a new voting room</h2>
-                <form name="createRoomForm">
+                <form class="form-cap" name="createRoomForm">
                     <div class="form-group">
                         <input type="text" class="form-control form-cap-input" name="scrumMasterName" ng-model="createRoomObj.scrumMasterName" placeholder="Name" required="required" />
                         <div ng-show="(createRoomForm.scrumMasterName.$error.required) &amp;&amp; createRoomFormSubmitted" class="error-message" role="alert">
