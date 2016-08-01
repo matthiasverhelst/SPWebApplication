@@ -42,9 +42,17 @@
         var initialize = function () {
             //Getting the connection object
             var connection = $.hubConnection(location.protocol + "//" + location.host + "/signalr", { useDefaultPath: false });
-
+            connection.logging = true;
             //Creating proxy
             this.proxy = connection.createHubProxy('scrumPokerHub');
+
+            //Reconnect on timeout
+            connection.disconnected(function () {
+                console.log("Connection timed out...");
+                setTimeout(function () {
+                    connection.start();
+                }, 5000); // Restart connection after 5 seconds.
+            });
 
             var createProxyListener = function(proxyObj, proxyID) {
                 proxyObj.on(proxyID, function (obj) {
