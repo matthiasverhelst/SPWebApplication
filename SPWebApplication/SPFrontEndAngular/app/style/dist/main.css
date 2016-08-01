@@ -6800,6 +6800,9 @@ body {
 .home-item-wrapper .home-item-block h2 {
   margin-top: 0px;
 }
+.home-item-wrapper:last-child {
+  margin-bottom: 50px;
+}
 .home-title {
   display: inline-block;
   text-align: center;
@@ -6889,4 +6892,20 @@ tr.PBI_line:nth-child(even) {
 }
 .resultOverview .checkmark {
   margin-left: 15px;
+}
+.waitingRoom .PBI_list tr.PBI_line {
+  border-bottom: 1px solid #ccc;
+  background-color: #FFF;
+}
+.waitingRoom .PBI_list tr.PBI_line:last-child {
+  border: none;
+}
+.waitingRoom .PBI_list td {
+  padding: 7px;
+}
+.waitingRoom .PBI_list td:last-child {
+  padding-right: 0px;
+}
+.waitingRoom .PBI_list td:first-child {
+  padding-left: 0px;
 }
