@@ -42,7 +42,7 @@
         var initialize = function () {
             //Getting the connection object
             var connection = $.hubConnection(location.protocol + "//" + location.host + "/signalr", { useDefaultPath: false });
-            connection.logging = true;
+            //connection.logging = true;
             //Creating proxy
             this.proxy = connection.createHubProxy('scrumPokerHub');
 

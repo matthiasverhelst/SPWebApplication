@@ -123,7 +123,12 @@ namespace ScrumPokerService.Hubs
         {
             int roomId = BusinessLogic.RemoveUser(Context.ConnectionId);
             ICollection<User> participants = BusinessLogic.GetParticipants(roomId);
-            Clients.Group(roomId.ToString()).getParticipants(participants);
+
+            if (participants.Count == 0)
+                BusinessLogic.RemoveRoom(roomId);
+            else
+                Clients.Group(roomId.ToString()).getParticipants(participants);
+
             return null;
         }
 

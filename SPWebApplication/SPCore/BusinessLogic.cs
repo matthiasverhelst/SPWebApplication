@@ -44,14 +44,14 @@ namespace SPCore
 			do
 			{
 				result = random.Next(1000, 9999);
-			} while (_rooms.Where(r => r.RoomId == result).Any());
+			} while (_rooms.Any(r => r.RoomId == result));
 
 			return result;
 		}
 
 		public static ICollection<User> GetParticipants(int id)
 		{
-			var room = _rooms.Where(r => r.RoomId == id).FirstOrDefault();
+            var room = _rooms.FirstOrDefault(r => r.RoomId == id);
 			
 			if(room != null)
 			{
@@ -63,7 +63,7 @@ namespace SPCore
 
 		public static ICollection<ProductBacklogItem> GetPBIs(int id)
 		{
-			var room = _rooms.Where(r => r.RoomId == id).FirstOrDefault();
+            var room = _rooms.FirstOrDefault(r => r.RoomId == id);
 
 			if (room != null)
 			{
@@ -75,11 +75,11 @@ namespace SPCore
 
         public static ICollection<Estimate> GetEstimates(int id, string pbiTitle)
         {
-            var room = _rooms.Where(r => r.RoomId == id).FirstOrDefault();
+            var room = _rooms.FirstOrDefault(r => r.RoomId == id);
 
             if (room != null)
             {
-                var pbi = room.PBIs.Where(p => p.Title == pbiTitle).FirstOrDefault();
+                var pbi = room.PBIs.FirstOrDefault(p => p.Title == pbiTitle);
 
                 if (pbi != null)
                 {
@@ -93,11 +93,11 @@ namespace SPCore
 
         public static void RemoveEstimates(int id, string pbiTitle)
         {
-            var room = _rooms.Where(r => r.RoomId == id).FirstOrDefault();
+            var room = _rooms.FirstOrDefault(r => r.RoomId == id);
 
             if (room != null)
             {
-                var pbi = room.PBIs.Where(p => p.Title == pbiTitle).FirstOrDefault();
+                var pbi = room.PBIs.FirstOrDefault(p => p.Title == pbiTitle);
 
                 if (pbi != null)
                 {
@@ -114,7 +114,7 @@ namespace SPCore
 				ConnectionId = connectionId
 			};
 
-			var room = _rooms.Where(r => r.RoomId == id).FirstOrDefault();
+            var room = _rooms.FirstOrDefault(r => r.RoomId == id);
 
 			if (room == null)
 			{
@@ -127,11 +127,11 @@ namespace SPCore
 
 		public static int RemoveUser(string connectionId)
 		{
-            var room = _rooms.Where(r => r.Participants.Any(p => p.ConnectionId == connectionId)).FirstOrDefault();
+            var room = _rooms.FirstOrDefault(r => r.Participants.Any(p => p.ConnectionId == connectionId));
             
             if (room != null)
             {
-                var user = room.Participants.Where(p => p.ConnectionId == connectionId).First();
+                var user = room.Participants.First(p => p.ConnectionId == connectionId);
                 room.Participants.Remove(user);
                 return room.RoomId;
             }
@@ -140,9 +140,21 @@ namespace SPCore
 			return 0;
 		}
 
+        public static bool RemoveRoom(int roomId)
+        {
+            var room = _rooms.SingleOrDefault(r => r.RoomId == roomId);
+
+            if (room != null)
+            {
+                return _rooms.Remove(room);
+            }
+
+            return false;
+        }
+
 		public static bool CreatePBI(int id, string title)
 		{
-			var room = _rooms.Where(r => r.RoomId == id).FirstOrDefault();
+			var room = _rooms.FirstOrDefault(r => r.RoomId == id);
 
 			if (room == null)
 				{
@@ -161,11 +173,11 @@ namespace SPCore
 
         public static bool UpdatePBI(int id, string oldTitle, string newTitle)
         {
-            var room = _rooms.Where(r => r.RoomId == id).FirstOrDefault();
+            var room = _rooms.FirstOrDefault(r => r.RoomId == id);
 
             if (room != null)
             {
-                var pbi = room.PBIs.Where(p => p.Title == oldTitle).FirstOrDefault();
+                var pbi = room.PBIs.FirstOrDefault(p => p.Title == oldTitle);
 
                 if (pbi != null)
                 {
@@ -178,11 +190,11 @@ namespace SPCore
 
 		public static bool RemovePBI(int id, string title)
 		{
-			var room = _rooms.Where(r => r.RoomId == id).FirstOrDefault();
+            var room = _rooms.FirstOrDefault(r => r.RoomId == id);
 
 			if(room != null)
 		    {
-				var pbi = room.PBIs.Where(p => p.Title == title).FirstOrDefault();
+                var pbi = room.PBIs.FirstOrDefault(p => p.Title == title);
 
 				if (pbi != null)
 				{
@@ -195,11 +207,11 @@ namespace SPCore
 
         public static bool AddEstimate(int id, string connectionId, string title, string score)
         {
-            var room = _rooms.Where(r => r.RoomId == id).FirstOrDefault();
+            var room = _rooms.FirstOrDefault(r => r.RoomId == id);
 
             if (room != null)
             {
-                var pbi = room.PBIs.Where(p => p.Title == title).FirstOrDefault();
+                var pbi = room.PBIs.FirstOrDefault(p => p.Title == title);
 
                 if (pbi != null)
                 {
@@ -220,11 +232,11 @@ namespace SPCore
 
         public static bool SetFinalEstimate(int id, string title, string score)
         {
-            var room = _rooms.Where(r => r.RoomId == id).FirstOrDefault();
+            var room = _rooms.FirstOrDefault(r => r.RoomId == id);
 
             if (room != null)
             {
-                var pbi = room.PBIs.Where(p => p.Title == title).FirstOrDefault();
+                var pbi = room.PBIs.FirstOrDefault(p => p.Title == title);
 
                 if (pbi != null)
                 {
@@ -238,11 +250,11 @@ namespace SPCore
 
         public static string GetFinalEstimate(int id, string title)
         {
-            var room = _rooms.Where(r => r.RoomId == id).FirstOrDefault();
+            var room = _rooms.FirstOrDefault(r => r.RoomId == id);
 
             if (room != null)
             {
-                var pbi = room.PBIs.Where(p => p.Title == title).FirstOrDefault();
+                var pbi = room.PBIs.FirstOrDefault(p => p.Title == title);
 
                 if (pbi != null)
                 {
@@ -255,11 +267,11 @@ namespace SPCore
 
         private static User GetUserByConnectionId(int id, string connectionId)
         {
-            var room = _rooms.Where(r => r.RoomId == id).FirstOrDefault();
+            var room = _rooms.FirstOrDefault(r => r.RoomId == id);
 
             if (room != null)
             {
-                var user = room.Participants.Where(u => u.ConnectionId == connectionId).FirstOrDefault();
+                var user = room.Participants.FirstOrDefault(u => u.ConnectionId == connectionId);
 
                 if (user != null)
                 {
