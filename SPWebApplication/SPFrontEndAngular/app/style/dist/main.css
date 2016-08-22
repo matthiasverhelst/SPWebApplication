@@ -6755,9 +6755,6 @@ body {
 .navigation-wrapper.container-fluid {
   padding: 0px;
 }
-.navigation-wrapper .navigationContainer {
-  background: transparent url(/app/media/border-header.png) repeat-x bottom;
-}
 .navigation-wrapper .navigationContainer .header-logo {
   position: relative;
   float: left;
