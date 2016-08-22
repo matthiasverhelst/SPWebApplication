@@ -106,6 +106,9 @@
     <Content Include=".jshintrc" />
     <Content Include=".travis.yml" />
     <Content Include="app\directives\common-directives.js" />
+    <Content Include="app\media\alakazam.gif" />
+    <Content Include="app\media\checkmark.png" />
+    <Content Include="app\media\waiting.gif" />
     <Content Include="app\style\src\bootstrap\alerts.less" />
     <Content Include="app\style\src\bootstrap\badges.less" />
     <Content Include="app\style\src\bootstrap\bootstrap.less" />
