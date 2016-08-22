@@ -6725,7 +6725,7 @@ button.close {
   }
 }
 body {
-  background-color: #b3c1c3;
+  background-color: #0098cc;
 }
 .viewContainer {
   margin-top: 15px;
@@ -6811,6 +6811,17 @@ body {
 .home-item-title {
   color: #0098cc;
   text-align: center;
+}
+.home-item-title:after {
+  content: ' ';
+  display: block;
+  width: 80%;
+  margin-top: 20px;
+  margin-bottom: 20px;
+  margin-left: auto;
+  margin-right: auto;
+  align-content: center;
+  border-bottom: 1px solid #ccc;
 }
 .vote-btn {
   width: 100px;
