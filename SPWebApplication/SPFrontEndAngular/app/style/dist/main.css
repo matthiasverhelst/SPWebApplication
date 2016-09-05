@@ -6732,21 +6732,36 @@ body {
   background-color: #0098cc;
   font-family: Montserrat;
 }
-.pokershore {
+.header-wrapper {
   position: relative;
   top: 0px;
   left: 0px;
-  color: white;
+  color: #0098cc;
   font-size: 48px;
-  margin-top: 15px;
-  margin-left: 30px;
-  margin-bottom: 15px;
-  height: 25px;
+  background: white;
+  padding-top: 15px;
+  padding-left: 30px;
+  margin-bottom: 30px;
+  height: 90px;
+}
+.header-logo {
+  position: absolute;
+  top: 15px;
+  left: 30px;
+}
+.header-logo-small {
+  margin-top: -7px;
+  height: 75px;
+  width: 75px;
+}
+.header-title {
+  margin-left: -30px;
+  text-align: center;
 }
 .outer {
   display: table;
   position: absolute;
-  height: 75%;
+  height: 10%;
   width: 100%;
 }
 .middle {
@@ -6784,7 +6799,7 @@ body {
 }
 .navigation-wrapper .navigationContainer .header-logo {
   position: relative;
-  float: left;
+  float: right;
 }
 .navigation-wrapper .navigationContainer .header-comma {
   position: absolute;
