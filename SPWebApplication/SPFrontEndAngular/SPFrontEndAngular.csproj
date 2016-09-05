@@ -185,6 +185,9 @@
     <Content Include="app\style\src\main.less" />
     <Content Include="app\style\src\navigation.less" />
     <Content Include="app\font\Montserrat-Regular.otf" />
+    <Content Include="app\style\src\buttons.less" />
+    <Content Include="app\style\src\menu.less" />
+    <Content Include="app\style\src\resultOverview.less" />
     <None Include="app\style\src\vote.less" />
     <Content Include="app\lib\angular-messages.min.js">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
@@ -252,6 +255,7 @@
     <Content Include="package.json" />
     <Content Include="README.md" />
     <Content Include="packages.config" />
+    <Content Include="app\style\src\waitingRoom.less" />
     <None Include="Scripts\jquery-2.2.0-vsdoc.js" />
     <Content Include="Scripts\jquery-2.2.0.min.map" />
     <None Include="Web.Debug.config">
@@ -262,7 +266,6 @@
     </None>
   </ItemGroup>
   <ItemGroup>
-    <Content Include="app\app.css" />
     <Content Include="app\app.js" />
     <Content Include="app\components\version\interpolate-filter.js" />
     <Content Include="app\components\version\interpolate-filter_test.js" />
