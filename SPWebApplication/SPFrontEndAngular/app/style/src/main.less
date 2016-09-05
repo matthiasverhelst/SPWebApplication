@@ -1,10 +1,44 @@
 @import "bootstrap/bootstrap.less";
 
+@pokershoreHeight: 25px;
+
+@font-face {
+    font-family: Montserrat;
+    src: url(../../font/Montserrat-Regular.otf);
+}
+
 body {
     background-color: rgba(0, 152, 204, 1);
+    font-family: Montserrat;
 }
-.viewContainer {
+
+.pokershore {
+    position: relative;
+    top: 0px;
+    left: 0px;
+    color: white;
+    font-size: 48px;
     margin-top: 15px;
+    margin-left: 30px;
+    margin-bottom: 15px;
+    height: @pokershoreHeight;
+}
+
+.outer {
+    display: table;
+    position: absolute;
+    height: 100% - @pokershoreHeight;
+    width: 100%;
+}
+
+.middle {
+    display: table-cell;
+    vertical-align: middle;
+}
+
+.inner {
+    margin-left: auto;
+    margin-right: auto;
 }
 
 .form-control {

@@ -180,6 +180,7 @@
     <Content Include="app\style\src\home.less" />
     <Content Include="app\style\src\main.less" />
     <Content Include="app\style\src\navigation.less" />
+    <Content Include="app\font\Montserrat-Regular.otf" />
     <None Include="app\style\src\vote.less" />
     <Content Include="app\lib\angular-messages.min.js">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>

@@ -13,13 +13,15 @@
     <script src="lib/modernizr-2.8.3.min.js"></script>
 </head>
 <body ng-controller="mainController">
-    <div class="container-fluid navigation-wrapper">
-        <div class="navigationContainer">
-            <div ng-include="'templates/header.html'"></div>
-        </div>
+    <div class="pokershore">
+        PokerShore
     </div>
-    <div class="container viewContainer">
-        <div ng-view></div>
+    <div class="outer">
+        <div class="middle">
+            <div class="inner container">
+                <div ng-view></div>
+            </div>
+        </div>
     </div>
 
     <script src="lib/angular.min.js"></script>

@@ -6724,11 +6724,38 @@ button.close {
     display: none !important;
   }
 }
+@font-face {
+  font-family: Montserrat;
+  src: url(../../font/Montserrat-Regular.otf);
+}
 body {
   background-color: #0098cc;
+  font-family: Montserrat;
 }
-.viewContainer {
+.pokershore {
+  position: relative;
+  top: 0px;
+  left: 0px;
+  color: white;
+  font-size: 48px;
   margin-top: 15px;
+  margin-left: 30px;
+  margin-bottom: 15px;
+  height: 25px;
+}
+.outer {
+  display: table;
+  position: absolute;
+  height: 75%;
+  width: 100%;
+}
+.middle {
+  display: table-cell;
+  vertical-align: middle;
+}
+.inner {
+  margin-left: auto;
+  margin-right: auto;
 }
 .form-control {
   width: auto;
@@ -6803,7 +6830,7 @@ body {
 .home-title {
   display: inline-block;
   text-align: center;
-  font-family: HelveticaLTStdLight,helvetica,arial;
+  font-family: 'Montserrat', sans-serif;
   color: black;
   font-size: 40px;
   margin-top: 20px;
