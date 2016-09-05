@@ -108,6 +108,7 @@
     <Content Include="app\directives\common-directives.js" />
     <Content Include="app\media\alakazam.gif" />
     <Content Include="app\media\checkmark.png" />
+    <Content Include="app\media\Label_CBE.png" />
     <Content Include="app\media\waiting.gif" />
     <Content Include="app\style\src\bootstrap\alerts.less" />
     <Content Include="app\style\src\bootstrap\badges.less" />

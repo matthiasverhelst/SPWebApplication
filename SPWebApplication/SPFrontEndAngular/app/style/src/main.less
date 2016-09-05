@@ -1,6 +1,6 @@
 @import "bootstrap/bootstrap.less";
 
-@pokershoreHeight: 25px;
+@pokershoreHeight: 90px;
 
 @font-face {
     font-family: Montserrat;
@@ -12,16 +12,34 @@ body {
     font-family: Montserrat;
 }
 
-.pokershore {
+.header-wrapper {
     position: relative;
     top: 0px;
     left: 0px;
-    color: white;
+    color: rgba(0, 152, 204, 1);
     font-size: 48px;
-    margin-top: 15px;
-    margin-left: 30px;
-    margin-bottom: 15px;
+    background: white;
+    padding-top: 15px;
+    padding-left: 30px;
+    margin-bottom: 30px;
     height: @pokershoreHeight;
+}
+
+.header-logo {
+    position: absolute;
+    top: 15px;
+    left: 30px;
+}
+
+.header-logo-small {
+    margin-top: -7px;
+    height: 75px;
+    width: 75px;
+}
+
+.header-title {
+    margin-left: -30px;
+    text-align: center;
 }
 
 .outer {
