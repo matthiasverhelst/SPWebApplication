@@ -8,43 +8,55 @@
                 </div>
                 <div class="PBI_list" >
                     <form ng-submit="submit()">
-                        <table>
-                            <tr>
-                                <th style="width: 200px">
-                                    <label class="PBI_name">PBI</label>
-                                </th>
-                                <th style="width: 50px">
-                                    <label class="PBI_score">Score</label>
-                                </th>
-                            </tr>
-                            <tr ng-repeat="pbi in pbiArray" class="PBI_line">
-                                <td>
-                                    <input class="PBI_name" ng-model="pbi.Title" ng-blur="changePbi($index)" ng-focus="startChangePbi($index)" />
-                                </td>
-                                <td>
-                                    <label class="PBI_score">{{pbi.FinalEstimation}}</label>
-                                </td>
-                                <td>
-                                    <span  class="PBI_push btn btn-primary" ng-click="pushPbi($index)">Push</span>
-                                </td>
-                                <td>
-                                    <span class="PBI_remove btn btn-default" ng-click="removePbi($index)">X</span>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td class="form-group">
-                                    <input id="newPbi" type="text" class="form-control" ng-model="newPbi" ng-blur="createPbi(newPbi); newPbi = '';" />
-                                </td>
-                                <td colspan="3"></td>
-                            </tr>
-                            <tr id="newPbi2" ng-show="newPbi.length >= 1;" ng-mousedown="setPbiFocus = true;">
-                                <td>
+                            <div class="row">
+                                <div class="col-xs-5">
+                                    <div class="row">
+                                        <h4>PBI</h4>
+                                    </div>
+                                </div>
+                                <div class="col-xs-2">
+                                    <div class="row">
+                                        <h4>Score</h4>
+                                    </div>
+                                </div>
+                            </div>
+                            <div ng-repeat="pbi in pbiArray" class="PBI_line row">
+                                <div class="col-xs-6 col-sm-7">
+                                    <div class="row">
+                                        <input class="PBI_name" ng-model="pbi.Title" ng-blur="changePbi($index)" ng-focus="startChangePbi($index)" />
+                                    </div>
+                                </div>
+
+                                <div class="col-xs-2">
+                                    <div class="row">
+                                        <label class="PBI_score pull-right">{{pbi.FinalEstimation}}</label>
+                                    </div>
+                                </div>
+                                <div class="col-xs-2 col-sm-1">
+                                    <div class="row">
+                                        <button class="PBI_push btn btn-primary pull-right" ng-click="pushPbi($index)">Push</button>
+                                    </div>
+                                </div>
+                                <div class="col-xs-2 col-sm-2">
+                                    <div class="row">
+                                        <button class="PBI_remove btn btn-default pull-left" ng-click="removePbi($index)">X</button>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row inputRow">
+                                <div class="col-xs-12">
+                                    <div class="row">
+                                        <input id="newPbi" type="text" class="form-control newPbi" ng-model="newPbi" ng-blur="createPbi(newPbi); newPbi = '';" />
+                                    </div>
+                                </div>
+                            </div>
+                            <div id="newPbi2" ng-show="newPbi.length >= 1;" ng-mousedown="setPbiFocus = true;">
+                                <span>
                                     <input type="text" />
-                                </td>
-                                <td colspan="3"></td>
-                            </tr>
-                        </table>
-                        <input type="submit" style="position: absolute; left: -9999px" />
+                                </span>
+                            </div>
+
+                           <input type="submit" style="position: absolute; left: -9999px" />
                     </form>
                 </div>
             </div>
