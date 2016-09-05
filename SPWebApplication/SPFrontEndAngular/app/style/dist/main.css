@@ -6892,7 +6892,6 @@ tr.PBI_line:nth-child(even) {
 }
 .btn-cap-primary {
   color: white;
-  border-bottom: 1px solid #00264a;
   border-top: 1px solid #a4c7c0;
   background-color: #0098cc;
 }
