@@ -45,7 +45,6 @@
     <Compile Include="Model\ProductBacklogItem.cs" />
     <Compile Include="Model\Room.cs" />
     <Compile Include="Model\User.cs" />
-    <Compile Include="ISPRepository.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
