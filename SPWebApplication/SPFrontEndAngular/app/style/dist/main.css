@@ -6925,19 +6925,19 @@ tr.PBI_line:nth-child(even) {
 .resultOverview .checkmark {
   margin-left: 15px;
 }
-.waitingRoom .PBI_list tr.PBI_line {
-  border-bottom: 1px solid #ccc;
-  background-color: #FFF;
+.waitingRoom .PBI_list .PBI_push {
+  margin-right: 10px;
 }
-.waitingRoom .PBI_list tr.PBI_line:last-child {
-  border: none;
+.waitingRoom .PBI_list .PBI_line {
+  height: 45px;
 }
-.waitingRoom .PBI_list td {
-  padding: 7px;
+.waitingRoom .PBI_list .PBI_name {
+  margin-top: 5px;
+  width: 100%;
 }
-.waitingRoom .PBI_list td:last-child {
-  padding-right: 0px;
+.waitingRoom .inputRow {
+  margin-top: 15px;
 }
-.waitingRoom .PBI_list td:first-child {
-  padding-left: 0px;
+.waitingRoom .newPbi {
+  width: 100%;
 }
