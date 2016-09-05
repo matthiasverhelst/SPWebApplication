@@ -35,7 +35,7 @@
         });
 
         PubSub.subscribe('votingAborted', function (msg, succes) {
-            var pathString = "/waitingRoomScrumMaster/" + $scope.pbiName;
+            var pathString = "/waitingRoomScrumMaster/" + signalRSvc.getRoomId();
             $location.path(pathString);
             $timeout(function () {
                 $scope.$apply();

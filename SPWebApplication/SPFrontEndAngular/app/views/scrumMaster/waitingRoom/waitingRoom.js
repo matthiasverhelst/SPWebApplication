@@ -11,7 +11,7 @@
   }])
 
   .controller('waitingRoomScrumMasterCtrl', ['$scope','$routeParams', '$http','$timeout','signalRSvc','$location', function($scope, $routeParams, $http, $timeout,signalRSvc,$location) {
-      $scope.roomID = $routeParams.room;
+      $scope.roomID = signalRSvc.getRoomId();
       $scope.participantsList = [];
       $scope.pbiArray = [];
 
