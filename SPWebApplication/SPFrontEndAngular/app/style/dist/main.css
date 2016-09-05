@@ -6839,11 +6839,9 @@ body {
   color: #0098cc;
   text-align: center;
 }
-.home-item-title:after {
-  content: ' ';
+.home-item-header {
   display: block;
   width: 80%;
-  margin-top: 20px;
   margin-bottom: 20px;
   margin-left: auto;
   margin-right: auto;
