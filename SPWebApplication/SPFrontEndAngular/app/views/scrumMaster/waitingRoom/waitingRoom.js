@@ -110,5 +110,7 @@
 
       signalRSvc.sendRequestWithRoomID(signalRSvc.CONST.GET_PARTICIPANTS);
       signalRSvc.sendRequestWithRoomID(signalRSvc.CONST.GET_PBIS);
+      focusNewPbi();
+
   }]);
 })();
