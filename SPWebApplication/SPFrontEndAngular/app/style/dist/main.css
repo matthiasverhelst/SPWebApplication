@@ -6896,8 +6896,11 @@ body {
   background: rgba(0, 0, 0, 0);
   border: none;
 }
-tr.PBI_line:nth-child(even) {
-  background-color: #CCC;
+tr.PBI_line {
+  border-bottom: 1px solid #EEE;
+}
+tr.PBI_line:last-child {
+  border: none;
 }
 .btn-cap {
   font-weight: bold;
@@ -6978,8 +6981,21 @@ tr.PBI_line:nth-child(even) {
   content: "";
   padding: 0;
 }
+.resultOverview .heading {
+  font-size: 16px;
+  font-weight: bold;
+  border-bottom: 1px solid #CCC;
+}
 .resultOverview .checkmark {
   margin-left: 15px;
+}
+.resultOverview .participantsList {
+  padding: 5px;
+  margin-bottom: 5px;
+  border-bottom: 1px solid #EEE;
+}
+.resultOverview .participantsList:last-child {
+  border: none;
 }
 .waitingRoom .PBI_list .PBI_push {
   margin-right: 10px;
