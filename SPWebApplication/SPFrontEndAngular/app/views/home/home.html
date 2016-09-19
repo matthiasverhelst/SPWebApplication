@@ -1,9 +1,9 @@
 <div class="row">
     <div class="col-xs-12 col-md-8 col-md-offset-2">
-        <div class="home-item-wrapper">
-            <div class="home-item-block">
-                <div class="home-item-header">
-                    <h2 class="home-item-title">Join an existing room</h2>
+        <div class="item-wrapper">
+            <div class="item-block">
+                <div class="item-header">
+                    <h2 class="item-title">Join an existing room</h2>
                 </div>
                 <div class="alert alert-danger" role="alert" ng-show="errors.invalidRoomId">
                     <p>Please enter a valid room id.</p>
@@ -21,14 +21,14 @@
                             <span>Please fill in a name.</span>
                         </div>
                     </div>
-                    <button class="btn btn-cap btn-cap-block btn-cap-primary" ng-click="joinRoom()">Join a room</button>
+                    <button class="btn btn-cap btn-cap-margin-top btn-cap-block btn-cap-primary" ng-click="joinRoom()">Join a room</button>
                 </form>
             </div>
         </div>
-        <div class="home-item-wrapper">
-            <div class="home-item-block">
-                <div class="home-item-header">
-                    <h2 class="home-item-title">Create a new voting room</h2>
+        <div class="item-wrapper">
+            <div class="item-block">
+                <div class="item-header">
+                    <h2 class="item-title">Create a new voting room</h2>
                 </div>
                 <form class="form-cap" name="createRoomForm">
                     <div class="form-group">
@@ -37,7 +37,7 @@
                             <span>Please fill in a name.</span>
                         </div>
                     </div>
-                    <button class="btn btn-cap btn-cap-block btn-cap-primary" ng-click="createRoom()">Create a room</button>
+                    <button class="btn btn-cap btn-cap-margin-top btn-cap-block btn-cap-primary" ng-click="createRoom()">Create a room</button>
                 </form>
             </div>
         </div>

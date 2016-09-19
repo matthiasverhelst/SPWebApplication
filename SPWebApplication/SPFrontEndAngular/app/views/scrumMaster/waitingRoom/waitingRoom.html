@@ -1,62 +1,64 @@
 <div class="row waitingRoom">
     <div class="col-xs-12 col-md-8 col-md-offset-2">
-        <div class="home-item-wrapper">
-            <div class="home-item-block">
-                <div class="home-item-header">
-                    <h2 class="home-item-title"name="pbi_name">Room ID: <small>{{roomID}}</small></h2>
-                    <h4 class="home-item-title"name="pbi_name">Add PBI's and push them.</h4>
+        <div class="item-wrapper">
+            <div class="item-block">
+                <div class="item-header">
+                    <h2 class="item-title"name="pbi_name">Room ID: <small>{{roomID}}</small></h2>
+                    <h4 class="item-title"name="pbi_name">Add PBI's and push them.</h4>
                 </div>
                 <div class="PBI_list" >
-                    <form ng-submit="submit()">
-                            <div class="row">
-                                <div class="col-xs-5">
-                                    <div class="row">
-                                        <h4>PBI</h4>
-                                    </div>
-                                </div>
-                                <div class="col-xs-2">
-                                    <div class="row">
-                                        <h4 class="pull-left">Score</h4>
-                                    </div>
+                    <form class="form-cap" ng-submit="submit()">
+                        <div class="row">
+                            <div class="col-xs-5">
+                                <div class="row">
+                                    <h4>PBI</h4>
                                 </div>
                             </div>
-                            <div ng-repeat="pbi in pbiArray" class="PBI_line row">
-                                <div class="col-xs-5">
-                                    <div class="row">
-                                        <input class="PBI_name" ng-model="pbi.Title" ng-blur="changePbi($index)" ng-focus="startChangePbi($index)" />
-                                    </div>
+                            <div class="col-xs-2">
+                                <div class="row">
+                                    <h4 class="pull-left">Score</h4>
                                 </div>
+                            </div>
+                        </div>
+                        <div ng-repeat="pbi in pbiArray" class="PBI_line row">
+                            <div class="col-xs-5">
+                                <div class="row">
+                                    <input class="PBI_name" ng-model="pbi.Title" ng-blur="changePbi($index)" ng-focus="startChangePbi($index)" />
+                                </div>
+                            </div>
 
-                                <div class="col-xs-2">
-                                    <div class="row ">
-                                        <label  class="PBI_score pull-left">{{pbi.FinalEstimation}}</label>
-                                    </div>
-                                </div>
-                                <div class="col-xs-2">
-                                    <div class="row">
-                                        <button class="PBI_push btn btn-primary pull-right" ng-click="pushPbi($index)">Push</button>
-                                    </div>
-                                </div>
-                                <div class="col-xs-2">
-                                    <div class="row">
-                                        <button class="PBI_remove btn btn-default pull-left" ng-click="removePbi($index)">X</button>
-                                    </div>
+                            <div class="col-xs-2">
+                                <div class="row ">
+                                    <label class="PBI_score pull-left">{{pbi.FinalEstimation}}</label>
                                 </div>
                             </div>
-                            <div class="row inputRow">
-                                <div class="col-xs-12">
-                                    <div class="row">
-                                        <input id="newPbi" type="text" class="form-control newPbi" ng-model="newPbi" ng-blur="createPbi(newPbi); newPbi = '';" />
-                                    </div>
+                            <div class="col-xs-2">
+                                <div class="row">
+                                    <button class="PBI_push btn-cap btn-cap-primary btn-cap-block" ng-click="pushPbi($index)">Push</button>
                                 </div>
                             </div>
+                            <div class="col-xs-2">
+                                <div class="row">
+                                    <button class="PBI_remove btn-cap btn-cap-default btn-cap-block" ng-click="removePbi($index)">X</button>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row inputRow">
+                            <div class="col-xs-12">
+                                <div class="row">
+                                    <input id="newPbi" type="text" class="form-control form-cap-input newPbi" ng-model="newPbi" ng-blur="createPbi(newPbi); newPbi = '';" />
+                                </div>
+                            </div>
+                        </div>
                     </form>
                 </div>
             </div>
         </div>
-        <div class="home-item-wrapper">
-            <div class="home-item-block">
-                <h2>Participants</h2>
+        <div class="item-wrapper">
+            <div class="item-block">
+                <div class="item-header">
+                    <h2 class="item-title" name="pbi_name">Participants</h2>
+                </div>
                 <ul>
                     <li ng-repeat="participant in participantsList">
                         <span>{{participant.Name}}</span>
