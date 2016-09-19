@@ -188,6 +188,7 @@
     <Content Include="app\style\src\buttons.less" />
     <Content Include="app\style\src\menu.less" />
     <Content Include="app\style\src\resultOverview.less" />
+    <Content Include="app\style\src\tables.less" />
     <None Include="app\style\src\vote.less" />
     <Content Include="app\lib\angular-messages.min.js">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>

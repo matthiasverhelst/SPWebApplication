@@ -6828,21 +6828,21 @@ body {
   position: relative;
   float: left;
 }
-.home-item-wrapper {
+.item-wrapper {
   padding: 10px;
 }
-.home-item-wrapper .home-item-block {
+.item-wrapper .item-block {
   margin: 15px;
   padding: 30px;
   background-color: white;
 }
-.home-item-wrapper .home-item-block h2 {
+.item-wrapper .item-block h2 {
   margin-top: 0px;
 }
-.home-item-wrapper:last-child {
+.item-wrapper:last-child {
   margin-bottom: 50px;
 }
-.home-title {
+.title {
   display: inline-block;
   text-align: center;
   font-family: 'Montserrat', sans-serif;
@@ -6850,11 +6850,11 @@ body {
   font-size: 40px;
   margin-top: 20px;
 }
-.home-item-title {
+.item-title {
   color: #0098cc;
   text-align: center;
 }
-.home-item-header {
+.item-header {
   display: block;
   width: 80%;
   margin-bottom: 20px;
@@ -6900,6 +6900,8 @@ tr.PBI_line:last-child {
   font-weight: bold;
   border-radius: 0px;
   line-height: 1.5;
+}
+.btn-cap-margin-top {
   margin-top: 20px;
 }
 .btn-cap-block {
@@ -6908,7 +6910,7 @@ tr.PBI_line:last-child {
 }
 .btn-cap-primary {
   color: white;
-  border-top: 1px solid #a4c7c0;
+  border: 1px solid #0098cc;
   background-color: #0098cc;
 }
 .btn-cap-primary:hover,
@@ -6916,6 +6918,17 @@ tr.PBI_line:last-child {
   color: #0098cc;
   border: 1px solid #0098cc;
   background-color: white;
+}
+.btn-cap-default {
+  color: #0098cc;
+  border: 1px solid #0098cc;
+  background-color: white;
+}
+.btn-cap-default:hover,
+.btn-cap-default:focus {
+  color: white;
+  border: 1px solid #0098cc;
+  background-color: #0098cc;
 }
 .menu {
   list-style: none;
@@ -6971,4 +6984,8 @@ tr.PBI_line:last-child {
 }
 .waitingRoom .newPbi {
   width: 100%;
+}
+.table-cap {
+  display: table;
+  margin: 0 auto;
 }
