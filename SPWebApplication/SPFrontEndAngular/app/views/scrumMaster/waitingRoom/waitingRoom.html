@@ -30,16 +30,16 @@
                             <div class="col-xs-2">
                                 <div class="row ">
                                     <label class="PBI_score pull-left">{{pbi.FinalEstimation}}</label>
+                                </div>  
+                            </div>
+                            <div class="col-xs-2">
+                                <div class="row">
+                                    <button type="button" class="PBI_push btn-cap btn-cap-primary btn-cap-block" ng-click="pushPbi($index)">Push</button>
                                 </div>
                             </div>
                             <div class="col-xs-2">
                                 <div class="row">
-                                    <button class="PBI_push btn-cap btn-cap-primary btn-cap-block" ng-click="pushPbi($index)">Push</button>
-                                </div>
-                            </div>
-                            <div class="col-xs-2">
-                                <div class="row">
-                                    <button class="PBI_remove btn-cap btn-cap-default btn-cap-block" ng-click="removePbi($index)">X</button>
+                                    <button type="button" class="PBI_remove btn-cap btn-cap-default btn-cap-block" ng-click="removePbi($index)">X</button>
                                 </div>
                             </div>
                         </div>
@@ -47,6 +47,7 @@
                             <div class="col-xs-12">
                                 <div class="row">
                                     <input id="newPbi" type="text" class="form-control form-cap-input newPbi" ng-model="newPbi" ng-blur="createPbi(newPbi); newPbi = '';" />
+                                    <button class="hidden" type="submit" value="submit"></button>
                                 </div>
                             </div>
                         </div>
@@ -59,11 +60,11 @@
                 <div class="item-header">
                     <h2 class="item-title" name="pbi_name">Participants</h2>
                 </div>
-                <ul>
-                    <li ng-repeat="participant in participantsList">
+                <div class="table-cap">
+                    <div ng-repeat="participant in participantsList">
                         <span>{{participant.Name}}</span>
-                    </li>
-                </ul>
+                    </div>
+                </div>
             </div>
         </div>
     </div>

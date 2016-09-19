@@ -6969,3 +6969,7 @@ tr.PBI_line:nth-child(even) {
 .waitingRoom .newPbi {
   width: 100%;
 }
+.table-cap {
+  display: table;
+  margin: 0 auto;
+}
