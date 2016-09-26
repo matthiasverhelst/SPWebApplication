@@ -48,7 +48,7 @@
 
      PubSub.subscribe('finalEstimateSet', function (msg, estimate) {
          if (estimate) {
-            var pathString = "/seeFinalEstimateScrumMember/" + estimate;
+            var pathString = "/seeFinalEstimateScrumMember/" + estimate + "/" + $scope.pbiName;
              $location.path(pathString);
              $timeout(function () {
                  $scope.$apply();
