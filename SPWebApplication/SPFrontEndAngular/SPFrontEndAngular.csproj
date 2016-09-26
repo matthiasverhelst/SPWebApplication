@@ -184,7 +184,9 @@
     <Content Include="app\style\src\home.less" />
     <Content Include="app\style\src\main.less" />
     <Content Include="app\style\src\navigation.less" />
-    <Content Include="app\font\Montserrat-Regular.otf" />
+    <Content Include="app\font\Montserrat-Regular.otf">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
     <Content Include="app\style\src\buttons.less" />
     <Content Include="app\style\src\menu.less" />
     <Content Include="app\style\src\resultOverview.less" />
