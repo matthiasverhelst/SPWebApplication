@@ -19,6 +19,7 @@
             { value: '40', text: '40' }, { value: '100', text: '100' }, { value: '?', text: '?' },
             { value: 'coffee', text: 'I need a coffee...' }
         ];
+        $scope.date = new Date();
 
         $scope.vote = function vote(score) {
             var voteObj = { "pbiName": $scope.pbiName, "estimate": score };

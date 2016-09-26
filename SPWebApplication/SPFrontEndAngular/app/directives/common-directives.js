@@ -8,7 +8,6 @@ pokerShoreApp.directive('emailValidator', function() {
   return {
   require: 'ngModel',
       link: function(scope, elm, attrs, ctrl) {
-
           ctrl.$validators.email = function(modelValue, viewValue) {
               if(viewValue === null || viewValue ===""){
                   return true;

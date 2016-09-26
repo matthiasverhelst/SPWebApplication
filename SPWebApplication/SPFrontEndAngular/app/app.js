@@ -115,5 +115,6 @@
 
     pokerShoreApp.controller('mainController', ['$scope', 'signalRSvc', function ($scope, signalRSvc) {
         signalRSvc.initialize();
+        $scope.date = new Date();
     }]);
 })();

@@ -14,6 +14,7 @@
       $scope.pbiName = $routeParams.pbiName;
       $scope.participantsList = [];
       $scope.showEstimates = ($routeParams.showEstimates === 'true');
+      $scope.date = new Date();
 
       $scope.hasVoted = function (score) {
           if (score === "") {

@@ -14,6 +14,7 @@
       $scope.roomID = signalRSvc.getRoomId();
       $scope.participantsList = [];
       $scope.pbiArray = [];
+      $scope.date = new Date();
 
       $scope.createPbi = function (newPbi) {
           if (newPbi && newPbi.length >= 1) {

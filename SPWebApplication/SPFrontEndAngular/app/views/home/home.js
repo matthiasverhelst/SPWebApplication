@@ -16,6 +16,7 @@
       $scope.errors = {};
       $scope.createRoomFormSubmitted = false;
       $scope.joinRoomFormSubmitted = false;
+      $scope.date = new Date();
 
       $scope.createRoom = function () {
           $scope.createRoomFormSubmitted = true;
