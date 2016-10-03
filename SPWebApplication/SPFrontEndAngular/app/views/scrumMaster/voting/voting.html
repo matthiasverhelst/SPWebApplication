@@ -14,7 +14,7 @@
                                     <label class="label-cap" for="score">Please give your estimation</label>
                                 </div>
                                 <div ng-repeat="button in buttons">
-                                    <div ng-class="$last ? 'col-xs-12' : 'col-xs-4'">
+                                    <div ng-class="$last ? 'col-xs-12' : 'col-xs-4'" class="col-cap-voting">
                                         <button type="button" name="score" ng-class="{'btn-cap-block':$last}" class="btn-cap btn-lg btn-cap-primary btn-cap-block btn-cap-margin-bottom" value="button.value" ng-click="vote(button.value)">
                                             <span>{{button.text}}</span>
                                         </button>
