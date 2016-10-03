@@ -15,7 +15,7 @@
                                 </div>
                                 <div ng-repeat="button in buttons">
                                     <div ng-class="$last ? 'col-xs-12' : 'col-xs-4'">
-                                        <button type="button" name="score" ng-class="{'btn-cap-block':$last}" class="btn-cap btn-lg btn-cap-primary btn-cap-block" value="button.value" ng-click="vote(button.value)" style="margin-bottom: 15px;">
+                                        <button type="button" name="score" ng-class="{'btn-cap-block':$last}" class="btn-cap btn-lg btn-cap-primary btn-cap-block btn-cap-margin-bottom" value="button.value" ng-click="vote(button.value)">
                                             <span>{{button.text}}</span>
                                         </button>
                                     </div>
@@ -31,13 +31,13 @@
                         <div class="col-xs-12">
                             <div>
                                 <div class="container-fluid">
-                                    <div class="col-xs-6">
+                                    <div class="col-md-6 col-xs-12">
                                         <label class="sr-only" for="skip">skip estimation</label>
-                                        <button type="button" name="skip" class="btn-cap btn-lg btn-cap-warning btn-cap-block" ng-click="vote('?')">Skip</button>
+                                        <button type="button" name="skip" class="btn-cap btn-lg btn-cap-warning btn-cap-block btn-cap-margin-bottom" ng-click="vote('?')">Skip</button>
                                     </div>
-                                    <div class="col-xs-6">
+                                    <div class="col-md-6 col-xs-12">
                                         <label class="sr-only" for="abort">abort estimation</label>
-                                        <button type="button" name="abort" class="btn-cap btn-lg btn-cap-danger btn-cap-block" ng-click="abortVoting()">Abort</button>
+                                        <button type="button" name="abort" class="btn-cap btn-lg btn-cap-danger btn-cap-block btn-cap-margin-bottom" ng-click="abortVoting()">Abort</button>
                                     </div>
                                 </div>
                             </div>
