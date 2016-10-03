@@ -6745,6 +6745,26 @@ body {
   margin-bottom: 30px;
   height: 90px;
 }
+@media screen and (max-width: 500px) {
+  .header-wrapper {
+    height: 80px;
+  }
+}
+@media screen and (max-width: 450px) {
+  .header-wrapper {
+    height: 72px;
+  }
+}
+@media screen and (max-width: 400px) {
+  .header-wrapper {
+    height: 65px;
+  }
+}
+@media screen and (max-width: 350px) {
+  .header-wrapper {
+    height: 55px;
+  }
+}
 .header-logo {
   position: absolute;
   top: 15px;
@@ -6753,11 +6773,50 @@ body {
 .header-logo-small {
   margin-top: -7px;
   height: 75px;
-  width: 75px;
+}
+@media screen and (max-width: 500px) {
+  .header-logo-small {
+    height: 65px;
+  }
+}
+@media screen and (max-width: 450px) {
+  .header-logo-small {
+    height: 57px;
+  }
+}
+@media screen and (max-width: 400px) {
+  .header-logo-small {
+    height: 50px;
+  }
+}
+@media screen and (max-width: 350px) {
+  .header-logo-small {
+    height: 43px;
+  }
 }
 .header-title {
   margin-left: -30px;
   text-align: center;
+}
+@media screen and (max-width: 500px) {
+  .header-title {
+    font-size: 40px;
+  }
+}
+@media screen and (max-width: 450px) {
+  .header-title {
+    font-size: 37px;
+  }
+}
+@media screen and (max-width: 400px) {
+  .header-title {
+    font-size: 33px;
+  }
+}
+@media screen and (max-width: 350px) {
+  .header-title {
+    font-size: 25px;
+  }
 }
 .outer {
   display: table;
