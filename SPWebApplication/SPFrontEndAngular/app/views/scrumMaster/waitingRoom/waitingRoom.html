@@ -9,27 +9,49 @@
                 <div>
                     <form class="form-cap" ng-submit="submit()">
                         <div class="row vertical-align pbi-item">
-                            <div class="col-xs-6">
-                                <h4 class="text-center">PBI</h4>
+                            <div class="col-xs-8 col-sm-6">
+                                <h4>PBI</h4>
                             </div>
-                            <div class="col-xs-2">
+                            <div class="col-xs-4 col-sm-2">
                                 <h4 class="pull-left text-center">Score</h4>
                             </div>
                         </div>
-                        <div ng-repeat="pbi in pbiArray" class="row vertical-align pbi-item">
-                            <div class="col-xs-6">
-                                <input class="PBI_name" ng-model="pbi.Title" ng-blur="changePbi($index)" ng-focus="startChangePbi($index)" />
+                        <span ng-repeat="pbi in pbiArray" class="row vertical-align pbi-item">
+                            <div class="hidden-xs col-xs-12">
+                                <div class="row">
+                                    <div class="col-sm-6">
+                                        <input class="PBI_name" ng-model="pbi.Title" ng-blur="changePbi($index)" ng-focus="startChangePbi($index)" />
+                                    </div>
+                                    <div class="col-sm-2">
+                                        <label class="PBI_score">{{pbi.FinalEstimation}}</label>
+                                    </div>
+                                    <div class="col-sm-2">
+                                        <button type="button" class="PBI_push btn btn-cap btn-cap-primary btn-cap-block" ng-click="pushPbi($index)">Push</button>
+                                    </div>
+                                    <div class="col-sm-2">
+                                        <button type="button" class="PBI_remove btn btn-cap btn-cap-default btn-cap-block" ng-click="removePbi($index)">X</button>
+                                    </div>
+                                </div>
                             </div>
-                            <div class="col-xs-2">
-                                <label class="PBI_score">{{pbi.FinalEstimation}}</label>
+                            <div class="visible-xs col-xs-12 small-pbi-buttons">
+                                <div class="row">
+                                    <div class="col-xs-8">
+                                        <input class="PBI_name" ng-model="pbi.Title" ng-blur="changePbi($index)" ng-focus="startChangePbi($index)" />
+                                    </div>
+                                    <div class="col-xs-4">
+                                        <label class="PBI_score">{{pbi.FinalEstimation}}</label>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-xs-6">
+                                        <button type="button" class="PBI_push btn btn-cap btn-cap-primary btn-cap-block" ng-click="pushPbi($index)">Push</button>
+                                    </div>
+                                    <div class="col-xs-6">
+                                        <button type="button" class="PBI_remove btn btn-cap btn-cap-default btn-cap-block" ng-click="removePbi($index)">X</button>
+                                    </div>
+                                </div>
                             </div>
-                            <div class="col-xs-2">
-                                <button type="button" class="PBI_push btn btn-cap btn-cap-primary btn-cap-block" ng-click="pushPbi($index)">Push</button>
-                            </div>
-                            <div class="col-xs-2">
-                                <button type="button" class="PBI_remove btn btn-cap btn-cap-default btn-cap-block" ng-click="removePbi($index)">X</button>
-                            </div>
-                        </div>
+                        </span>
                         <div class="row inputRow">
                             <div class="col-xs-12">
                                 <input id="newPbi" type="text" class="form-control form-cap-input newPbi" placeholder="Enter your PBI name here." ng-model="newPbi" ng-blur="createPbi(newPbi); newPbi = '';" />

@@ -6963,9 +6963,12 @@ body {
   background-color: white;
   color: #00a1d5;
 }
+.PBI_name {
+  width: 100%;
+}
 .PBI_name:not(:focus) {
   background: rgba(0, 0, 0, 0);
-  border: none;
+  border: 2px solid #FFF;
 }
 tr.PBI_line {
   border-bottom: 1px solid #EEE;
@@ -7071,6 +7074,9 @@ tr.PBI_line:last-child {
 .waitingRoom .pbi-item {
   padding: 5px;
   border-bottom: 1px solid #ccc;
+}
+.waitingRoom .pbi-item .small-pbi-buttons {
+  margin-bottom: 10px;
 }
 .waitingRoom .inputRow {
   margin-top: 15px;
