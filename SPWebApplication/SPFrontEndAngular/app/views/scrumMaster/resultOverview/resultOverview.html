@@ -7,17 +7,17 @@
                 </div>
                 <div class="resultOverview" >
                     <div class="row heading">
-                        <span class="col-xs-10">Name</span>
-                        <span class="col-xs-2" ng-hide="showEstimates">Voted</span>
-                        <span class="col-xs-2" ng-show="showEstimates">Score</span>
+                        <span class="col-xs-8">Name</span>
+                        <span class="col-xs-4" ng-hide="showEstimates">Voted</span>
+                        <span class="col-xs-4" ng-show="showEstimates">Score</span>
                     </div>
                     <div class="row participantsList" ng-repeat="participant in participantsList">
-                        <span class="col-xs-10">{{participant.UserName}}</span>
-                        <span class="col-xs-2" ng-hide="showEstimates">
+                        <span class="col-xs-8">{{participant.UserName}}</span>
+                        <span class="col-xs-4" ng-hide="showEstimates">
                             <span ng-show="hasVoted(participant.Estimate)"><img src="/app/media/checkmark.png" width="20px" alt="" class="checkmark"></span>
                             <span ng-hide="hasVoted(participant.Estimate)"><img src="/app/media/waiting.gif" width="50px" alt="" class="waiting" ></span>
                         </span>
-                        <span class="col-xs-2" ng-show="showEstimates">{{participant.Estimate}}</span>
+                        <span class="col-xs-4" ng-show="showEstimates">{{participant.Estimate}}</span>
                         <div class="border-bottom margin-top-bottom"></div>
                     </div>
                     <div class="row" ng-hide="showEstimates">
