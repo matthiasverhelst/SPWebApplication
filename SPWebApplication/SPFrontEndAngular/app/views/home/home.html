@@ -16,7 +16,7 @@
                         </div>
                     </div>
                     <div class="form-group">
-                        <input type="text" class="form-control form-cap-input" ng-model="joinRoomObj.scrumMemberName" name="scrumMemberName" placeholder="Name" required="required">
+                        <input type="text" class="form-control form-cap-input" ng-model="joinRoomObj.scrumMemberName" name="scrumMemberName" placeholder="Your name" required="required">
                         <div ng-show="(joinRoomForm.scrumMemberName.$error.required ) &amp;&amp; joinRoomFormSubmitted" class="error-message" role="alert">
                             <span>Please fill in a name.</span>
                         </div>
@@ -32,7 +32,7 @@
                 </div>
                 <form class="form-cap" name="createRoomForm">
                     <div class="form-group">
-                        <input type="text" class="form-control form-cap-input" name="scrumMasterName" ng-model="createRoomObj.scrumMasterName" placeholder="Name" required="required" />
+                        <input type="text" class="form-control form-cap-input" name="scrumMasterName" ng-model="createRoomObj.scrumMasterName" placeholder="Your name" required="required" />
                         <div ng-show="(createRoomForm.scrumMasterName.$error.required) &amp;&amp; createRoomFormSubmitted" class="error-message" role="alert">
                             <span>Please fill in a name.</span>
                         </div>
