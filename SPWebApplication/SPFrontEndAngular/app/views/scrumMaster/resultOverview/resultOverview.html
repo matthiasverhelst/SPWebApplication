@@ -22,8 +22,11 @@
                         <div class="border-bottom margin-top-bottom"></div>
                     </div>
                     <div class="row" ng-hide="showEstimates">
-                        <span class="col-xs-12">
-                            <button type="button" class="btn btn-cap btn-cap-block btn-cap-primary" ng-click="pushEstimates()">Show Estimates</button>
+                        <span class="col-xs-12 col-sm-6">
+                            <button type="button" class="btn-cap btn-lg btn-cap-primary btn-cap-block btn-cap-margin-bottom" ng-click="pushEstimates()">Show Estimates</button>
+                        </span>
+                        <span class="col-xs-12 col-sm-6">
+                            <button type="button" class="btn-cap btn-lg btn-cap-danger btn-cap-block btn-cap-margin-bottom" ng-click="abortVoting()">Abort</button>
                         </span>
                     </div>
                     <div class="row" ng-show="showEstimates">
