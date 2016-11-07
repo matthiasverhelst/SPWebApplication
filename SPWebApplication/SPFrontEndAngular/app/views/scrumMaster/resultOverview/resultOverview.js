@@ -11,6 +11,7 @@
   }])
 
   .controller('resultOverviewScrumMasterCtrl', ['$scope', '$routeParams', '$http', '$timeout', 'signalRSvc', '$location', function ($scope, $routeParams, $http, $timeout, signalRSvc, $location) {
+      $scope.roomID = signalRSvc.getRoomId();
       $scope.pbiName = $routeParams.pbiName;
       $scope.participantsList = [];
       $scope.showEstimates = false;

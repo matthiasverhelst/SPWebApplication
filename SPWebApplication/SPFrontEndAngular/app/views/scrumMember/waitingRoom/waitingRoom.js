@@ -11,7 +11,7 @@
   }])
 
   .controller('waitingRoomScrumMemberCtrl', ['$scope','$routeParams', '$http','$timeout','signalRSvc','$location', function($scope, $routeParams, $http, $timeout,signalRSvc,$location) {
-      $scope.roomID = $routeParams.room;
+      $scope.roomID = signalRSvc.getRoomId();
       $scope.participantsList = [];
 
       PubSub.subscribe( 'getParticipants', function(msg, participantsList){
