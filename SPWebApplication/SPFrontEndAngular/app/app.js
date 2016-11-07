@@ -87,16 +87,12 @@
         };
 
         var sendRequest = function (reqName, obj) {
-            console.log("started: " + self.started);
-            console.log("proxy: " + self.proxy);
             if (self.started) {
                 self.proxy.invoke(reqName, obj);
             }
         };
 
         var sendRequestWithRoomID = function (reqName, obj) {
-            console.log("started: " + self.started);
-            console.log("proxy: " + self.proxy);
             if (self.started) {
                 if (obj) {
                     self.proxy.invoke(reqName, self.roomId, obj);
