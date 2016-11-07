@@ -41,6 +41,7 @@
           if (success) {
               $scope.errors.invalidRoomId = false;
               signalRSvc.setRoomId($scope.joinRoomObj.roomId);
+              signalRSvc.setSessionStorage($scope.joinRoomObj.roomId, $scope.joinRoomObj.scrumMemberName, false);
               var roomPath = '/waitingRoomScrumMember/' + $scope.joinRoomObj.roomId;
               $location.path(roomPath);
           }else{
@@ -53,6 +54,7 @@
 
       PubSub.subscribe( 'roomCreated', function(msg, roomId){
           var roomPath = '/waitingRoomScrumMaster/' + roomId;
+          signalRSvc.setSessionStorage($scope.joinRoomObj.roomId, $scope.joinRoomObj.scrumMasterName, true);
           $location.path(roomPath);
           $timeout(function(){
               $scope.$apply();

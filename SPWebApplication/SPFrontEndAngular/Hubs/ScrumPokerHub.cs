@@ -132,6 +132,23 @@ namespace ScrumPokerService.Hubs
             return null;
         }
 
+        public async Task ReconnectEvent(string roomId, string userName, bool isScrumMaster)
+        {
+            if (isScrumMaster)
+            {
+                // TODO: Implement reconnect for scrum master...
+            }
+            else
+            {
+                JoinRoomDTO joinRoomDTO = new JoinRoomDTO()
+                {
+                    RoomId = roomId,
+                    Name = userName
+                };
+                await JoinRoom(joinRoomDTO);
+            }
+        }
+
         private ICollection<UserEstimateDTO> FindUserEstimates(int id, string title)
         {
             ICollection<User> participants = BusinessLogic.GetParticipants(id);
