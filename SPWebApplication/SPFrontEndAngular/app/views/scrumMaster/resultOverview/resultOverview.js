@@ -42,6 +42,19 @@
           signalRSvc.sendRequestWithRoomID(signalRSvc.CONST.SHOW_ESTIMATES, null);
       };
 
+      $scope.abortVoting = function () {
+          console.log("abort voting");
+          signalRSvc.sendRequestWithRoomID(signalRSvc.CONST.ABORT_VOTING, null);
+      }
+
+      PubSub.subscribe('votingAborted', function (msg, succes) {
+          var pathString = "/waitingRoomScrumMaster/" + signalRSvc.getRoomId();
+          $location.path(pathString);
+          $timeout(function () {
+              $scope.$apply();
+          }, 0);
+      });
+
       PubSub.subscribe('getUserEstimates', function (msg, participantsList) {
           $scope.participantsList = participantsList;
           $timeout(function() {

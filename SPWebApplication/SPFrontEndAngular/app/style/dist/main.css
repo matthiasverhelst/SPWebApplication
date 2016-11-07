@@ -7084,7 +7084,7 @@ tr.PBI_line:last-child {
 }
 .resultOverview .participantsList {
   padding: 5px;
-  margin-bottom: 5px;
+  margin-bottom: 15px;
   border-bottom: 1px solid #EEE;
 }
 .resultOverview .participantsList:last-child {
