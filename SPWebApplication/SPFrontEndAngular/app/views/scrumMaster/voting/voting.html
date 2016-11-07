@@ -33,11 +33,11 @@
                                 <div class="container-fluid">
                                     <div class="col-md-6 col-xs-12">
                                         <label class="sr-only" for="skip">skip estimation</label>
-                                        <button type="button" name="skip" class="btn-cap btn-lg btn-cap-warning btn-cap-block btn-cap-margin-bottom" ng-click="vote('?')">Skip</button>
+                                        <button type="button" name="skip" class="btn-cap btn-lg btn-cap-warning btn-cap-block btn-cap-margin-bottom" ng-click="vote('?')" data-toggle="tooltip" data-placement="bottom" title="Don't give an estimation for this PBI">Skip</button>
                                     </div>
                                     <div class="col-md-6 col-xs-12">
                                         <label class="sr-only" for="abort">abort estimation</label>
-                                        <button type="button" name="abort" class="btn-cap btn-lg btn-cap-danger btn-cap-block btn-cap-margin-bottom" ng-click="abortVoting()">Abort</button>
+                                        <button type="button" name="abort" class="btn-cap btn-lg btn-cap-danger btn-cap-block btn-cap-margin-bottom" ng-click="abortVoting()" data-toggle="tooltip" data-placement="bottom" title="Cancel the estimation round for this PBI">Abort</button>
                                     </div>
                                 </div>
                             </div>
