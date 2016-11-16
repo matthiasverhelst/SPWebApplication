@@ -11,6 +11,7 @@
     }])
 
     .controller('VotingCtrlScrumMember', ['$scope', '$location', '$timeout', '$routeParams', 'signalRSvc', function ($scope, $location, $timeout, $routeParams, signalRSvc) {
+        $scope.roomID = signalRSvc.getRoomId();
         $scope.pbiName = $routeParams.pbi;
         $scope.buttons = [
             { value: '0', text: '0' }, { value: '0.5', text: '1/2' }, { value: '1', text: '1' },

@@ -5,10 +5,11 @@ using System.Web;
 
 namespace ScrumPokerService.DTO
 {
-    public class JoinRoomDTO
+    public class RoomJoinedDTO
     {
-        public string RoomId { get; set; }
-        public string Name { get; set; }
+        public bool Success { get; set; }
+        public int RoomId { get; set; }
+        public String UserName { get; set; }
         public bool IsScrumMaster { get; set; }
     }
 }

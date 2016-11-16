@@ -6769,6 +6769,7 @@ body {
   position: absolute;
   top: 15px;
   left: 30px;
+  cursor: pointer;
 }
 .header-logo-small {
   margin-top: -7px;
@@ -6816,6 +6817,11 @@ body {
 @media screen and (max-width: 350px) {
   .header-title {
     font-size: 25px;
+  }
+}
+@media screen and (max-width: 290px) {
+  .header-title {
+    margin-left: 30px;
   }
 }
 .outer {
@@ -6915,6 +6921,7 @@ body {
 }
 .item-wrapper .item-block h2 {
   margin-top: 0px;
+  margin-bottom: 0px;
 }
 .item-wrapper:last-child {
   margin-bottom: 50px;
@@ -6930,6 +6937,11 @@ body {
 .item-title {
   color: #0098cc;
   text-align: center;
+}
+.item-title-subheader {
+  color: #777777;
+  text-align: center;
+  margin: 5px 0px;
 }
 .item-header {
   display: block;
@@ -7084,10 +7096,10 @@ tr.PBI_line:last-child {
 }
 .resultOverview .participantsList {
   padding: 5px;
-  margin-bottom: 5px;
   border-bottom: 1px solid #EEE;
 }
 .resultOverview .participantsList:last-child {
+  margin-bottom: 15px;
   border: none;
 }
 .waitingRoom .pbi-item {

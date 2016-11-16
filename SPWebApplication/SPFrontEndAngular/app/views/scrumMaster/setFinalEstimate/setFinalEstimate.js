@@ -12,6 +12,7 @@
 
     .controller('SetFinalEstimateCtrl', ['$scope', '$location', '$timeout', '$routeParams', 'signalRSvc', function ($scope, $location, $timeout, $routeParams, signalRSvc) {
         $scope.pbiName = $routeParams.pbi;
+        $scope.roomID = signalRSvc.getRoomId();
         $scope.buttons = [
             { value: '0', text: '0' }, { value: '0.5', text: '1/2' }, { value: '1', text: '1' },
             { value: '2', text: '2' }, { value: '3', text: '3' }, { value: '5', text: '5' },

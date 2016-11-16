@@ -14,8 +14,8 @@
 </head>
 <body ng-controller="mainController">
     <div class="header-wrapper">
-        <a href="#/home"><img src="/app/media/logo.png" alt="" class="header-logo hidden-sm hidden-xs"></a>
-        <a href="#/home"><img src="/app/media/Label_CBE.png" alt="" class="header-logo header-logo-small visible-sm visible-xs"></a>
+        <img src="/app/media/logo.png" alt="" ng-click="toHome()" class="header-logo hidden-sm hidden-xs">
+        <img src="/app/media/Label_CBE.png" alt="" ng-click="toHome()" class="header-logo header-logo-small visible-sm visible-xs">
         <div class="header-title">PokerShore</div>
     </div>
     <div class="outer">
@@ -25,7 +25,7 @@
             </div>
             <div class="copyright">Copyright <span>&copy;</span> {{date| date:'yyyy'}} Capgemini. All rights reserved.</div>
         </div>
-        
+
     </div>
 
     <script src="lib/angular.min.js"></script>

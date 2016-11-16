@@ -22,7 +22,8 @@ namespace SPCore
 			Room room = new Room()
 			{
 				ScrumMaster = scrumMaster,
-				RoomId = GenerateRoomId(),
+                RoomId = GenerateRoomId(),
+                State = RoomState.Waiting,
 				Participants = new List<User>(),
 				PBIs = new List<ProductBacklogItem>()
 			};
@@ -105,7 +106,7 @@ namespace SPCore
             }
         }
 
-		public static Boolean JoinRoom(String name, int id, String connectionId)
+		public static Boolean JoinRoom(String name, int id, String connectionId, bool isScrumMaster)
 		{
 			User user = new User()
 			{
@@ -119,6 +120,11 @@ namespace SPCore
 			{
 				return false;
 			}
+
+            if (isScrumMaster)
+            {
+                room.ScrumMaster = user;
+            }
 
 			room.Participants.Add(user);
 			return true;
@@ -156,7 +162,7 @@ namespace SPCore
 			var room = _rooms.FirstOrDefault(r => r.RoomId == id);
 
 			if (room == null)
-				{
+			{
 				return false;
 			}
 
@@ -280,5 +286,14 @@ namespace SPCore
             throw new Exception("No user found with connectionId: " + connectionId);
         }
 
+        public static void setRoomState(int id, RoomState state)
+        {
+            var room = _rooms.FirstOrDefault(r => r.RoomId == id);
+
+            if (room != null)
+            {
+                room.State = state;
+            }
+        }
     }
 }
