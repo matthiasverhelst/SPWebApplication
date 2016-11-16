@@ -16,6 +16,8 @@ namespace SPCore.Model
 
         [Required]
         public User ScrumMaster { get; set; }
+
+        public RoomState State { get; set; }
         
         public virtual ICollection<User> Participants { get; set; }
 

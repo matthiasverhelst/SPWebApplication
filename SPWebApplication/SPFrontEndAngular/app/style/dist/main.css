@@ -6769,6 +6769,7 @@ body {
   position: absolute;
   top: 15px;
   left: 30px;
+  cursor: pointer;
 }
 .header-logo-small {
   margin-top: -7px;
@@ -7095,10 +7096,10 @@ tr.PBI_line:last-child {
 }
 .resultOverview .participantsList {
   padding: 5px;
-  margin-bottom: 15px;
   border-bottom: 1px solid #EEE;
 }
 .resultOverview .participantsList:last-child {
+  margin-bottom: 15px;
   border: none;
 }
 .waitingRoom .pbi-item {

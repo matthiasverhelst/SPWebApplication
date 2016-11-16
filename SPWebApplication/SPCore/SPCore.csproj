@@ -41,6 +41,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="BusinessLogic.cs" />
+    <Compile Include="Model\RoomState.cs" />
     <Compile Include="Model\Estimate.cs" />
     <Compile Include="Model\ProductBacklogItem.cs" />
     <Compile Include="Model\Room.cs" />

@@ -18,7 +18,7 @@
 
     pokerShoreApp.value('$', $);
 
-    pokerShoreApp.service('signalRSvc', ['$', '$rootScope', '$timeout', function ($, $rootScope, $timeout) {
+    pokerShoreApp.service('signalRSvc', ['$', '$rootScope', '$timeout', '$location', function ($, $rootScope, $timeout, $location) {
         var self = this;
         self.proxy = null;
         self.roomId = "";
@@ -38,8 +38,11 @@
             ADD_ESTIMATE: 'addEstimation',
             SET_FINAL_ESTIMATE: 'setFinalEstimate',
             GET_FINAL_ESTIMATE: 'getFinalEstimate',
-            ABORT_VOTING: 'abortVoting'
+            ABORT_VOTING: 'abortVoting',
+            REMOVE_USER: 'removeUser'
         };
+
+        var onProxyVarsArray = ['roomCreated', 'roomJoined', 'getParticipants', 'getPBIS', 'PBIPushed', 'PBIUpdated', 'addedEstimation', 'getUserEstimates', 'showEstimates', 'finalEstimateSet', 'votingAborted'];
 
         var initialize = function () {
             //Getting the connection object
@@ -67,8 +70,6 @@
                 });
             };
 
-            var onProxyVarsArray = ['roomCreated', 'roomJoined', 'getParticipants', 'getPBIS', 'PBIPushed', 'PBIUpdated', 'addedEstimation', 'getUserEstimates', 'showEstimates', 'finalEstimateSet', 'votingAborted'];
-
             for (var i = 0; i < onProxyVarsArray.length; i++) {
                 createProxyListener(self.proxy, onProxyVarsArray[i]);
             }
@@ -79,6 +80,11 @@
                 console.log("Connection established. Connect id: " + connection.id);
                 if (sessionStorage.roomId !== 'undefined' && sessionStorage.userName !== 'undefined' && sessionStorage.isScrumMaster !== 'undefined') {
                     self.proxy.invoke('reconnectEvent', sessionStorage.roomId, sessionStorage.userName, sessionStorage.isScrumMaster);
+                } else {
+                    $location.path('/home');
+                    $timeout(function () {
+                        $rootScope.$apply();
+                    }, 0);
                 }
             }).fail(function (e) {
                 console.log(e);
@@ -88,7 +94,11 @@
 
         var sendRequest = function (reqName, obj) {
             if (self.started) {
-                self.proxy.invoke(reqName, obj);
+                if (obj) {
+                    self.proxy.invoke(reqName, obj);
+                } else {
+                    self.proxy.invoke(reqName);
+                }
             }
         };
 
@@ -119,7 +129,8 @@
 
         return {
             initialize: initialize,
-            CONST : CONST,
+            CONST: CONST,
+            subscribeEvents: onProxyVarsArray,
             sendRequest: sendRequest,
             sendRequestWithRoomID : sendRequestWithRoomID,
             getRoomId : getRoomId,
@@ -136,10 +147,19 @@
         signalRSvc.initialize();
         $scope.date = new Date();
 
-        PubSub.subscribe('roomJoined', function (msg, success) {
-            if (success) {
+        $scope.toHome = function () {
+            sessionStorage.clear();
+            signalRSvc.sendRequest(signalRSvc.CONST.REMOVE_USER);
+            for (var i = 0; i < signalRSvc.subscribeEvents.length; i++) {
+                PubSub.unsubscribe(signalRSvc.subscribeEvents[i]);
+            }
+            $location.path('/home');
+        }
+
+        PubSub.subscribe('roomJoined', function (msg, roomJoinedDTO) {
+            if (roomJoinedDTO.Success) {
                 signalRSvc.setRoomId(sessionStorage.roomId);
-                signalRSvc.setSessionStorage(sessionStorage.roomId, sessionStorage.userName, sessionStorage.isScrumMaster);
+                signalRSvc.setSessionStorage(roomJoinedDTO.RoomId, roomJoinedDTO.UserName, roomJoinedDTO.IsScrumMaster);
                 $route.reload();
             } else {
                 $location.path('/home');

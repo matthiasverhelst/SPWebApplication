@@ -36,9 +36,16 @@ namespace ScrumPokerService.Hubs
             if (Int32.TryParse(joinRoomDTO.RoomId, out id))
             {
                 string name = joinRoomDTO.Name;
-                hasJoined = BusinessLogic.JoinRoom(name, id, Context.ConnectionId);
+                hasJoined = BusinessLogic.JoinRoom(name, id, Context.ConnectionId, joinRoomDTO.IsScrumMaster);
             }
-            Clients.Caller.roomJoined(hasJoined);       
+            RoomJoinedDTO roomJoinedDTO = new RoomJoinedDTO
+            {
+                Success = hasJoined,
+                RoomId = id,
+                UserName = joinRoomDTO.Name,
+                IsScrumMaster = joinRoomDTO.IsScrumMaster
+            };
+            Clients.Caller.roomJoined(roomJoinedDTO);       
 
             if (hasJoined)
             {
@@ -57,6 +64,7 @@ namespace ScrumPokerService.Hubs
         public void PushPBI(int id, string pbiName)
         {
             BusinessLogic.RemoveEstimates(id, pbiName);
+            BusinessLogic.setRoomState(id, RoomState.Voting);
             Clients.Group(id.ToString()).pbiPushed(pbiName);
         }
 
@@ -92,14 +100,16 @@ namespace ScrumPokerService.Hubs
 
         public void ShowEstimates(int id)
         {
+            BusinessLogic.setRoomState(id, RoomState.Results);
             Clients.Group(id.ToString()).showEstimates();
         }
 
         public void SetFinalEstimate(int id, AddEstimateDTO finalEstimate)
         {
             Boolean isAdded = BusinessLogic.SetFinalEstimate(id, finalEstimate.PBIName, finalEstimate.Estimate);
-            if (isAdded) 
+            if (isAdded)
             {
+                BusinessLogic.setRoomState(id, RoomState.FinalEstimate);
                 Clients.Group(id.ToString()).finalEstimateSet(finalEstimate.Estimate);
             }
             else
@@ -132,21 +142,20 @@ namespace ScrumPokerService.Hubs
             return null;
         }
 
+        public void RemoveUser()
+        {
+            OnDisconnected(false);
+        }
+
         public async Task ReconnectEvent(string roomId, string userName, bool isScrumMaster)
         {
-            if (isScrumMaster)
+            JoinRoomDTO joinRoomDTO = new JoinRoomDTO()
             {
-                // TODO: Implement reconnect for scrum master...
-            }
-            else
-            {
-                JoinRoomDTO joinRoomDTO = new JoinRoomDTO()
-                {
-                    RoomId = roomId,
-                    Name = userName
-                };
-                await JoinRoom(joinRoomDTO);
-            }
+                RoomId = roomId,
+                Name = userName,
+                IsScrumMaster = isScrumMaster
+            };
+            await JoinRoom(joinRoomDTO);
         }
 
         private ICollection<UserEstimateDTO> FindUserEstimates(int id, string title)

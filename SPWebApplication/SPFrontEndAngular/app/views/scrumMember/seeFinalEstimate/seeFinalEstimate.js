@@ -14,5 +14,13 @@
       $scope.roomID = signalRSvc.getRoomId();
       $scope.finalEstimate = $routeParams.finalEstimate;
       $scope.pbiName = $routeParams.pbiName;
+
+      PubSub.subscribe('PBIPushed', function (msg, pbiName) {
+          var pathString = "/votingScrumMember/" + pbiName;
+          $location.path(pathString);
+          $timeout(function () {
+              $scope.$apply();
+          }, 0);
+      });
   }]);
 })();
