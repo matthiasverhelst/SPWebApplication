@@ -22,5 +22,14 @@
               $scope.$apply();
           }, 0);
       });
+
+      PubSub.subscribe('getPBIS', function (msg, pbiArray) {
+          $scope.pbiArray = pbiArray;
+          $timeout(function () {
+              $scope.$apply();
+          }, 0);
+      });
+
+      signalRSvc.sendRequestWithRoomID(signalRSvc.CONST.GET_PBIS);
   }]);
 })();

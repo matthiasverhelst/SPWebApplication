@@ -11,5 +11,20 @@
                 <h4 class="text-center">Please wait for the scrummaster to push the next pbi.</h4>
             </div>
         </div>
+        <div class="item-wrapper">
+            <div class="item-block">
+                <div class="item-header">
+                    <h2 class="item-title" name="pbi_name">PBI Overview</h2>
+                </div>
+                <div>
+                    <div ng-repeat="pbi in pbiArray" class="final-estimate-pbi-item">
+                        <div class="row">
+                            <div class="col-xs-9 text-center">{{pbi.Title}}</div>
+                            <div class="col-xs-3 text-center">{{pbi.FinalEstimation}}</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
     </div>
 </div>
