@@ -89,7 +89,13 @@ namespace ScrumPokerService.Hubs
         public void AddEstimation(int id, AddEstimateDTO addEstimateDTO)
         {
             Boolean isAdded = BusinessLogic.AddEstimate(id, Context.ConnectionId, addEstimateDTO.PBIName, addEstimateDTO.Estimate);
+            Boolean everyoneVoted = BusinessLogic.checkEveryoneVoted(id, addEstimateDTO.PBIName);
             Clients.Caller.addedEstimation(isAdded);
+            if (everyoneVoted)
+            {
+                Clients.Group(id.ToString()).showEstimates();
+            }
+
             Clients.Group(id.ToString()).getUserEstimates(FindUserEstimates(id, addEstimateDTO.PBIName));
         }
 
