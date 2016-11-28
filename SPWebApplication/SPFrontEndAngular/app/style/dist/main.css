@@ -7119,3 +7119,10 @@ tr.PBI_line:last-child {
   display: table;
   margin: 0 auto;
 }
+.final-estimate-pbi-item {
+  padding: 5px;
+  border-bottom: 1px solid #ccc;
+}
+.final-estimate-pbi-item:last-child {
+  border-bottom: 0;
+}
