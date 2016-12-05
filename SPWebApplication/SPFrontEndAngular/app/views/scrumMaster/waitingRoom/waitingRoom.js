@@ -90,7 +90,6 @@
       $scope.updateScore = function (index) {
           var voteObj = { "pbiName": $scope.pbiArray[index].Title, "estimate": $scope.pbiArray[index].FinalEstimation };
           signalRSvc.sendRequestWithRoomID(signalRSvc.CONST.SET_FINAL_ESTIMATE, voteObj);
-          console.log(voteObj);
       };
 
       PubSub.subscribe( 'getPBIS', function(msg, pbiArray){
