@@ -8,7 +8,7 @@ using ScrumPokerService.Converters;
 using System;
 using System.Collections.Generic;
 using System.Threading.Tasks;
-
+using System.Diagnostics;
 namespace ScrumPokerService.Hubs
 {
     [HubName("scrumPokerHub")]
@@ -21,8 +21,13 @@ namespace ScrumPokerService.Hubs
 
         public async Task CreateRoom(string scrumMasterName)
         {
+
+
             int id = BusinessLogic.CreateRoom(scrumMasterName, Context.ConnectionId);
             Clients.Caller.roomCreated(id);
+
+            String logText = "Room created by " + scrumMasterName + " with id " + id;
+            Trace.WriteLine(logText, "CreateRoom");
 
             ICollection<User> participants = BusinessLogic.GetParticipants(id);
             await Groups.Add(Context.ConnectionId, id.ToString());
