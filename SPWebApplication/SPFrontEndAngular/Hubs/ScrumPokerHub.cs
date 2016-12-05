@@ -21,12 +21,10 @@ namespace ScrumPokerService.Hubs
 
         public async Task CreateRoom(string scrumMasterName)
         {
-
-
             int id = BusinessLogic.CreateRoom(scrumMasterName, Context.ConnectionId);
             Clients.Caller.roomCreated(id);
 
-            String logText = "Room created by " + scrumMasterName + " with id " + id;
+            String logText = "Room with id " + id + " created by " + scrumMasterName + "("+ Context.ConnectionId + ")";
             Trace.WriteLine(logText, "CreateRoom");
 
             ICollection<User> participants = BusinessLogic.GetParticipants(id);
