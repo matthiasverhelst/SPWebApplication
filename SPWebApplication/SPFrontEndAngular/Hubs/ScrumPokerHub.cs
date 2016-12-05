@@ -173,11 +173,17 @@ namespace ScrumPokerService.Hubs
         //SAM
         public void AbortVoting(int id)
         {
+            String logText = "Voting in room " + id + " is aborted.";
+            Trace.WriteLine(logText, "AbortVoting");
+
             Clients.Group(id.ToString()).votingAborted();
         }
 
         public override Task OnDisconnected(bool stopCalled)
         {
+            String logText = "User (" + Context.ConnectionId + ") disconnected";
+            Trace.WriteLine(logText, "OnDisconnected");
+
             int roomId = BusinessLogic.RemoveUser(Context.ConnectionId);
             ICollection<User> participants = BusinessLogic.GetParticipants(roomId);
 
@@ -191,11 +197,17 @@ namespace ScrumPokerService.Hubs
 
         public void RemoveUser()
         {
+            String logText = "Removing user (" + Context.ConnectionId + ")";
+            Trace.WriteLine(logText, "RemoveUser");
+
             OnDisconnected(false);
         }
 
         public async Task ReconnectEvent(string roomId, string userName, bool isScrumMaster)
         {
+            String logText = "User " + userName + " ("+ Context.ConnectionId + ") is trying to reconnect to room " + roomId + " as scrummaster: " + isScrumMaster;
+            Trace.WriteLine(logText, "Reconnect");
+
             JoinRoomDTO joinRoomDTO = new JoinRoomDTO()
             {
                 RoomId = roomId,
