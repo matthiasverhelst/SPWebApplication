@@ -87,6 +87,12 @@
           focusNewPbi();
       };
 
+      $scope.updateScore = function (index) {
+          var voteObj = { "pbiName": $scope.pbiArray[index].Title, "estimate": $scope.pbiArray[index].FinalEstimation };
+          signalRSvc.sendRequestWithRoomID(signalRSvc.CONST.SET_FINAL_ESTIMATE, voteObj);
+          console.log(voteObj);
+      };
+
       PubSub.subscribe( 'getPBIS', function(msg, pbiArray){
           $scope.pbiArray = pbiArray;
           $timeout(function(){
@@ -107,7 +113,8 @@
           $timeout(function(){
               $scope.$apply();
           },0);
-    });
+      });
+
 
       signalRSvc.sendRequestWithRoomID(signalRSvc.CONST.GET_PARTICIPANTS);
       signalRSvc.sendRequestWithRoomID(signalRSvc.CONST.GET_PBIS);

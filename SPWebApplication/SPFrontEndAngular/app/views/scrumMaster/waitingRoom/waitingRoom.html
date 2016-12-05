@@ -23,7 +23,7 @@
                                         <input class="PBI_name" ng-model="pbi.Title" ng-blur="changePbi($index)" ng-focus="startChangePbi($index)" />
                                     </div>
                                     <div class="col-sm-2">
-                                        <label class="PBI_score">{{pbi.FinalEstimation}}</label>
+                                        <input class="PBI_name" ng-model="pbi.FinalEstimation" ng-blur="updateScore($index)" />
                                     </div>
                                     <div class="col-sm-2">
                                         <button type="button" class="PBI_push btn btn-cap btn-cap-primary btn-cap-block" ng-click="pushPbi($index)">Push</button>
@@ -39,7 +39,7 @@
                                         <input class="PBI_name" ng-model="pbi.Title" ng-blur="changePbi($index)" ng-focus="startChangePbi($index)" />
                                     </div>
                                     <div class="col-xs-4">
-                                        <label class="PBI_score">{{pbi.FinalEstimation}}</label>
+                                        <input class="PBI_name" ng-model="pbi.FinalEstimation" ng-blur="updateScore($index)" />
                                     </div>
                                 </div>
                                 <div class="row">
