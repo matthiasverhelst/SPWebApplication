@@ -18,8 +18,6 @@ namespace ScrumPokerService.Hubs
             ICollection<User> participants = BusinessLogic.GetParticipants(id);
             Clients.Caller.getParticipants(participants);
 
-
-
             String logText = "Get participants from room  " + id + " list asked by  " + BusinessLogic.GetUserNameByConnectionId(id, Context.ConnectionId) + "(" + Context.ConnectionId + "), response: " + String.Join("; ", participants);
             Trace.WriteLine(logText, "GetParticipants");
         }
@@ -62,6 +60,11 @@ namespace ScrumPokerService.Hubs
                 Clients.Group(id.ToString()).getParticipants(participants);
 
                 String logText = "Room joined with id " + roomJoinedDTO.RoomId + " created by " + roomJoinedDTO.UserName + "(" + Context.ConnectionId + ")";
+                Trace.WriteLine(logText, "JoinRoom");
+            }
+            else
+            {
+                String logText = "User " + roomJoinedDTO.UserName + "(" + Context.ConnectionId + ") tried to join room " + roomJoinedDTO.RoomId + " but failed.";
                 Trace.WriteLine(logText, "JoinRoom");
             }
         }
@@ -159,6 +162,9 @@ namespace ScrumPokerService.Hubs
             else
             {
                 Clients.Group(id.ToString()).finalEstimateSet(false);
+
+                String logText = "User " + BusinessLogic.GetUserNameByConnectionId(id, Context.ConnectionId) + "(" + Context.ConnectionId + ") tried to set final estimate in " + id + " but failed.";
+                Trace.WriteLine(logText, "SetFinalEstimate");
             }
         }
 
