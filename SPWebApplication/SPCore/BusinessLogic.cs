@@ -270,6 +270,14 @@ namespace SPCore
             return "";
         }
 
+
+        public static String GetUserNameByConnectionId(int id, string connectionID)
+        {
+
+            User user = GetUserByConnectionId(id, connectionID);
+            return user.Name;
+        }
+
         private static User GetUserByConnectionId(int id, string connectionId)
         {
             var room = _rooms.FirstOrDefault(r => r.RoomId == id);
@@ -294,6 +302,21 @@ namespace SPCore
             {
                 room.State = state;
             }
+        }
+
+        public static bool checkEveryoneVoted(int id, string title)
+        {
+            var room = _rooms.FirstOrDefault(r => r.RoomId == id);
+
+            if (room != null)
+            {
+                var pbi = room.PBIs.FirstOrDefault(p => p.Title == title);
+                if (pbi.Estimates.Count == room.Participants.Count)
+                {
+                    return true;
+                }
+            }
+            return false;
         }
     }
 }

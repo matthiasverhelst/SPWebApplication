@@ -38,8 +38,8 @@
           }
       };
 
-      PubSub.subscribe( 'roomJoined', function(msg, success){
-          if (success) {
+      PubSub.subscribe( 'roomJoined', function(msg, joinRoomDTO) {
+          if (joinRoomDTO.Success) {
               $scope.errors.invalidRoomId = false;
               var roomPath = '/waitingRoomScrumMember/' + $scope.joinRoomObj.roomId;
               $location.path(roomPath);
