@@ -8,9 +8,9 @@
                 <div class="alert alert-danger" role="alert" ng-show="errors.invalidRoomId">
                     <p>Please enter a valid room id.</p>
                 </div>
-                <form class ="form-cap" name="joinRoomForm">
-                    <div class="form-group">
-                        <input type="text" class="form-control form-cap-input" ng-model="joinRoomObj.roomId" name="scrumMemberRoomId" placeholder="Room ID" required="required" />
+                <form class ="form-cap" name="joinRoomForm" >
+                    <div class="form-group" >
+                        <input autocomplete="off" type="text" class="form-control form-cap-input" ng-model="joinRoomObj.roomId" name="scrumMemberRoomId" placeholder="Room ID" required="required" />
                         <div ng-show="(joinRoomForm.scrumMemberRoomId.$error.required) &amp;&amp; joinRoomFormSubmitted" class="error-message" role="alert">
                             <span>Please fill in a room id.</span>
                         </div>
