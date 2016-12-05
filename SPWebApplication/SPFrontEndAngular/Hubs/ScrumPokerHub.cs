@@ -143,6 +143,9 @@ namespace ScrumPokerService.Hubs
             int roomId = BusinessLogic.RemoveUser(Context.ConnectionId);
             ICollection<User> participants = BusinessLogic.GetParticipants(roomId);
 
+            String logText = "User username (" + Context.ConnectionId + ") disconnected";
+            Trace.WriteLine(logText, "OnDisconnected");
+
             if (participants != null && participants.Count == 0)
                 BusinessLogic.RemoveRoom(roomId);
             else
@@ -153,11 +156,17 @@ namespace ScrumPokerService.Hubs
 
         public void RemoveUser()
         {
+            String logText = "Removing user username (" + Context.ConnectionId + ")";
+            Trace.WriteLine(logText, "RemoveUser");
+
             OnDisconnected(false);
         }
 
         public async Task ReconnectEvent(string roomId, string userName, bool isScrumMaster)
         {
+            String logText = "User " + userName + " ("+ Context.ConnectionId + ") is trying to reconnect to room " + roomId + " as scrummaster: " + isScrumMaster;
+            Trace.WriteLine(logText, "Reconnect");
+
             JoinRoomDTO joinRoomDTO = new JoinRoomDTO()
             {
                 RoomId = roomId,
