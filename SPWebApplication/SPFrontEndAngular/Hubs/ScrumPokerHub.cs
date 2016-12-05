@@ -124,7 +124,7 @@ namespace ScrumPokerService.Hubs
 
             Clients.Group(id.ToString()).getUserEstimates(FindUserEstimates(id, addEstimateDTO.PBIName));
 
-            String logText = "Add estimate for " + addEstimateDTO.PBIName + " in room " + id + " by " + BusinessLogic.GetUserNameByConnectionId(id, Context.ConnectionId) + "(" + Context.ConnectionId + ")";
+            String logText = "Add estimate '" + addEstimateDTO.Estimate + "' for " + addEstimateDTO.PBIName + " in room " + id + " by " + BusinessLogic.GetUserNameByConnectionId(id, Context.ConnectionId) + "(" + Context.ConnectionId + ")";
             Trace.WriteLine(logText, "AddEstimation");
         }
 
