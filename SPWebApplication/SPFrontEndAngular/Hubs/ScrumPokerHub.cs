@@ -154,7 +154,7 @@ namespace ScrumPokerService.Hubs
             else
                 Clients.Group(roomId.ToString()).getParticipants(participants);
 
-            return null;
+            return base.OnDisconnected(stopCalled);
         }
 
         public void RemoveUser()
