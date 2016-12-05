@@ -19,5 +19,10 @@ namespace SPCore.Model
 
         [Required]
         public string ConnectionId { get; set; }
+
+        public override string ToString()
+        {
+            return Name;
+        }
     }
 }
