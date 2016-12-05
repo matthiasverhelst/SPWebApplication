@@ -20,10 +20,10 @@
                             <div class="hidden-xs col-xs-12">
                                 <div class="row">
                                     <div class="col-sm-6">
-                                        <input class="PBI_name" ng-model="pbi.Title" ng-blur="changePbi($index)" ng-focus="startChangePbi($index)" />
+                                        <input class="PBI_name" ng-model="pbi.Title" ng-blur="changePbi($index)" ng-focus="startChangePbi($index)" maxlength="50" />
                                     </div>
                                     <div class="col-sm-2">
-                                        <input class="PBI_name" ng-model="pbi.FinalEstimation" ng-blur="updateScore($index)" />
+                                        <input class="PBI_name" ng-model="pbi.FinalEstimation" ng-blur="updateScore($index)" maxlength="6" />
                                     </div>
                                     <div class="col-sm-2">
                                         <button type="button" class="PBI_push btn btn-cap btn-cap-primary btn-cap-block" ng-click="pushPbi($index)">Push</button>
@@ -36,10 +36,10 @@
                             <div class="visible-xs col-xs-12 small-pbi-buttons">
                                 <div class="row">
                                     <div class="col-xs-8">
-                                        <input class="PBI_name" ng-model="pbi.Title" ng-blur="changePbi($index)" ng-focus="startChangePbi($index)" />
+                                        <input class="PBI_name" ng-model="pbi.Title" ng-blur="changePbi($index)" ng-focus="startChangePbi($index)" maxlength="50" />
                                     </div>
                                     <div class="col-xs-4">
-                                        <input class="PBI_name" ng-model="pbi.FinalEstimation" ng-blur="updateScore($index)" />
+                                        <input class="PBI_name" ng-model="pbi.FinalEstimation" ng-blur="updateScore($index)" maxlength="6"/>
                                     </div>
                                 </div>
                                 <div class="row">
@@ -54,7 +54,7 @@
                         </span>
                         <div class="row inputRow">
                             <div class="col-xs-12">
-                                <input id="newPbi" type="text" class="form-control form-cap-input newPbi" placeholder="Enter your PBI name here." ng-model="newPbi" ng-blur="createPbi(newPbi); newPbi = '';" />
+                                <input id="newPbi" type="text" class="form-control form-cap-input newPbi" placeholder="Enter your PBI name here." ng-model="newPbi" ng-blur="createPbi(newPbi); newPbi = '';" maxlength="50" />
                                 <button class="hidden" type="submit" value="submit"></button>
                             </div>
                         </div>
