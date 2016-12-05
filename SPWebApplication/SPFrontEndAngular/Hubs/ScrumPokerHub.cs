@@ -17,6 +17,9 @@ namespace ScrumPokerService.Hubs
         {
             ICollection<User> participants = BusinessLogic.GetParticipants(id);
             Clients.Caller.getParticipants(participants);
+
+            String logText = "Get participants from room  " + id + " list asked by  " + BusinessLogic.GetUserNameByConnectionId(id, Context.ConnectionId) + "(" + Context.ConnectionId + ")";
+            Trace.WriteLine(logText, "GetParticipants");
         }
 
         public async Task CreateRoom(string scrumMasterName)
