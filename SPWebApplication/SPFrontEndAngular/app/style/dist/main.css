@@ -6864,6 +6864,34 @@ body {
   font-size: 12px;
   opacity: 0.8;
 }
+.footer-menu {
+  text-align: center;
+}
+.footer-menu ul {
+  padding-left: 0;
+  list-style: none;
+}
+.footer-menu ul .footer-menu-item {
+  display: inline-block;
+  position: relative;
+}
+.footer-menu ul .footer-menu-item a {
+  font-size: 14px;
+  color: white;
+  margin: 5px;
+  padding: 10px;
+}
+.footer-menu ul .footer-menu-item:after {
+  content: ' ';
+  position: absolute;
+  width: 1px;
+  height: 12px;
+  top: 5px;
+  background-color: white;
+}
+.footer-menu ul .footer-menu-item:last-child:after {
+  content: none;
+}
 .label-cap {
   font-size: 16px;
   display: block;

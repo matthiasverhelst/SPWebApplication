@@ -123,7 +123,6 @@ body {
 .validation-error {
     color: red;
 }
-
 .copyright{
     color:white;
     text-align:center;
@@ -131,7 +130,35 @@ body {
     font-size:12px;
     opacity: 0.8;
 }
+.footer-menu{
+    text-align:center;
+    ul{
+        padding-left:0;
+        list-style:none;
+        .footer-menu-item{
+            display: inline-block;
+            position:relative;
+            a{         
+                font-size: 14px;
+                color:white;
+                margin:5px;
+                padding:10px;
+            }
+            &:after {
+                content: ' ';
+                position:absolute;
+                width: 1px;
+                height:12px;
+                top: 5px;
+                background-color:white;
+            }
+            &:last-child:after {
+                content: none;
+            }
+        }
 
+    }
+}
 .label-cap {
     font-size: 16px;
     display: block;
