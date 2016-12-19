@@ -8,6 +8,15 @@
     src: url(../../font/Montserrat-Regular.otf);
 }
 
+/* 
+  Allow angular.js to be loaded in body, hiding cloaked elements until 
+  templates compile.  The !important is important given that there may be 
+  other selectors that are more specific or come later and might alter display.  
+ */
+[ng\:cloak], [ng-cloak], .ng-cloak {
+  display: none !important;
+}
+
 body {
     background-color: rgba(0, 152, 204, 1);
     font-size: 16px;
@@ -180,3 +189,4 @@ body {
 @import "waitingRoom.less";
 @import "tables.less";
 @import "finalEstimate.less";
+@import "dialog.less";

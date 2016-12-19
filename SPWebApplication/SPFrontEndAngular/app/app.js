@@ -54,10 +54,7 @@
             //Reconnect on timeout
             connection.disconnected(function () {
                 console.log("Connection timed out...");
-                setTimeout(function () {
-                    connection.start();
-                    self.proxy.invoke('reconnectEvent', sessionStorage.roomId, sessionStorage.userName, sessionStorage.isScrumMaster);
-                }, 5000); // Restart connection after 5 seconds.
+                PubSub.publish('disconnected');
             });
 
             var createProxyListener = function (proxyObj, proxyID) {
@@ -146,6 +143,23 @@
     pokerShoreApp.controller('mainController', ['$scope', 'signalRSvc', '$timeout', '$location', '$route', function ($scope, signalRSvc, $timeout, $location, $route) {
         signalRSvc.initialize();
         $scope.date = new Date();
+        $scope.dialog = {};
+        $scope.dialog.show = false;
+        $scope.dialog.showDialog = function () {
+            $scope.dialog.show = true;
+            $timeout(function () {
+                $scope.$apply();
+            }, 0);
+        };
+
+        $scope.dialog.reconnect = function () {
+            $scope.dialog.show = false;
+            signalRSvc.initialize();
+        };
+        $scope.dialog.toHome = function () {
+            $scope.dialog.show = false;
+            $scope.toHome();
+        };
 
         $scope.toHome = function () {
             sessionStorage.clear();
@@ -168,5 +182,7 @@
                 $scope.$apply();
             }, 0);
         });
+
+        PubSub.subscribe('disconnected', $scope.dialog.showDialog);
     }]);
 })();
