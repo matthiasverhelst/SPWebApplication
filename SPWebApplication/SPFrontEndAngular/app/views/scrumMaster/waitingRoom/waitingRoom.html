@@ -20,7 +20,7 @@
                             <div class="hidden-xs col-xs-12">
                                 <div class="row">
                                     <div class="col-sm-6">
-                                        <input class="PBI_name" ng-model="pbi.Title" ng-blur="changePbi($index)" ng-focus="startChangePbi($index)" maxlength="50" />
+                                        <input class="PBI_name" ng-model="pbi.Title" ng-blur="changePbi($index)" ng-focus="startChangePbi($index)" maxlength="27" minlength="1" />
                                     </div>
                                     <div class="col-sm-2">
                                         <input class="PBI_name" ng-model="pbi.FinalEstimation" ng-blur="updateScore($index)" maxlength="6" />
@@ -36,7 +36,7 @@
                             <div class="visible-xs col-xs-12 small-pbi-buttons">
                                 <div class="row">
                                     <div class="col-xs-8">
-                                        <input class="PBI_name" ng-model="pbi.Title" ng-blur="changePbi($index)" ng-focus="startChangePbi($index)" maxlength="27" />
+                                        <input class="PBI_name" ng-model="pbi.Title" ng-blur="changePbi($index)" ng-focus="startChangePbi($index)" maxlength="27" minlength="1" />
                                     </div>
                                     <div class="col-xs-4">
                                         <input class="PBI_name" ng-model="pbi.FinalEstimation" ng-blur="updateScore($index)" maxlength="6"/>
