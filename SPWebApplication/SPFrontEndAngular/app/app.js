@@ -158,7 +158,12 @@
         };
         $scope.dialog.toHome = function () {
             $scope.dialog.show = false;
-            $scope.toHome();
+            sessionStorage.clear();
+            for (var i = 0; i < signalRSvc.subscribeEvents.length; i++) {
+                PubSub.unsubscribe(signalRSvc.subscribeEvents[i]);
+            }
+            $location.path('/home');
+            signalRSvc.initialize();
         };
 
         $scope.toHome = function () {
