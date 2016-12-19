@@ -27,6 +27,24 @@
         </div>
     </div>
 
+    <div class="cap-dialog" ng-show="dialog.show" ng-cloak>
+        <div class="cap-dialog-content container">
+            <div class="row cap-dialog-content-text">
+                <div class="col-xs-12">
+                    You have been disconnected, what would you like to do?
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-xs-6">
+                    <button type="button" class="btn btn-cap btn-cap-primary btn-cap-block" ng-click="dialog.reconnect()">Reconnect</button>
+                </div>
+                <div class="col-xs-6">
+                    <button type="button" class="btn btn-cap btn-cap-primary btn-cap-block" ng-click="dialog.toHome()">Go To Home</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
     <script src="lib/angular.min.js"></script>
     <script src="lib/angular-route.min.js"></script>
     <script src="lib/angular-messages.min.js"></script>

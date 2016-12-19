@@ -6728,6 +6728,16 @@ button.close {
   font-family: Montserrat;
   src: url(../../font/Montserrat-Regular.otf);
 }
+/* 
+  Allow angular.js to be loaded in body, hiding cloaked elements until 
+  templates compile.  The !important is important given that there may be 
+  other selectors that are more specific or come later and might alter display.  
+ */
+[ng\:cloak],
+[ng-cloak],
+.ng-cloak {
+  display: none !important;
+}
 body {
   background-color: #0098cc;
   font-size: 16px;
@@ -7125,4 +7135,39 @@ tr.PBI_line:last-child {
 }
 .final-estimate-pbi-item:last-child {
   border-bottom: 0;
+}
+.cap-dialog {
+  position: fixed;
+  /* Stay in place */
+  z-index: 1;
+  /* Sit on top */
+  left: 0;
+  top: 0;
+  width: 100%;
+  /* Full width */
+  height: 100%;
+  /* Full height */
+  overflow: auto;
+  /* Enable scroll if needed */
+  background-color: #000000;
+  /* Fallback color */
+  background-color: rgba(0, 0, 0, 0.5);
+  /* Black w/ opacity */
+}
+.cap-dialog-content {
+  background-color: #fefefe;
+  margin: 25% auto;
+  /* 15% from the top and centered */
+  padding: 20px;
+  border: 1px solid #888;
+  width: 60%;
+  /* Could be more or less, depending on screen size */
+}
+@media screen and (max-width: 480px) {
+  .cap-dialog-content {
+    width: 95%;
+  }
+}
+.cap-dialog-content-text {
+  margin-bottom: 20px;
 }
