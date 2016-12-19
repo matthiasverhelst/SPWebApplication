@@ -15,6 +15,7 @@
     margin: 25% auto; /* 15% from the top and centered */
     padding: 20px;
     border: 1px solid #888;
+    position:relative;
     width: 60%; /* Could be more or less, depending on screen size */
     @media screen and (max-width: 480px) {
         width: 95%;
@@ -23,4 +24,42 @@
 
 .cap-dialog-content-text {
     margin-bottom: 20px;
+    .cap-dialog-header{
+        text-align:left;
+        font-size:36px;
+        margin-top:10px;
+        margin-bottom:15px;
+    }
+    .cap-dialog-description{
+        color:#444444;
+    }
 }
+
+.cap-dialog-content-close{
+    position:absolute;
+    top: 32px;
+    right: 22px;
+    z-index:10;
+    cursor:pointer;
+    
+    .close-icon{
+        font-size:30px;
+        line-height: 24px;
+        color:#777777;
+        vertical-align: middle;
+        &:hover{
+            color:#333333;
+        }
+    }
+    .close-text{
+        padding:3px;
+        font-size:20px;
+        line-height: 24px;
+        color:#999999;
+        vertical-align: middle;
+        &:hover{
+            color:#333333;
+        }
+    }
+}
+

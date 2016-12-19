@@ -118,6 +118,7 @@
             self.roomId = id;
         };
 
+
         var setSessionStorage = function (roomId, name, isScrumMaster) {
             sessionStorage.roomId = roomId;
             sessionStorage.userName = name;
@@ -159,6 +160,10 @@
         $scope.dialog.toHome = function () {
             $scope.dialog.show = false;
             $scope.toHome();
+        };
+
+        $scope.dialog.closeModal = function () {
+            $scope.dialog.show = false;
         };
 
         $scope.toHome = function () {
