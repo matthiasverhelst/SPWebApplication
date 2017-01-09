@@ -15,7 +15,7 @@ namespace ScrumPokerService
 
             // Wait a maximum of 30 seconds after a transport connection is lost
             // before raising the Disconnected event to terminate the SignalR connection.
-            GlobalHost.Configuration.DisconnectTimeout = TimeSpan.FromSeconds(60 * 60);
+            GlobalHost.Configuration.DisconnectTimeout = TimeSpan.FromSeconds(30 * 60);
 
             // For transports other than long polling, send a keepalive packet every
             // 10 seconds. 

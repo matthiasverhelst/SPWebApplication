@@ -146,24 +146,60 @@
         $scope.date = new Date();
         $scope.dialog = {};
         $scope.dialog.show = false;
-        $scope.dialog.showDialog = function () {
-            $scope.dialog.show = true;
-            $timeout(function () {
-                $scope.$apply();
-            }, 0);
-        };
+        $scope.dialog.disconnected = {};
+        $scope.dialog.disconnected.title = "Time out";
+        $scope.dialog.disconnected.text = "Your connection has been timed out, what would you like to do?";
+        $scope.dialog.about = {};
+        $scope.dialog.about.title = "About";
+        $scope.dialog.about.text = "The Pokershore app can be used to facilitate the estimation of a PBI during the Sprint planning, especially with an offshore team. When opening the app, the user needs to specify whether (s)he is the Scrum Master or a Scrum Member. If Scrum Master, a room with a unique room ID can be created. If Scrum Member, a nickname must be given and (s)he needs to enter the room ID to participate. The Scrum Master can track the members entering the room. Unless a PBI is pushed, the Scrum Members see a waiting screen. Next the Master pushes a PBI to start voting. The Fibonacci sequence is shown. The Scrum Master has 2 extra buttons on the voting screen: skip and abort. After voting both Scrum Member and Master go to the overview screen. When the Scrum Master chooses to show votes, all votes are shown to the team. Then the Scrum Member chooses to revote (which initiates the voting process again) or (s)he can choose a final estimate. This final estimate is then shown to all participants. The entire process can start again when the Scrum Master pushes the next PBI.";
+        $scope.dialog.help = {};
+        $scope.dialog.help.title = "Help";
+        $scope.dialog.help.text = "- How can I reach the PokerShore App? The app can be used on any device with internet connection, such as PC, tablet or smartphone. Just go to http://www.tiny.cc/pokershore. No login is required.- Can the tool be used by people not working at Capgemini?The application is accesible for everybody with internet connection. No log-in or other authentication is needed.- On which devices can the tool be used?The app can be used on any device with internet connection, such as PC, tablet or smartphone. The application can be used via any browser. We advise you to use Google Chrome as browser.- What is the cost to use the PokerShore tool?PokerShore is free to use.- How much people can join the same room?The PokerShore app is developed to support up to 20 team members in the same room.- Can I still join a room in which voting has already started?Yes, you can access the room by entering the room ID. You can join the voting as soon as the Scrum Master pushes the next PBI.- How secure is the data entered into the tool?No data is saved into a database. So all data is deleted when the scrum master leaves the room. If you have any concerns about the confidentiality of your data, you can use ID's or short titles for your PBI's. In that way, other people will never see the context of the data if they would capture it in any way.- What should I do if I have any problem or suggestion?All extra feedback is welcome. Please send an e-mail to codingnights.bnl@capgemini.com We will contact you as soon as possible."
+        $scope.dialog.buttons = {};
 
         $scope.dialog.reconnect = function () {
             $scope.dialog.show = false;
+            $scope.dialog.buttons.show = false;
             signalRSvc.initialize();
         };
+
         $scope.dialog.toHome = function () {
             $scope.dialog.show = false;
-            $scope.toHome();
+            $scope.dialog.buttons.show = false;
+            sessionStorage.clear();
+            for (var i = 0; i < signalRSvc.subscribeEvents.length; i++) {
+                PubSub.unsubscribe(signalRSvc.subscribeEvents[i]);
+            }
+            PubSub.unsubscribe('disconnected');
+            $location.path('/home');
+            signalRSvc.initialize();
         };
 
         $scope.dialog.closeModal = function () {
             $scope.dialog.show = false;
+            $scope.dialog.buttons.show = false;
+        };
+
+        $scope.dialog.showAbout = function () {
+            $scope.dialog.title = $scope.dialog.about.title;
+            $scope.dialog.text = $scope.dialog.about.text;
+            $scope.dialog.show = true;
+        };
+
+        $scope.dialog.showHelp = function () {
+            $scope.dialog.title = $scope.dialog.help.title;
+            $scope.dialog.text = $scope.dialog.help.text;
+            $scope.dialog.show = true;
+        };
+
+        $scope.dialog.showDisconnected = function () {
+            $scope.dialog.title = $scope.dialog.disconnected.title;
+            $scope.dialog.text = $scope.dialog.disconnected.text;
+            $scope.dialog.show = true;
+            $scope.dialog.buttons.show = true;
+            $timeout(function () {
+                $scope.$apply();
+            }, 0);
         };
 
         $scope.toHome = function () {
@@ -188,6 +224,6 @@
             }, 0);
         });
 
-        PubSub.subscribe('disconnected', $scope.dialog.showDialog);
+        PubSub.subscribe('disconnected', $scope.dialog.showDisconnected);
     }]);
 })();
