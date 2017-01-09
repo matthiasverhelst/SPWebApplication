@@ -141,7 +141,7 @@
         $routeProvider.otherwise({redirectTo: '/home'});
     }]);
 
-    pokerShoreApp.controller('mainController', ['$scope', 'signalRSvc', '$timeout', '$location', '$route', function ($scope, signalRSvc, $timeout, $location, $route) {
+    pokerShoreApp.controller('mainController', ['$scope', 'signalRSvc', '$timeout', '$location', '$route','$sce', function ($scope, signalRSvc, $timeout, $location, $route, $sce) {
         signalRSvc.initialize();
         $scope.date = new Date();
         $scope.dialog = {};
@@ -154,7 +154,7 @@
         $scope.dialog.about.text = "The Pokershore app can be used to facilitate the estimation of a PBI during the Sprint planning, especially with an offshore team. When opening the app, the user needs to specify whether (s)he is the Scrum Master or a Scrum Member. If Scrum Master, a room with a unique room ID can be created. If Scrum Member, a nickname must be given and (s)he needs to enter the room ID to participate. The Scrum Master can track the members entering the room. Unless a PBI is pushed, the Scrum Members see a waiting screen. Next the Master pushes a PBI to start voting. The Fibonacci sequence is shown. The Scrum Master has 2 extra buttons on the voting screen: skip and abort. After voting both Scrum Member and Master go to the overview screen. When the Scrum Master chooses to show votes, all votes are shown to the team. Then the Scrum Member chooses to revote (which initiates the voting process again) or (s)he can choose a final estimate. This final estimate is then shown to all participants. The entire process can start again when the Scrum Master pushes the next PBI.";
         $scope.dialog.help = {};
         $scope.dialog.help.title = "Help";
-        $scope.dialog.help.text = "- How can I reach the PokerShore App? The app can be used on any device with internet connection, such as PC, tablet or smartphone. Just go to http://www.tiny.cc/pokershore. No login is required.- Can the tool be used by people not working at Capgemini?The application is accesible for everybody with internet connection. No log-in or other authentication is needed.- On which devices can the tool be used?The app can be used on any device with internet connection, such as PC, tablet or smartphone. The application can be used via any browser. We advise you to use Google Chrome as browser.- What is the cost to use the PokerShore tool?PokerShore is free to use.- How much people can join the same room?The PokerShore app is developed to support up to 20 team members in the same room.- Can I still join a room in which voting has already started?Yes, you can access the room by entering the room ID. You can join the voting as soon as the Scrum Master pushes the next PBI.- How secure is the data entered into the tool?No data is saved into a database. So all data is deleted when the scrum master leaves the room. If you have any concerns about the confidentiality of your data, you can use ID's or short titles for your PBI's. In that way, other people will never see the context of the data if they would capture it in any way.- What should I do if I have any problem or suggestion?All extra feedback is welcome. Please send an e-mail to codingnights.bnl@capgemini.com We will contact you as soon as possible."
+        $scope.dialog.help.text = "<b>- How can I reach the PokerShore App?<br /></b> The app can be used on any device with internet connection, such as PC, tablet or smartphone. Just go to http://www.tiny.cc/pokershore. No login is required.<br /><br /><b>- Can the tool be used by people not working at Capgemini?</b><br />The application is accesible for everybody with internet connection. No log-in or other authentication is needed.<br /><br /> <b>- On which devices can the tool be used?</b><br />The app can be used on any device with internet connection, such as PC, tablet or smartphone. The application can be used via any browser. We advise you to use Google Chrome as browser.<br /><br /><b>- What is the cost to use the PokerShore tool?</b><br />PokerShore is free to use.<br /><br /><b>- How much people can join the same room?</b><br />The PokerShore app is developed to support up to 20 team members in the same room.<br /><br /><b>- Can I still join a room in which voting has already started?</b><br />Yes, you can access the room by entering the room ID. You can join the voting as soon as the Scrum Master pushes the next PBI.<br /><br /><b>- How secure is the data entered into the tool?</b><br />No data is saved into a database. So all data is deleted when the scrum master leaves the room. If you have any concerns about the confidentiality of your data, you can use ID's or short titles for your PBI's. In that way, other people will never see the context of the data if they would capture it in any way.<br /><br /><b>- What should I do if I have any problem or suggestion?</b><br />All extra feedback is welcome. Please send an e-mail to codingnights.bnl@capgemini.com We will contact you as soon as possible."
         $scope.dialog.buttons = {};
 
         $scope.dialog.reconnect = function () {
@@ -182,19 +182,19 @@
 
         $scope.dialog.showAbout = function () {
             $scope.dialog.title = $scope.dialog.about.title;
-            $scope.dialog.text = $scope.dialog.about.text;
+            $scope.dialog.text = $sce.trustAsHtml($scope.dialog.about.text);
             $scope.dialog.show = true;
         };
 
         $scope.dialog.showHelp = function () {
             $scope.dialog.title = $scope.dialog.help.title;
-            $scope.dialog.text = $scope.dialog.help.text;
+            $scope.dialog.text = $sce.trustAsHtml($scope.dialog.help.text);
             $scope.dialog.show = true;
         };
 
         $scope.dialog.showDisconnected = function () {
             $scope.dialog.title = $scope.dialog.disconnected.title;
-            $scope.dialog.text = $scope.dialog.disconnected.text;
+            $scope.dialog.text = $sce.trustAsHtml($scope.dialog.disconnected.text);
             $scope.dialog.show = true;
             $scope.dialog.buttons.show = true;
             $timeout(function () {

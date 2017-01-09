@@ -46,12 +46,12 @@
     <div class="cap-dialog" ng-show="dialog.show" ng-cloak>
         <div class="cap-dialog-content container">
             <div class="cap-dialog-content-close" ng-click="dialog.closeModal()">
-                    <span class="close-text">close</span>
-                    <span class="close-icon">&#10005;</span>
+                <span class="close-text">close</span>
+                <span class="close-icon">&#10005;</span>
             </div>
-            <div class="row cap-dialog-content-text">
+            <div class="cap-dialog-content-text">
                 <h2 class="cap-dialog-header item-title">{{dialog.title}}</h2>
-                <span class="cap-dialog-description">{{dialog.text}}</span>
+                <span class="cap-dialog-description" ng-bind-html="dialog.text"></span>
             </div>
             <div class="row" ng-show="dialog.buttons.show">
                 <div class="col-xs-6">

@@ -7186,6 +7186,7 @@ tr.PBI_line:last-child {
   background-color: #fefefe;
   margin: 25% auto;
   /* 15% from the top and centered */
+  margin-top: 100px;
   padding: 20px;
   border: 1px solid #888;
   position: relative;
