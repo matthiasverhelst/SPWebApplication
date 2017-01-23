@@ -261,6 +261,9 @@
     <Content Include="README.md" />
     <Content Include="packages.config" />
     <Content Include="app\style\src\waitingRoom.less" />
+    <None Include="Properties\PublishProfiles\pokershore.pubxml" />
+    <None Include="Properties\PublishProfiles\scrumpokerlive - FTP.pubxml" />
+    <None Include="Properties\PublishProfiles\scrumpokerlive - Web Deploy.pubxml" />
     <None Include="Scripts\jquery-2.2.0-vsdoc.js" />
     <Content Include="Scripts\jquery-2.2.0.min.map" />
     <None Include="Web.Debug.config">

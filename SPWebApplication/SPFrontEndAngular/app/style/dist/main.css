@@ -6882,6 +6882,7 @@ body {
   list-style: none;
 }
 .footer-menu ul .footer-menu-item {
+  cursor: pointer;
   display: inline-block;
   position: relative;
 }
