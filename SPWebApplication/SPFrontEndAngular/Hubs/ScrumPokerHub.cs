@@ -194,9 +194,16 @@ namespace ScrumPokerService.Hubs
             ICollection<User> participants = BusinessLogic.GetParticipants(roomId);
 
             if (participants != null && participants.Count == 0)
-                BusinessLogic.RemoveRoom(roomId);
+            {
+                // For now we're not removing any rooms, the free 
+                // version of Azure cleans up resources after 20 minutes
+                // anyway.
+                //BusinessLogic.RemoveRoom(roomId);
+            }
             else
+            {
                 Clients.Group(roomId.ToString()).getParticipants(participants);
+            }
 
             return base.OnDisconnected(stopCalled);
         }
