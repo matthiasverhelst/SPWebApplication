@@ -13,7 +13,7 @@
         $scope.roomID = signalRSvc.getRoomId();
         $scope.pbiName = $routeParams.pbiName;
         $scope.buttons = [
-            { value: '0', text: '0' }, { value: '0.5', text: '1/2' }, { value: '1', text: '1' }, 
+            { value: '0', text: '0' }, { value: '0.5', text: '1/2' }, { value: '1', text: '1' },
             { value: '2', text: '2' }, { value: '3', text: '3' }, { value: '5', text: '5' },
             { value: '8', text: '8' }, { value: '13', text: '13' }, { value: '20', text: '20' },
             { value: '40', text: '40' }, { value: '100', text: '100' }, { value: '?', text: '?' },
@@ -35,6 +35,10 @@
             }
         });
 
+        PubSub.subscribe('showEstimates', function (msg) {
+            $scope.goToResultOverview(true);
+        });
+
         PubSub.subscribe('votingAborted', function (msg, succes) {
             var pathString = "/waitingRoomScrumMaster/" + signalRSvc.getRoomId();
             $location.path(pathString);
@@ -43,8 +47,8 @@
             }, 0);
         });
 
-        $scope.goToResultOverview = function () {
-            var pathString = "/resultOverviewScrumMaster/" + $scope.pbiName;
+        $scope.goToResultOverview = function (showEstimates) {
+            var pathString = "/resultOverviewScrumMaster/" + $scope.pbiName+ "/" + showEstimates;
             $location.path(pathString);
             $timeout(function () {
                 $scope.$apply();

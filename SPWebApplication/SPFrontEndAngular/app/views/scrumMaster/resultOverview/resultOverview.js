@@ -4,7 +4,7 @@
     angular.module('pokerShoreApp.resultOverviewScrumMaster', ['ngRoute'])
 
   .config(['$routeProvider', function($routeProvider) {
-      $routeProvider.when('/resultOverviewScrumMaster/:pbiName', {
+      $routeProvider.when('/resultOverviewScrumMaster/:pbiName/:showEstimates', {
         templateUrl: 'views/scrumMaster/resultOverview/resultOverview.html',
         controller: 'resultOverviewScrumMasterCtrl'
     });
@@ -14,7 +14,7 @@
       $scope.roomID = signalRSvc.getRoomId();
       $scope.pbiName = $routeParams.pbiName;
       $scope.participantsList = [];
-      $scope.showEstimates = false;
+      $scope.showEstimates = ($routeParams.showEstimates === 'true');
       $scope.date = new Date();
 
       $scope.hasVoted = function (score) {

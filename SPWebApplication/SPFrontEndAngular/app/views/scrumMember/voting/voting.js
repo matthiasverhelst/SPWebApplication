@@ -49,6 +49,7 @@
                 "pbiName": $scope.pbiName,
                 "showEstimates": showEstimates
             }
+            
             var pathString = "/resultOverviewScrumMember/" + $scope.pbiName + "/" + showEstimates;
             $location.path(pathString);
             $timeout(function () {
