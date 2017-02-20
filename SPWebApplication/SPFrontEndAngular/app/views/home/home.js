@@ -17,6 +17,7 @@
       $scope.createRoomFormSubmitted = false;
       $scope.joinRoomFormSubmitted = false;
       $scope.date = new Date();
+      $scope.joiningRoom = false;
 
       $scope.createRoom = function () {
           $scope.createRoomFormSubmitted = true;
@@ -26,6 +27,7 @@
       };
 
       $scope.joinRoom = function(){
+          $scope.joiningRoom = true;
           $scope.errors={};
           $scope.joinRoomFormSubmitted = true;
           if($scope.joinRoomObj.roomId && $scope.joinRoomObj.scrumMemberName && $scope.joinRoomObj.roomId !== "" && $scope.joinRoomObj.scrumMemberName !== ""){
@@ -44,6 +46,7 @@
               var roomPath = '/waitingRoomScrumMember/' + $scope.joinRoomObj.roomId;
               $location.path(roomPath);
           }else{
+              $scope.joiningRoom = false;
               $scope.errors.invalidRoomId = true;
           }
           $timeout(function(){
