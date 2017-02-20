@@ -39,7 +39,8 @@
             SET_FINAL_ESTIMATE: 'setFinalEstimate',
             GET_FINAL_ESTIMATE: 'getFinalEstimate',
             ABORT_VOTING: 'abortVoting',
-            REMOVE_USER: 'removeUser'
+            REMOVE_USER: 'removeUser',
+            REMOVE_USER_BY_CONNECTIONID: 'removeUserByConnectionId'
         };
 
         var onProxyVarsArray = ['roomCreated', 'roomJoined', 'getParticipants', 'getPBIS', 'PBIPushed', 'PBIUpdated', 'addedEstimation', 'getUserEstimates', 'showEstimates', 'finalEstimateSet', 'votingAborted'];

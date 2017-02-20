@@ -32,6 +32,11 @@
           }
       };
 
+      $scope.removeUser = function (user) {
+            console.log(user);
+            signalRSvc.sendRequestWithRoomID(signalRSvc.CONST.REMOVE_USER_BY_CONNECTIONID, user.ConnectionId);
+      };
+
       $scope.removePbi = function (index) {
           signalRSvc.sendRequestWithRoomID(signalRSvc.CONST.REMOVE_PBI, $scope.pbiArray[index].Title);
           $scope.pbiArray.splice(index, 1);

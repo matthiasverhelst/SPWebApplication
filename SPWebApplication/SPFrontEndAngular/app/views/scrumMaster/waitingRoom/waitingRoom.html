@@ -70,6 +70,7 @@
                 <div>
                     <div ng-repeat="participant in participantsList" class="text-center">
                         <span>{{participant.Name}}</span>
+                        <span class="glyphicon glyphicon-remove-circle" ng-click="removeUser(participant)"></span>
                     </div>
                 </div>
             </div>
